@@ -29,7 +29,7 @@ namespace ETOD {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << "repeats)";
+			ss << "按下按键: " << m_KeyCode << " (" << m_RepeatCount << "重复)";
 			return ss.str();
 		}
 
@@ -47,7 +47,7 @@ namespace ETOD {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyReleasedEvent: " << m_Keycode;
+			ss << "释放按键: " << m_KeyCode;
 			return ss.str();
 		}
 

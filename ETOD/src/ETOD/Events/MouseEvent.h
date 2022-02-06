@@ -17,7 +17,7 @@ namespace ETOD {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseMovedEvent: " << m_MouseX << ", " << m_MouseY;
+			ss << "鼠标移动位置: " << m_MouseX << ", " << m_MouseY;
 			return ss.str();
 		}
 
@@ -39,7 +39,7 @@ namespace ETOD {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseScrolledEvent: " << GetXOffset() << ", " << GetYOffset();
+			ss << "鼠标滚轮转动方向: " << GetXOffset() << ", " << GetYOffset();
 			return ss.str();
 		}
 
@@ -71,7 +71,7 @@ namespace ETOD {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseButtonPressedEvent: " << m_Button;
+			ss << "鼠标按键按下: " << m_Button;
 			return ss.str();
 		}
 
@@ -87,7 +87,7 @@ namespace ETOD {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseButtonReleasedEvent: " << m_Button;
+			ss << "鼠标按键释放: " << m_Button;
 			return ss.str();
 		}
 
