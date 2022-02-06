@@ -1,0 +1,6 @@
+[submodule "ETOD/vendor/spdlog"]
+	path = ETOD/vendor/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "ETOD/vendor/GLFW"]
+	path = ETOD/vendor/GLFW
+	url = https://github.com/TheCherno/glfw
