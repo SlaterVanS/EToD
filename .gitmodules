@@ -4,3 +4,6 @@
 [submodule "ETOD/vendor/GLFW"]
 	path = ETOD/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "ETOD/vendor/imgui"]
+	path = ETOD/vendor/imgui
+	url = https://github.com/TheCherno/imgui

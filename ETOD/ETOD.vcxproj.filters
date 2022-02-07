@@ -7,8 +7,14 @@
     <Filter Include="ETOD\Events">
       <UniqueIdentifier>{355837B0-A10D-B0A5-2A02-AA7C96B6A6A9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ETOD\ImGui">
+      <UniqueIdentifier>{5B5B2D53-4713-6FA0-B01A-48FC9CF10991}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="src\ETOD\Events\MouseEvent.h">
       <Filter>ETOD\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h">
+      <Filter>ETOD\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Layer.h">
       <Filter>ETOD</Filter>
     </ClInclude>
@@ -49,6 +58,9 @@
     <ClInclude Include="src\ETOD\Window.h">
       <Filter>ETOD</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -58,6 +70,9 @@
     <ClCompile Include="src\ETOD\Application.cpp">
       <Filter>ETOD</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\ImGui\ImGuiLayer.cpp">
+      <Filter>ETOD\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\ETOD\Layer.cpp">
       <Filter>ETOD</Filter>
     </ClCompile>
@@ -66,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="src\ETOD\Log.cpp">
       <Filter>ETOD</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
