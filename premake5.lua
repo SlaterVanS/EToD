@@ -64,14 +64,17 @@ project "ETOD"
 
 	filter "configurations:Debug"
 		defines "ETOD_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ETOD_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ETOD_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter { "system:windows", "configurations:Release" }

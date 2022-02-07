@@ -37,6 +37,12 @@
     <ClInclude Include="src\ETOD\Events\MouseEvent.h">
       <Filter>ETOD\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Layer.h">
+      <Filter>ETOD</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\LayerStack.h">
+      <Filter>ETOD</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Log.h">
       <Filter>ETOD</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Application.cpp">
+      <Filter>ETOD</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Layer.cpp">
+      <Filter>ETOD</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\LayerStack.cpp">
       <Filter>ETOD</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Log.cpp">
