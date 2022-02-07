@@ -5,6 +5,8 @@
 #include "ETOD/Events/MouseEvent.h"
 #include "ETOD/Events/KeyEvent.h"
 
+#include <glad/glad.h>
+
 namespace ETOD {
 
 	static bool s_GLFWInitialized = false;
@@ -48,6 +50,8 @@ namespace ETOD {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		ETOD_CORE_ASSERT(status, " Glad ≥ı ºªØ ß∞‹! "); //Failed to initailize Glad!
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

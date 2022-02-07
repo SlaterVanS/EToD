@@ -13,8 +13,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "ETOD/vendor/GLFW/include"
+IncludeDir["Glad"] = "ETOD/vendor/Glad/include"
 
 include "ETOD/vendor/GLFW"
+include "ETOD/vendor/Glad"
 
 project "ETOD"
 	location "ETOD"
@@ -37,12 +39,14 @@ project "ETOD"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -55,6 +59,7 @@ project "ETOD"
 		{
 			"ETOD_PLATFORM_WINDOWS",
 			"ETOD_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

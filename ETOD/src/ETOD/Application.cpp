@@ -4,7 +4,7 @@
 
 #include "Log.h"
 
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 
 namespace ETOD {
@@ -15,6 +15,9 @@ namespace ETOD {
 	{
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVEBT_FN(OnEvent));
+
+		unsigned int id;
+		glGenVertexArrays(1, &id);
 	}
 
 	Application::~Application()
