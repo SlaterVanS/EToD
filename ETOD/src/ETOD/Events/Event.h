@@ -15,7 +15,7 @@ namespace ETOD {
 		None = 0,
 		ÒýÇæ´°¿Ú¹Ø±Õ, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 		AppTick, AppUpdate, AppRender,
-		KeyPressed, KeyReleased,
+		KeyPressed, KeyReleased,KeyTyped,
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 

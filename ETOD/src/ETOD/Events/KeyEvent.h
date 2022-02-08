@@ -53,4 +53,20 @@ namespace ETOD {
 
 		EVENT_CLASS_TYPE(KeyReleased)
 	};
+
+	class ETOD_API KeyTypedEvent : public KeyEvent
+	{
+	public:
+		KeyTypedEvent(int keycode)
+			: KeyEvent(keycode) {}
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "¹¦ÄÜ°´¼ü: " << m_KeyCode;   //KeyTypedEvent
+			return ss.str();
+		}
+
+		EVENT_CLASS_TYPE(KeyTyped)
+	};
 }
