@@ -67,6 +67,8 @@
     <ClInclude Include="src\etodpch.h" />
     <ClInclude Include="src\ETOD\Input.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\ETOD\KeyCodes.h" />
+    <ClInclude Include="src\ETOD\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Application.cpp">

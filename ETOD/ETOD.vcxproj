@@ -163,9 +163,11 @@
     <ClInclude Include="src\ETOD\Events\MouseEvent.h" />
     <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\ETOD\Input.h" />
+    <ClInclude Include="src\ETOD\KeyCodes.h" />
     <ClInclude Include="src\ETOD\Layer.h" />
     <ClInclude Include="src\ETOD\LayerStack.h" />
     <ClInclude Include="src\ETOD\Log.h" />
+    <ClInclude Include="src\ETOD\MouseButtonCodes.h" />
     <ClInclude Include="src\ETOD\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
