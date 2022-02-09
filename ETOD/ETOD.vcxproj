@@ -162,11 +162,13 @@
     <ClInclude Include="src\ETOD\Events\KeyEvent.h" />
     <ClInclude Include="src\ETOD\Events\MouseEvent.h" />
     <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\ETOD\Input.h" />
     <ClInclude Include="src\ETOD\Layer.h" />
     <ClInclude Include="src\ETOD\LayerStack.h" />
     <ClInclude Include="src\ETOD\Log.h" />
     <ClInclude Include="src\ETOD\Window.h" />
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\etodpch.h" />
   </ItemGroup>
@@ -177,6 +179,7 @@
     <ClCompile Include="src\ETOD\LayerStack.cpp" />
     <ClCompile Include="src\ETOD\Log.cpp" />
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\etodpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
