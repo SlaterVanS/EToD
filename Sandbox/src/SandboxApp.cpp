@@ -1,5 +1,7 @@
 #include <ETOD.h>
 
+#include "imgui/imgui.h"
+
 class ExampleLayer : public ETOD::Layer
 {
 public:
@@ -14,6 +16,13 @@ public:
 
 		if (ETOD::Input::IsKeyPressed(ETOD_KEY_TAB))
 			ETOD_TRACE("Tab 键被按下！(循环)");  // Tab key is pressed!(poll)
+	}
+
+	virtual void OnImGuiRender() override
+	{
+		//ImGui::Begin("Test");
+		//ImGui::Text("ETOD Engine Powered by SlaterVanS Studio!");
+		//ImGui::End();
 	}
 
 	void OnEvent(ETOD::Event& event) override
@@ -35,7 +44,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new ETOD::ImGuiLayer());
 	}
 
 	~Sandbox()

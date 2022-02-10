@@ -8,7 +8,6 @@
 
 #include "Input.h"
 
-
 namespace ETOD {
 
 #define BIND_EVEBT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -23,13 +22,12 @@ namespace ETOD {
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVEBT_FN(OnEvent));
 
-		unsigned int id;
-		glGenVertexArrays(1, &id);
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application()
 	{
-
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -69,8 +67,10 @@ namespace ETOD {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			auto[x, y] = Input::GetMousePosition();
-			//ETOD_CORE_TRACE("{0}, {1}", x, y);
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

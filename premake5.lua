@@ -15,6 +15,8 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "ETOD/vendor/GLFW/include"
 IncludeDir["Glad"] = "ETOD/vendor/Glad/include"
 IncludeDir["ImGui"] = "ETOD/vendor/imgui"
+IncludeDir["glm"] = "ETOD/vendor/glm"
+
 
 include "ETOD/vendor/GLFW"
 include "ETOD/vendor/Glad"
@@ -24,6 +26,7 @@ project "ETOD"
 	location "ETOD"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -34,7 +37,9 @@ project "ETOD"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -43,7 +48,8 @@ project "ETOD"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -68,31 +74,32 @@ project "ETOD"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "ETOD_DEBUG"
 		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ETOD_RELEASE"
+		runtime "Release"
 		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ETOD_DIST"
 		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
-
-	filter { "system:windows", "configurations:Release" }
-		buildoptions "/MT"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -106,7 +113,9 @@ project "Sandbox"
 	includedirs
 	{
 		"ETOD/vendor/spdlog/include",
-		"ETOD/src"
+		"ETOD/src",
+		"ETOD/vendor",
+		"%{IncludeDir.glm}"
 	}
 
 	links
