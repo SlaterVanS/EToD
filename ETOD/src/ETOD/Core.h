@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef ETOD_PLATFORM_WINDOWS
+#if ETOD_DYNAMIC_LINK
 	#ifdef ETOD_BUILD_DLL
 		#define ETOD_API _declspec(dllexport)
 	#else
 		#define ETOD_API _declspec(dllimport)
 	#endif
+#else
+	#define ETOD_API
+#endif
 #else
 	#error ETOD only support Windows!
 #endif

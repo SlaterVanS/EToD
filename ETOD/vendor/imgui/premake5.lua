@@ -1,11 +1,13 @@
 project "ImGui"
-	kind "StaticLib"
-	language "C++"
+    kind "StaticLib"
+    language "C++"
+    cppdialect "C++17"
+    staticruntime "on"
 
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+    targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
-	files
+    files
 	{
 		"imconfig.h",
 		"imgui.h",
@@ -21,19 +23,11 @@ project "ImGui"
 
 	filter "system:windows"
 		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "On"
 
-	filter "system:linux"
-		pic "On"
-		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "On"
-
-	filter "configurations:Debug"
+    filter "configurations:Debug"
 		runtime "Debug"
 		symbols "on"
 
-	filter "configurations:Release"
+    filter "configurations:Release"
 		runtime "Release"
 		optimize "on"

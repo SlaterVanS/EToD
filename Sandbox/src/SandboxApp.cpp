@@ -20,9 +20,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-		//ImGui::Begin("Test");
-		//ImGui::Text("ETOD Engine Powered by SlaterVanS Studio!");
-		//ImGui::End();
+		ImGui::Begin("Test");
+		ImGui::Text("ETOD Engine Powered by SlaterVanS Studio!");
+		ImGui::End();
 	}
 
 	void OnEvent(ETOD::Event& event) override
