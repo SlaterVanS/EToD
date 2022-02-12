@@ -8,7 +8,7 @@ namespace ETOD {
 	class ETOD_API MouseMovedEvent : public Event
 	{
 	public:
-		MouseMovedEvent(float x, float y)
+		/*MouseMovedEvent(float x, float y)
 			: m_MouseX(x), m_MouseY(y) {}
 
 		inline float GetX() const { return m_MouseX; }
@@ -24,7 +24,7 @@ namespace ETOD {
 		EVENT_CLASS_TYPE(MouseMoved)
 		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
 	private:
-		float m_MouseX, m_MouseY;
+		float m_MouseX, m_MouseY;*/                    //ww.cpp      146/147
 	};
 
 	class ETOD_API MouseScrolledEvent : public Event
