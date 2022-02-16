@@ -9,15 +9,9 @@
 
 #include "ImGui/ImGuiLayer.h"
 
-#include "ETOD/Renderer/Shader.h"
-#include "ETOD/Renderer/Buffer.h"
-#include "ETOD/Renderer/VertexArray.h"
-
-#include "ETOD/Renderer/OrthographicCamera.h"
-
 namespace ETOD {
 
-	class ETOD_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -39,14 +33,6 @@ namespace ETOD {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
-
-		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
