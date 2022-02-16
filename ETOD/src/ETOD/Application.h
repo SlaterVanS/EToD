@@ -13,6 +13,8 @@
 #include "ETOD/Renderer/Buffer.h"
 #include "ETOD/Renderer/VertexArray.h"
 
+#include "ETOD/Renderer/OrthographicCamera.h"
+
 namespace ETOD {
 
 	class ETOD_API Application
@@ -44,6 +46,7 @@ namespace ETOD {
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
 
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 	};
