@@ -1384,6 +1384,7 @@
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\ETOD\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Application.cpp">

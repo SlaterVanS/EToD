@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ETOD/Core.h"
+#include "ETOD/Core/Timestep.h"
 #include "ETOD/Events/Event.h"
 
 namespace ETOD {
@@ -13,7 +14,7 @@ namespace ETOD {
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

@@ -7,6 +7,8 @@
 
 #include "Input.h"
 
+#include <GLFW/glfw3.h>
+
 namespace ETOD {
 
 #define BIND_EVEBT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -60,8 +62,12 @@ namespace ETOD {
 	{
 		while (m_Running)
 		{
+			double time = (float)glfwGetTime(); //Platform::GetTime
+			Timestep timestep = time - m_LastFrameTime;
+			m_LastFrameTime = time;
+
 			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate();
+				layer->OnUpdate(timestep);
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)

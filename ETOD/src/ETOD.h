@@ -6,6 +6,8 @@
 #include "ETOD/Layer.h"
 #include "ETOD/Log.h"
 
+#include "ETOD/Core/Timestep.h"
+
 #include "ETOD/Input.h"
 #include "ETOD/KeyCodes.h"
 #include "ETOD/MouseButtonCodes.h"
