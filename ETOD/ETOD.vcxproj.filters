@@ -1385,6 +1385,7 @@
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\ETOD\Core\Timestep.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Application.cpp">
@@ -1445,5 +1446,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

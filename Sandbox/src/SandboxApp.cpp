@@ -1,8 +1,12 @@
 #include <ETOD.h>
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 #include "imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
+
+#include <glm/gtc/type_ptr.hpp>
 
 class ExampleLayer : public ETOD::Layer
 {
@@ -97,7 +101,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(new ETOD::Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(ETOD::Shader::Create(vertexSrc, fragmentSrc));
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -123,15 +127,15 @@ public:
 
 			in vec3 v_Position;
 
-			uniform vec4 u_Color;
+			uniform vec3 u_Color;
 
 			void main()
 			{
-				color = u_Color;
+				color = vec4(u_Color, 1.0);
 			}
 		)";
 
-		m_FlatColorShader.reset(new ETOD::Shader(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader.reset(ETOD::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 	}
 
 
@@ -166,8 +170,8 @@ public:
 
 		static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
-		glm::vec4 blueColor(0.2f, 0.3f, 0.8f, 1.0f);
+		std::dynamic_pointer_cast<ETOD::OpenGLShader>(m_FlatColorShader)->Bind();
+		std::dynamic_pointer_cast<ETOD::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color",m_SquareColor);
 
 		for (int y = 0; y < 20; y++)
 		{
@@ -175,14 +179,6 @@ public:
 			{
 				glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-				if (x % 2 == 0)
-				{
-					m_FlatColorShader->UploadUniformFloat4("u_Color", redColor);
-				}
-				else
-				{
-					m_FlatColorShader->UploadUniformFloat4("u_Color", blueColor);
-				}
 				ETOD::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 			}
 		}
@@ -194,7 +190,9 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-
+		ImGui::Begin(" Palette Demo | ETOD Engine ");  // Settings
+		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));  // Square Color
+		ImGui::End();
 	}
 
 	void OnEvent(ETOD::Event& event) override
@@ -213,6 +211,8 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
 class Sandbox : public ETOD::Application
