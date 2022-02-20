@@ -26,7 +26,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<ETOD::VertexBuffer> vertexBuffer;
+		ETOD::Ref<ETOD::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(ETOD::VertexBuffer::Create(vertices, sizeof(vertices)));
 		ETOD::BufferLayout layout = {
 			{ ETOD::ShaderDataType::Float3, "a_Position" },
@@ -39,7 +39,7 @@ public:
 		// Ë÷Òý»º³å
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<ETOD::IndexBuffer> indexBuffer;
+		ETOD::Ref<ETOD::IndexBuffer> indexBuffer;
 		indexBuffer.reset(ETOD::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -52,7 +52,7 @@ public:
 			-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<ETOD::VertexBuffer> squareVB;
+		ETOD::Ref<ETOD::VertexBuffer> squareVB;
 		squareVB.reset(ETOD::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
 		squareVB->SetLayout({
@@ -62,7 +62,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<ETOD::IndexBuffer> squareIB;
+		ETOD::Ref<ETOD::IndexBuffer> squareIB;
 		squareIB.reset(ETOD::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -199,11 +199,11 @@ public:
 	{
 	}
 private:
-	std::shared_ptr<ETOD::Shader> m_Shader;
-	std::shared_ptr<ETOD::VertexArray> m_VertexArray;
+	ETOD::Ref<ETOD::Shader> m_Shader;
+	ETOD::Ref<ETOD::VertexArray> m_VertexArray;
 
-	std::shared_ptr<ETOD::Shader> m_FlatColorShader;
-	std::shared_ptr<ETOD::VertexArray> m_SquareVA;
+	ETOD::Ref<ETOD::Shader> m_FlatColorShader;
+	ETOD::Ref<ETOD::VertexArray> m_SquareVA;
 
 	ETOD::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
