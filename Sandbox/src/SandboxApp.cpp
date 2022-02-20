@@ -190,7 +190,7 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-		ImGui::Begin(" Palette Demo | ETOD Engine ");  // Settings
+		ImGui::Begin(" Palette Demo | EToD Engine ");  // Settings
 		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));  // Square Color
 		ImGui::End();
 	}
