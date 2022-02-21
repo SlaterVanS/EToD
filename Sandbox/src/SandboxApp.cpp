@@ -45,18 +45,19 @@ public:
 
 		m_SquareVA.reset(ETOD::VertexArray::Create());
 
-		float squareVertices[3 * 4] = {
-			-0.5f, -0.5f, 0.0f,
-			 0.5f, -0.5f, 0.0f,
-			 0.5f,  0.5f, 0.0f,
-			-0.5f,  0.5f, 0.0f
+		float squareVertices[5 * 4] = {
+			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
 		ETOD::Ref<ETOD::VertexBuffer> squareVB;
 		squareVB.reset(ETOD::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 
 		squareVB->SetLayout({
-			{ ETOD::ShaderDataType::Float3, "a_Position" }
+			{ ETOD::ShaderDataType::Float3, "a_Position" },
+			{ ETOD::ShaderDataType::Float2, "a_TexCoord" }
 		});
 
 		m_SquareVA->AddVertexBuffer(squareVB);
@@ -136,6 +137,46 @@ public:
 		)";
 
 		m_FlatColorShader.reset(ETOD::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+
+		std::string textureShaderVertexSrc = R"(
+			#version 330 core
+
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+
+			out vec2 v_TexCoord;
+
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
+			}
+		)";
+
+		std::string textureShaderFragmentSrc = R"(
+			#version 330 core
+
+			layout(location = 0) out vec4 color;
+
+			in vec2 v_TexCoord;
+
+			uniform sampler2D u_Texture;
+
+			void main()
+			{
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+
+		m_TextureShader.reset(ETOD::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+
+		m_Texture = ETOD::Texture2D::Create("assets/textures/Checkerboard.png");
+
+		std::dynamic_pointer_cast<ETOD::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<ETOD::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 
@@ -168,7 +209,7 @@ public:
 
 		ETOD::Renderer::BeginScene(m_Camera);
 
-		static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
 		std::dynamic_pointer_cast<ETOD::OpenGLShader>(m_FlatColorShader)->Bind();
 		std::dynamic_pointer_cast<ETOD::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color",m_SquareColor);
@@ -183,7 +224,11 @@ public:
 			}
 		}
 
-		ETOD::Renderer::Submit(m_Shader, m_VertexArray);
+		m_Texture->Bind();
+		ETOD::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+		// Triangle
+		// ETOD::Renderer::Submit(m_Shader, m_VertexArray);
 
 		ETOD::Renderer::EndScene();
 	}
@@ -202,8 +247,10 @@ private:
 	ETOD::Ref<ETOD::Shader> m_Shader;
 	ETOD::Ref<ETOD::VertexArray> m_VertexArray;
 
-	ETOD::Ref<ETOD::Shader> m_FlatColorShader;
+	ETOD::Ref<ETOD::Shader> m_FlatColorShader, m_TextureShader;
 	ETOD::Ref<ETOD::VertexArray> m_SquareVA;
+
+	ETOD::Ref<ETOD::Texture2D> m_Texture;
 
 	ETOD::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

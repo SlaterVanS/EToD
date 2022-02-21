@@ -7,6 +7,9 @@
     <Filter Include="src\ETOD">
       <UniqueIdentifier>{E8741DCF-D441-78DA-FD5A-6682E986AD68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ETOD\Core">
+      <UniqueIdentifier>{40EA4B80-ACAA-C7B6-75E5-1034E1640C93}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ETOD\Events">
       <UniqueIdentifier>{CC8B11C8-3817-7F8C-4128-0281AD32DB8C}</UniqueIdentifier>
     </Filter>
@@ -46,6 +49,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ETOD.h">
@@ -56,6 +62,9 @@
     </ClInclude>
     <ClInclude Include="src\ETOD\Core.h">
       <Filter>src\ETOD</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\Timestep.h">
+      <Filter>src\ETOD\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\EntryPoint.h">
       <Filter>src\ETOD</Filter>
@@ -99,6 +108,9 @@
     <ClInclude Include="src\ETOD\Renderer\GraphicsContext.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\RenderCommand.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
@@ -109,6 +121,9 @@
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\Shader.h">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\Texture.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\VertexArray.h">
@@ -124,6 +139,12 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
@@ -1383,9 +1404,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="src\ETOD\Core\Timestep.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Application.cpp">
@@ -1409,6 +1430,9 @@
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\RenderCommand.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
@@ -1419,6 +1443,9 @@
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Shader.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\Texture.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\VertexArray.cpp">
@@ -1433,6 +1460,12 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1445,7 +1478,8 @@
     <ClCompile Include="src\etodpch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
