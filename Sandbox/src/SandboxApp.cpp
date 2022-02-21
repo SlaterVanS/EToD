@@ -174,6 +174,7 @@ public:
 		m_TextureShader.reset(ETOD::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = ETOD::Texture2D::Create("assets/textures/Checkerboard.png");
+		m_SlaterVanSLogoTexture = ETOD::Texture2D::Create("assets/textures/LogoBlack.png");
 
 		std::dynamic_pointer_cast<ETOD::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<ETOD::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -226,6 +227,8 @@ public:
 
 		m_Texture->Bind();
 		ETOD::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		m_SlaterVanSLogoTexture->Bind();
+		ETOD::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		// Triangle
 		// ETOD::Renderer::Submit(m_Shader, m_VertexArray);
@@ -250,7 +253,7 @@ private:
 	ETOD::Ref<ETOD::Shader> m_FlatColorShader, m_TextureShader;
 	ETOD::Ref<ETOD::VertexArray> m_SquareVA;
 
-	ETOD::Ref<ETOD::Texture2D> m_Texture;
+	ETOD::Ref<ETOD::Texture2D> m_Texture, m_SlaterVanSLogoTexture;
 
 	ETOD::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
