@@ -2,6 +2,10 @@
 
 ![EToD](/Sandbox/assets/textures/LogoBlack.png?raw=true "EToD")
 
+EToD is primarily an early-stage interactive application and rendering engine for Windows. Currently not much is implemented, however (almost) everything inside this repository is being created within our website, found at [SlaterVanS.com/EToD](https://www.slatervans.com/EToD). 
+
+***
+
 EToD Engine
 
 Easy To Development.
