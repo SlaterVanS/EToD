@@ -11,6 +11,7 @@
 #include "ETOD/Input.h"
 #include "ETOD/KeyCodes.h"
 #include "ETOD/MouseButtonCodes.h"
+#include "ETOD/OrthographicCameraController.h"
 
 #include "ETOD/ImGui/ImGuiLayer.h"
 

@@ -157,6 +157,7 @@
     <ClInclude Include="src\ETOD\LayerStack.h" />
     <ClInclude Include="src\ETOD\Log.h" />
     <ClInclude Include="src\ETOD\MouseButtonCodes.h" />
+    <ClInclude Include="src\ETOD\OrthographicCameraController.h" />
     <ClInclude Include="src\ETOD\Renderer\Buffer.h" />
     <ClInclude Include="src\ETOD\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h" />
@@ -600,6 +601,7 @@
     <ClCompile Include="src\ETOD\Layer.cpp" />
     <ClCompile Include="src\ETOD\LayerStack.cpp" />
     <ClCompile Include="src\ETOD\Log.cpp" />
+    <ClCompile Include="src\ETOD\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\ETOD\Renderer\RenderCommand.cpp" />
