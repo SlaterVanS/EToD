@@ -26,7 +26,3 @@
 
 #include "ETOD/Renderer/OrthographicCamera.h"
 // ----------------------------------
-
-// ---Entry Point--------------------
-#include "ETOD/Core/EntryPoint.h"
-// ----------------------------------

@@ -1,12 +1,14 @@
 #include <ETOD.h>
+#include <ETOD/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
 #include "imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
-
 #include <glm/gtc/type_ptr.hpp>
+
+#include "Sandbox2D.h"
 
 class ExampleLayer : public ETOD::Layer
 {
@@ -16,7 +18,7 @@ public:
 	{
 		// 顶点数组
 
-		m_VertexArray.reset(ETOD::VertexArray::Create());
+		m_VertexArray = ETOD::VertexArray::Create();
 
 		// 顶点缓存
 
@@ -43,7 +45,7 @@ public:
 		indexBuffer.reset(ETOD::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(ETOD::VertexArray::Create());
+		m_SquareVA = ETOD::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -217,7 +219,8 @@ class Sandbox : public ETOD::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()
