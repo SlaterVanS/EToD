@@ -17,7 +17,7 @@ namespace ETOD {
 
 	Application::Application()
 	{
-		ETOD_CORE_ASSERT(!s_Instance, "Application already exists!");
+		ETOD_CORE_ASSERT(!s_Instance, " 应用程序已经存在！"); // Application already exists!
 		s_Instance = this;
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
@@ -50,7 +50,9 @@ namespace ETOD {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVEBT_FN(OnWindowClose));
 
-		ETOD_CORE_TRACE("{0}", e);
+		//ETOD_CORE_TRACE("{0}", e);
+
+		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVEBT_FN(OnWindowResize));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
 		{
@@ -68,8 +70,11 @@ namespace ETOD {
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
-			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate(timestep);
+			if (!m_Minized)
+			{
+				for (Layer* layer : m_LayerStack)
+					layer->OnUpdate(timestep);
+			}
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)
@@ -87,4 +92,17 @@ namespace ETOD {
 		return true;
 	}
 
+	bool Application::OnWindowResize(WindowResizeEvent& e)
+	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0)
+		{
+			m_Minized = true;
+			return false;
+		}
+
+		m_Minized = false;
+		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
+
+		return false;
+	}
 }

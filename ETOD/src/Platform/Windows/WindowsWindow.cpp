@@ -45,7 +45,7 @@ namespace ETOD {
 		{
 			// ETOD: glfwTerminate on system shutdown
 			int success = glfwInit();
-			ETOD_CORE_ASSERT(success, "Could not intialize GLFW!");
+			ETOD_CORE_ASSERT(success, " 无法初始化GLFW！"); // Could not intialize GLFW!
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
@@ -143,8 +143,8 @@ namespace ETOD {
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-			//MouseMovedEvent event((float)xPos, (float)yPos);
-			//data.EventCallback(event);
+			MouseMovedEvent event((float)xPos, (float)yPos);
+			data.EventCallback(event);
 		});
 	}
 
