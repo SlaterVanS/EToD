@@ -3,13 +3,13 @@
 #include "Core.h"
 
 #include "Window.h"
-#include "ETOD/LayerStack.h"
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "ETOD/Core/LayerStack.h"
+#include "ETOD/Events/Event.h"
+#include "ETOD/Events/ApplicationEvent.h"
 
 #include "ETOD/Core/Timestep.h"
 
-#include "ImGui/ImGuiLayer.h"
+#include "ETOD/ImGui/ImGuiLayer.h"
 
 namespace ETOD {
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ETOD/Window.h"
+#include "ETOD/Core/Window.h"
 #include "ETOD/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ETOD/Core.h"
+#include "ETOD/Core/Core.h"
 #include "Layer.h"
 
 #include <vector>

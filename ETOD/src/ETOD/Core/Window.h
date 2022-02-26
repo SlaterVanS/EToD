@@ -2,7 +2,7 @@
 
 #include "etodpch.h"
 
-#include "ETOD/Core.h"
+#include "ETOD/Core/Core.h"
 #include "ETOD/Events/Event.h"
 
 namespace ETOD {

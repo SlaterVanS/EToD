@@ -1,8 +1,8 @@
 #include "etodpch.h"
 #include "OrthographicCameraController.h"
 
-#include "ETOD/Input.h"
-#include "ETOD/KeyCodes.h"
+#include "ETOD/Core/Input.h"
+#include "ETOD/Core/KeyCodes.h"
 
 namespace ETOD {
 

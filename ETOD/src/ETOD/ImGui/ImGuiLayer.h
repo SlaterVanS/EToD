@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ETOD/Layer.h"
+#include "ETOD/Core/Layer.h"
 
 #include "ETOD/Events/ApplicationEvent.h"
 #include "ETOD/Events/KeyEvent.h"

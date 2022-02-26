@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include "ETOD/Core.h"
+#include "ETOD/Core/Core.h"
 
 namespace ETOD {
 

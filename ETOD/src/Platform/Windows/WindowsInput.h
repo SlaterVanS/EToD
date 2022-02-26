@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ETOD/Input.h"
+#include "ETOD/Core/Input.h"
 
 namespace ETOD {
 

@@ -57,17 +57,38 @@
     <ClInclude Include="src\ETOD.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Application.h">
-      <Filter>src\ETOD</Filter>
+    <ClInclude Include="src\ETOD\Core\Application.h">
+      <Filter>src\ETOD\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Core.h">
-      <Filter>src\ETOD</Filter>
+    <ClInclude Include="src\ETOD\Core\Core.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\EntryPoint.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\Input.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\KeyCodes.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\Layer.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\LayerStack.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\Log.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\MouseButtonCodes.h">
+      <Filter>src\ETOD\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Core\Timestep.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\EntryPoint.h">
-      <Filter>src\ETOD</Filter>
+    <ClInclude Include="src\ETOD\Core\Window.h">
+      <Filter>src\ETOD\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Events\ApplicationEvent.h">
       <Filter>src\ETOD\Events</Filter>
@@ -84,24 +105,6 @@
     <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h">
       <Filter>src\ETOD\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Input.h">
-      <Filter>src\ETOD</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ETOD\KeyCodes.h">
-      <Filter>src\ETOD</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ETOD\Layer.h">
-      <Filter>src\ETOD</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ETOD\LayerStack.h">
-      <Filter>src\ETOD</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ETOD\Log.h">
-      <Filter>src\ETOD</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ETOD\MouseButtonCodes.h">
-      <Filter>src\ETOD</Filter>
-    </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\Buffer.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
@@ -109,6 +112,9 @@
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\OrthographicCameraController.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\RenderCommand.h">
@@ -128,9 +134,6 @@
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\VertexArray.h">
       <Filter>src\ETOD\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ETOD\Window.h">
-      <Filter>src\ETOD</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
@@ -1407,11 +1410,19 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\ETOD\Application.cpp">
-      <Filter>src\ETOD</Filter>
+    <ClCompile Include="src\ETOD\Core\Application.cpp">
+      <Filter>src\ETOD\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Core\Layer.cpp">
+      <Filter>src\ETOD\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Core\LayerStack.cpp">
+      <Filter>src\ETOD\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Core\Log.cpp">
+      <Filter>src\ETOD\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\ImGui\ImGuiBuild.cpp">
       <Filter>src\ETOD\ImGui</Filter>
@@ -1419,19 +1430,13 @@
     <ClCompile Include="src\ETOD\ImGui\ImGuiLayer.cpp">
       <Filter>src\ETOD\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\ETOD\Layer.cpp">
-      <Filter>src\ETOD</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ETOD\LayerStack.cpp">
-      <Filter>src\ETOD</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ETOD\Log.cpp">
-      <Filter>src\ETOD</Filter>
-    </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\OrthographicCameraController.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\RenderCommand.cpp">
@@ -1482,6 +1487,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\ETOD\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>

@@ -50,7 +50,7 @@ namespace ETOD {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVEBT_FN(OnWindowClose));
 
-		//ETOD_CORE_TRACE("{0}", e);
+		//ETOD_CORE_TRACE("{0}", e); // Log information
 
 		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVEBT_FN(OnWindowResize));
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ETOD/Core.h"
+#include "ETOD/Core/Core.h"
 #include "ETOD/Core/Timestep.h"
 #include "ETOD/Events/Event.h"
 

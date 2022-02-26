@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "ETOD/Log.h"
+#include "ETOD/Core/Log.h"
 
 #ifdef ETOD_PLATFORM_WINDOWS
 	#include<Windows.h>

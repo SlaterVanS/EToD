@@ -1,7 +1,7 @@
 #include "etodpch.h"
 #include "WindowsInput.h"
 
-#include "ETOD/Application.h"
+#include "ETOD/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace ETOD {

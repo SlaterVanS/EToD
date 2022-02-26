@@ -2,16 +2,16 @@
 
 //For use by ETOD applications
 
-#include "ETOD/Application.h"
-#include "ETOD/Layer.h"
-#include "ETOD/Log.h"
+#include "ETOD/Core/Application.h"
+#include "ETOD/Core/Layer.h"
+#include "ETOD/Core/Log.h"
 
 #include "ETOD/Core/Timestep.h"
 
-#include "ETOD/Input.h"
-#include "ETOD/KeyCodes.h"
-#include "ETOD/MouseButtonCodes.h"
-#include "ETOD/OrthographicCameraController.h"
+#include "ETOD/Core/Input.h"
+#include "ETOD/Core/KeyCodes.h"
+#include "ETOD/Core/MouseButtonCodes.h"
+#include "ETOD/Renderer/OrthographicCameraController.h"
 
 #include "ETOD/ImGui/ImGuiLayer.h"
 
@@ -28,5 +28,5 @@
 // ----------------------------------
 
 // ---Entry Point--------------------
-#include "ETOD/EntryPoint.h"
+#include "ETOD/Core/EntryPoint.h"
 // ----------------------------------
