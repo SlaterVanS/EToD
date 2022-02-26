@@ -18,7 +18,7 @@ Make sure that you do a `--recursive` clone to fetch all of the submodules!
 ***
 
 ## The Plan
-The plan for EToD Engine is two-fold: to create a powerful 3D engine, but also to serve as an education tool for small team or college student development. Because of this the development inside this repository is rather slow, since everything has to be ensure that the function can be more perfect and can be used normally. There is a much more advanced version of the engine in a private repository called `EToD-dev`, accessible to studio internal developer on [SlaterVanS Studio](https://www.slatervans.com/EToD). The plan for this project is to mostly take already implemented code from the `EToD-dev` repository and integrate it into this one, we will test more experimental functions in this repository.
+The plan for EToD Engine is two-fold: to create a powerful 3D engine, but also to serve as an education tool for small team or college student development. Because of this the development inside this repository is rather slow, since everything has to be ensure that the function can be more perfect and can be used normally. There is a much more advanced version of the engine in a private repository called `EToD-dev`, accessible to studio internal developer on [SlaterVanS Studio](https://www.slatervans.com/etod). The plan for this project is to mostly take already implemented code from the `EToD-dev` repository and integrate it into this one, we will test more experimental functions in this repository.
 
 ### Main features to come:
 - Fast 2D rendering (UI, particles, sprites, etc.)
