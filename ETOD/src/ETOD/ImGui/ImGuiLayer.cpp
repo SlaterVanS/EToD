@@ -89,9 +89,9 @@ namespace ETOD {
 		}
 	}
 
-	void ImGuiLayer::OnImGuiRender()
+	/*void ImGuiLayer::OnImGuiRender()  //”“≤‡UI
 	{
 		static bool show = true;
 		ImGui::ShowDemoWindow(&show);
-	}
+	}*/
 }
