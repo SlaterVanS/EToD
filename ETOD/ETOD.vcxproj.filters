@@ -123,6 +123,9 @@
     <ClInclude Include="src\ETOD\Renderer\Renderer.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\Renderer2D.h">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\RendererAPI.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
@@ -1410,7 +1413,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">
@@ -1444,6 +1446,9 @@
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Renderer.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\Renderer2D.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\RendererAPI.cpp">
@@ -1488,6 +1493,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\ETOD\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>
