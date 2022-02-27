@@ -20,5 +20,7 @@ private:
 	ETOD::Ref<ETOD::VertexArray> m_SquareVA;
 	ETOD::Ref<ETOD::Shader> m_FlatColorShader;
 
+	ETOD::Ref<ETOD::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };
