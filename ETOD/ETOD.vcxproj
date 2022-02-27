@@ -163,6 +163,7 @@
     <ClInclude Include="src\ETOD\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\ETOD\Renderer\RenderCommand.h" />
     <ClInclude Include="src\ETOD\Renderer\Renderer.h" />
+    <ClInclude Include="src\ETOD\Renderer\Renderer2D.h" />
     <ClInclude Include="src\ETOD\Renderer\RendererAPI.h" />
     <ClInclude Include="src\ETOD\Renderer\Shader.h" />
     <ClInclude Include="src\ETOD\Renderer\Texture.h" />
@@ -605,6 +606,7 @@
     <ClCompile Include="src\ETOD\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ETOD\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\ETOD\Renderer\Renderer2D.cpp" />
     <ClCompile Include="src\ETOD\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Shader.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Texture.cpp" />

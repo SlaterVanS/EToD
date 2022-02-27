@@ -17,6 +17,7 @@
 
 // ---Renderer-----------------------
 #include "ETOD/Renderer/Renderer.h"
+#include "ETOD/Renderer/Renderer2D.h"
 #include "ETOD/Renderer/RenderCommand.h"
 
 #include "ETOD/Renderer/Buffer.h"
