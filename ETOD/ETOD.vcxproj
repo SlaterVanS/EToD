@@ -152,6 +152,7 @@
     <ClInclude Include="src\ETOD\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\ETOD\Core\Timestep.h" />
     <ClInclude Include="src\ETOD\Core\Window.h" />
+    <ClInclude Include="src\ETOD\Debug\Instrumentor.h" />
     <ClInclude Include="src\ETOD\Events\ApplicationEvent.h" />
     <ClInclude Include="src\ETOD\Events\Event.h" />
     <ClInclude Include="src\ETOD\Events\KeyEvent.h" />

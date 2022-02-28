@@ -15,6 +15,8 @@
 
 #include "ETOD/Core/Log.h"
 
+#include "ETOD/Debug/Instrumentor.h"
+
 #ifdef ETOD_PLATFORM_WINDOWS
 	#include<Windows.h>
 #endif
