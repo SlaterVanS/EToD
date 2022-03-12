@@ -10,6 +10,8 @@ namespace ETOD {
 
 	void Renderer::Init()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}

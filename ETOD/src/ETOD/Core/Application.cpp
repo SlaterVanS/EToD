@@ -17,6 +17,8 @@ namespace ETOD {
 
 	Application::Application()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		ETOD_CORE_ASSERT(!s_Instance, " 应用程序已经存在！"); // Application already exists!
 		s_Instance = this;
 
@@ -31,22 +33,29 @@ namespace ETOD {
 
 	Application::~Application()
 	{
+		ETOD_PROFILE_FUNCTION();
 	}
 
 	void Application::PushLayer(Layer* layer)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		m_LayerStack.PushLayer(layer);
 		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		m_LayerStack.PushOverlay(layer);
 		layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVEBT_FN(OnWindowClose));
 
@@ -64,22 +73,35 @@ namespace ETOD {
 
 	void Application::Run()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		while (m_Running)
 		{
+			ETOD_PROFILE_SCOPE("RunLoop");
+
 			double time = (float)glfwGetTime(); //Platform::GetTime
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
 			if (!m_Minized)
 			{
-				for (Layer* layer : m_LayerStack)
-					layer->OnUpdate(timestep);
-			}
+				{
+					ETOD_PROFILE_SCOPE("LayerStack OnUpdate");
 
-			m_ImGuiLayer->Begin();
-			for (Layer* layer : m_LayerStack)
-				layer->OnImGuiRender();
-			m_ImGuiLayer->End();
+					for (Layer* layer : m_LayerStack)
+						layer->OnUpdate(timestep);
+				}
+
+				m_ImGuiLayer->Begin();
+				{
+					ETOD_PROFILE_SCOPE("LayerStack OnImGuiRender");
+
+					for (Layer* layer : m_LayerStack)
+						layer->OnImGuiRender();
+				}
+				m_ImGuiLayer->End();
+
+			}
 
 			m_Window->OnUpdate();
 		}
@@ -94,6 +116,8 @@ namespace ETOD {
 
 	bool Application::OnWindowResize(WindowResizeEvent& e)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		if (e.GetWidth() == 0 || e.GetHeight() == 0)
 		{
 			m_Minized = true;

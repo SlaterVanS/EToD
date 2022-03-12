@@ -8,8 +8,8 @@ extern ETOD::Application* ETOD::CreateApplication();
 int main(int argc,char** argv)
 {
 	ETOD::Log::Init();
-	//ETOD_CORE_WARN("初始化日志系统!");
-	//ETOD_INFO("开发者你好!");
+	ETOD_CORE_WARN("初始化日志系统! ");
+	ETOD_INFO(" EToD Engine 开发者你好! ");
 
 	ETOD_PROFILE_BEGIN_SESSION("Startup", "EToDProfile-Startup.json");
 	auto app = ETOD::CreateApplication();

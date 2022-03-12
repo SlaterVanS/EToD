@@ -27,26 +27,36 @@ namespace ETOD {
 
 	OpenGLVertexArray::OpenGLVertexArray()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glCreateVertexArrays(1, &m_RendererID);
 	}
 
 	OpenGLVertexArray::~OpenGLVertexArray()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glDeleteVertexArrays(1, &m_RendererID);
 	}
 
 	void OpenGLVertexArray::Bind() const
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 	}
 
 	void OpenGLVertexArray::Unbind() const
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glBindVertexArray(0);
 	}
 
 	void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		ETOD_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), " 顶点缓冲区没有布局！");  //Vertex Buffer has no layout!
 
 		glBindVertexArray(m_RendererID);
@@ -70,6 +80,8 @@ namespace ETOD {
 
 	void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();
 

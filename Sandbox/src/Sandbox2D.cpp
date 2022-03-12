@@ -12,13 +12,15 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	ETOD_PROFILE_FUNCTION();
+
 	m_CheckerboardTexture = ETOD::Texture2D::Create("assets/textures/Checkerboard.png");
 }
 
 
 void Sandbox2D::OnDetach()
 {
-
+	ETOD_PROFILE_FUNCTION();
 }
 
 void Sandbox2D::OnUpdate(ETOD::Timestep ts)
@@ -26,10 +28,8 @@ void Sandbox2D::OnUpdate(ETOD::Timestep ts)
 	ETOD_PROFILE_FUNCTION();
 
 	// Updata
-	{
-		ETOD_PROFILE_SCOPE("CameraController::OnUpdate");
 		m_CameraController.OnUpdata(ts);
-	}
+
 	// Render
 	{
 		ETOD_PROFILE_SCOPE("Renderer Prep");

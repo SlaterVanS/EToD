@@ -15,6 +15,8 @@ namespace ETOD {
 
 	void OpenGLContext::Init()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glfwMakeContextCurrent(m_WindowHandle);
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		ETOD_CORE_ASSERT(status, " Glad ≥ı ºªØ ß∞‹! "); //Failed to initailize Glad!
@@ -27,6 +29,8 @@ namespace ETOD {
 
 	void OpenGLContext::SwapBuffers()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 }

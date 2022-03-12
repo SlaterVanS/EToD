@@ -25,16 +25,22 @@ namespace ETOD {
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		Init(props);
 	}
 
 	WindowsWindow::~WindowsWindow()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		Shutdown();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
@@ -43,6 +49,7 @@ namespace ETOD {
 
 		if (!s_GLFWInitialized)
 		{
+			ETOD_PROFILE_SCOPE("glfwInit");
 			// ETOD: glfwTerminate on system shutdown
 			int success = glfwInit();
 			ETOD_CORE_ASSERT(success, " 无法初始化GLFW！"); // Could not intialize GLFW!
@@ -50,8 +57,12 @@ namespace ETOD {
 			s_GLFWInitialized = true;
 		}
 
-		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		
+		{
+			ETOD_PROFILE_SCOPE("glfwCreateWindow");
+
+			m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
+		}
+
 		m_Context = new OpenGLContext(m_Window);
 		m_Context->Init();
 
@@ -150,17 +161,23 @@ namespace ETOD {
 
 	void WindowsWindow::Shutdown()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glfwDestroyWindow(m_Window);
 	}
 
 	void WindowsWindow::OnUpdate()
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		glfwPollEvents();
 		m_Context->SwapBuffers();
 	}
 	
 	void WindowsWindow::SetVSync(bool enabled)
 	{
+		ETOD_PROFILE_FUNCTION();
+
 		if (enabled)
 			glfwSwapInterval(1);
 		else
