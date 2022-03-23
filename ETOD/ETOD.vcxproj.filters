@@ -10,6 +10,9 @@
     <Filter Include="src\ETOD\Core">
       <UniqueIdentifier>{40EA4B80-ACAA-C7B6-75E5-1034E1640C93}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ETOD\Debug">
+      <UniqueIdentifier>{5E8DD589-4A5B-C98F-33EF-39B61F5CA5F4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ETOD\Events">
       <UniqueIdentifier>{CC8B11C8-3817-7F8C-4128-0281AD32DB8C}</UniqueIdentifier>
     </Filter>
@@ -89,6 +92,9 @@
     </ClInclude>
     <ClInclude Include="src\ETOD\Core\Window.h">
       <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Debug\Instrumentor.h">
+      <Filter>src\ETOD\Debug</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Events\ApplicationEvent.h">
       <Filter>src\ETOD\Events</Filter>
@@ -1413,7 +1419,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">
