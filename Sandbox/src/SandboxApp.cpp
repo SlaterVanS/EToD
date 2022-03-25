@@ -28,8 +28,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		ETOD::Ref<ETOD::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(ETOD::VertexBuffer::Create(vertices, sizeof(vertices)));
+		ETOD::Ref<ETOD::VertexBuffer> vertexBuffer = ETOD::VertexBuffer::Create(vertices, sizeof(vertices));
 		ETOD::BufferLayout layout = {
 			{ ETOD::ShaderDataType::Float3, "a_Position" },
 			{ ETOD::ShaderDataType::Float4, "a_Color" }
@@ -41,8 +40,7 @@ public:
 		// Ë÷Òý»º³å
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		ETOD::Ref<ETOD::IndexBuffer> indexBuffer;
-		indexBuffer.reset(ETOD::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		ETOD::Ref<ETOD::IndexBuffer> indexBuffer = ETOD::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		m_SquareVA = ETOD::VertexArray::Create();
@@ -54,8 +52,7 @@ public:
 			-0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
-		ETOD::Ref<ETOD::VertexBuffer> squareVB;
-		squareVB.reset(ETOD::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
+		ETOD::Ref<ETOD::VertexBuffer> squareVB = ETOD::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
 
 		squareVB->SetLayout({
 			{ ETOD::ShaderDataType::Float3, "a_Position" },
@@ -65,8 +62,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		ETOD::Ref<ETOD::IndexBuffer> squareIB;
-		squareIB.reset(ETOD::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		ETOD::Ref<ETOD::IndexBuffer> squareIB = ETOD::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSrc = R"(
