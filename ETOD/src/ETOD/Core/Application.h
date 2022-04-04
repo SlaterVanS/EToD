@@ -16,7 +16,7 @@ namespace ETOD {
 	class Application
 	{
 	public:
-		Application();
+		Application(const std::string& name = "EToD App -Powered by SlaterVanS Studio.");
 		virtual ~Application();
 
 		void Run();
@@ -27,6 +27,9 @@ namespace ETOD {
 		void PushOverlay(Layer* layer);
 
 		inline Window& GetWindow() { return *m_Window; }
+
+		void Close();
+
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
@@ -35,7 +38,7 @@ namespace ETOD {
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
-		bool m_Minized = false;
+		bool m_Minimized = false;
 		LayerStack m_LayerStack;
 		float m_LastFrameTime = 0.0f;
 	private:

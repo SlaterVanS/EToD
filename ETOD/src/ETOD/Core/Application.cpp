@@ -15,14 +15,14 @@ namespace ETOD {
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application()
+	Application::Application(const std::string& name)
 	{
 		ETOD_PROFILE_FUNCTION();
 
 		ETOD_CORE_ASSERT(!s_Instance, " 应用程序已经存在！"); // Application already exists!
 		s_Instance = this;
 
-		m_Window = std::unique_ptr<Window>(Window::Create());
+		m_Window = std::unique_ptr<Window>(Window::Create(WindowProps(name)));
 		m_Window->SetEventCallback(BIND_EVEBT_FN(OnEvent));
 
 		Renderer::Init();
@@ -50,6 +50,11 @@ namespace ETOD {
 
 		m_LayerStack.PushOverlay(layer);
 		layer->OnAttach();
+	}
+
+	void Application::Close()
+	{
+		m_Running = false;
 	}
 
 	void Application::OnEvent(Event& e)
@@ -83,7 +88,7 @@ namespace ETOD {
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
-			if (!m_Minized)
+			if (!m_Minimized)
 			{
 				{
 					ETOD_PROFILE_SCOPE("LayerStack OnUpdate");
@@ -120,11 +125,11 @@ namespace ETOD {
 
 		if (e.GetWidth() == 0 || e.GetHeight() == 0)
 		{
-			m_Minized = true;
+			m_Minimized = true;
 			return false;
 		}
 
-		m_Minized = false;
+		m_Minimized = false;
 		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
 
 		return false;

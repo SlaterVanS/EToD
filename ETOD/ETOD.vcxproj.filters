@@ -114,6 +114,9 @@
     <ClInclude Include="src\ETOD\Renderer\Buffer.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\Framebuffer.h">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\GraphicsContext.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
@@ -148,6 +151,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
@@ -1442,6 +1448,9 @@
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
@@ -1473,6 +1482,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">

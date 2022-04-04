@@ -1,5 +1,6 @@
 workspace "ETOD"
-	architecture "x64"
+	architecture "x86_64"
+	startproject "EToD-Editor"
 
 	configurations
 	{
@@ -18,10 +19,11 @@ IncludeDir["ImGui"] = "ETOD/vendor/imgui"
 IncludeDir["glm"] = "ETOD/vendor/glm"
 IncludeDir["stb_image"] = "ETOD/vendor/stb_image"
 
-
-include "ETOD/vendor/GLFW"
-include "ETOD/vendor/Glad"
-include "ETOD/vendor/imgui"
+group "Dependencies"
+	include "ETOD/vendor/GLFW"
+	include "ETOD/vendor/Glad"
+	include "ETOD/vendor/imgui"
+group ""
 
 project "ETOD"
 	location "ETOD"
@@ -97,6 +99,56 @@ project "ETOD"
 
 project "Sandbox"
 	location "Sandbox"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
+
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"ETOD/vendor/spdlog/include",
+		"ETOD/src",
+		"ETOD/vendor",
+		"%{IncludeDir.glm}"
+	}
+
+	links
+	{
+		"ETOD"
+	}
+
+	filter "system:windows"
+		systemversion "latest"
+
+		defines
+		{
+			"ETOD_PLATFORM_WINDOWS",
+		}
+
+	filter "configurations:Debug"
+		defines "ETOD_DEBUG"
+		symbols "on"
+
+	filter "configurations:Release"
+		defines "ETOD_RELEASE"
+		optimize "on"
+
+	filter "configurations:Dist"
+		defines "ETOD_DIST"
+		optimize "on"
+
+
+project "EToD-Editor"
+	location "EToD-Editor"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
