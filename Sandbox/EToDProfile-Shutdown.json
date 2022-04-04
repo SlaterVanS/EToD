@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"otherData": {},"traceEvents":[{"cat":"function","dur":1,"name":"__cdecl ETOD::Application::~Application(void)","ph":"X","pid":0,"tid":2080996991,"ts":28098645208},{"cat":"function","dur":110839,"name":"void __cdecl ETOD::WindowsWindow::Shutdown(void)","ph":"X","pid":0,"tid":2080996991,"ts":28098645434},{"cat":"function","dur":111113,"name":"__cdecl ETOD::WindowsWindow::~WindowsWindow(void)","ph":"X","pid":0,"tid":2080996991,"ts":28098645433}]}
+=======
+{"otherData": {},"traceEvents":[{"cat":"function","dur":1,"name":"__cdecl ETOD::Application::~Application(void)","ph":"X","pid":0,"tid":2644682791,"ts":24254615562},{"cat":"function","dur":66459,"name":"void __cdecl ETOD::WindowsWindow::Shutdown(void)","ph":"X","pid":0,"tid":2644682791,"ts":24254615649},{"cat":"function","dur":66649,"name":"__cdecl ETOD::WindowsWindow::~WindowsWindow(void)","ph":"X","pid":0,"tid":2644682791,"ts":24254615649}]}
+>>>>>>> a9f7a0b43492a2329f746bf7e65ad6686849ce82
