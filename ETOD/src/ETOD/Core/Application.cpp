@@ -88,7 +88,7 @@ namespace ETOD {
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
-			if (!m_Minized)
+			if (!m_Minimized)
 			{
 				{
 					ETOD_PROFILE_SCOPE("LayerStack OnUpdate");
@@ -125,11 +125,11 @@ namespace ETOD {
 
 		if (e.GetWidth() == 0 || e.GetHeight() == 0)
 		{
-			m_Minized = true;
+			m_Minimized = true;
 			return false;
 		}
 
-		m_Minized = false;
+		m_Minimized = false;
 		Renderer::OnWindowResize(e.GetWidth(), e.GetHeight());
 
 		return false;

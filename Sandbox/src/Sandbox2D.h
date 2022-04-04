@@ -19,6 +19,7 @@ private:
 	// Temp
 	ETOD::Ref<ETOD::VertexArray> m_SquareVA;
 	ETOD::Ref<ETOD::Shader> m_FlatColorShader;
+	ETOD::Ref<ETOD::Framebuffer> m_Framebuffer;
 
 	ETOD::Ref<ETOD::Texture2D> m_CheckerboardTexture;
 

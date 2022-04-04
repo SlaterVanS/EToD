@@ -159,6 +159,7 @@
     <ClInclude Include="src\ETOD\Events\MouseEvent.h" />
     <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\ETOD\Renderer\Buffer.h" />
+    <ClInclude Include="src\ETOD\Renderer\Framebuffer.h" />
     <ClInclude Include="src\ETOD\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\ETOD\Renderer\OrthographicCameraController.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="src\ETOD\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
@@ -603,6 +605,7 @@
     <ClCompile Include="src\ETOD\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\ETOD\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\ETOD\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ETOD\Renderer\RenderCommand.cpp" />
@@ -614,6 +617,7 @@
     <ClCompile Include="src\ETOD\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
@@ -639,4 +643,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>

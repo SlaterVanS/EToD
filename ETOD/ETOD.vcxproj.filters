@@ -63,9 +63,6 @@
     <ClInclude Include="src\ETOD\Core\Application.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Core\Core.h">
-      <Filter>src\ETOD\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\ETOD\Core\EntryPoint.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
@@ -1419,6 +1416,9 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\Framebuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
+    <ClInclude Include="src\ETOD\Core\Core.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">
@@ -1499,5 +1499,7 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
   </ItemGroup>
 </Project>

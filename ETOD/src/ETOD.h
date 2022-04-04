@@ -22,6 +22,7 @@
 
 #include "ETOD/Renderer/Buffer.h"
 #include "ETOD/Renderer/Shader.h"
+#include "ETOD/Renderer/Framebuffer.h"
 #include "ETOD/Renderer/Texture.h"
 #include "ETOD/Renderer/VertexArray.h"
 
