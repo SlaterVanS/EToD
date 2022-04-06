@@ -19,10 +19,6 @@ namespace ETOD {
 
 	}
 
-	ImGuiLayer::~ImGuiLayer()
-	{
-	}
-
 	void ImGuiLayer::OnAttach()
 	{
 		ETOD_PROFILE_FUNCTION();
@@ -67,6 +63,16 @@ namespace ETOD {
 		ImGui::DestroyContext();
 	}
 
+	void ImGuiLayer::OnEvent(Event& e)
+	{
+		if (m_BlockEvents)
+		{
+			ImGuiIO& io = ImGui::GetIO();
+			e.Handled |= e.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
+			e.Handled |= e.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
+		}
+	}
+
 	void ImGuiLayer::Begin()
 	{
 		ETOD_PROFILE_FUNCTION();
@@ -96,10 +102,4 @@ namespace ETOD {
 			glfwMakeContextCurrent(backup_current_context);
 		}
 	}
-
-	/*void ImGuiLayer::OnImGuiRender()  //”“≤‡UI
-	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
-	}*/
 }

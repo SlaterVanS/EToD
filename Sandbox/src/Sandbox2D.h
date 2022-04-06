@@ -10,6 +10,7 @@ public:
 
 	virtual void OnAttach() override;
 	virtual void OnDetach() override;
+
 	void OnUpdate(ETOD::Timestep ts) override;
 	virtual void OnImGuiRender() override;
 	void OnEvent(ETOD::Event& e) override;
@@ -19,7 +20,6 @@ private:
 	// Temp
 	ETOD::Ref<ETOD::VertexArray> m_SquareVA;
 	ETOD::Ref<ETOD::Shader> m_FlatColorShader;
-	ETOD::Ref<ETOD::Framebuffer> m_Framebuffer;
 
 	ETOD::Ref<ETOD::Texture2D> m_CheckerboardTexture;
 

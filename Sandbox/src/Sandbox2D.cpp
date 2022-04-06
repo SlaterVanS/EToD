@@ -19,7 +19,6 @@ void Sandbox2D::OnAttach()
     ETOD::FramebufferSpecification fbSpec;
     fbSpec.Width = 1280;
     fbSpec.Height = 720;
-    m_Framebuffer = ETOD::Framebuffer::Create(fbSpec);
 }
 
 
@@ -39,7 +38,6 @@ void Sandbox2D::OnUpdate(ETOD::Timestep ts)
 		ETOD::Renderer2D::ResetStats();
 	{
 		ETOD_PROFILE_SCOPE("Renderer Prep");
-        m_Framebuffer->Bind();
 		ETOD::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1 });
 		ETOD::RenderCommand::Clear();
 	}
@@ -67,7 +65,6 @@ void Sandbox2D::OnUpdate(ETOD::Timestep ts)
 			}
 		}
 		ETOD::Renderer2D::EndScene();
-        m_Framebuffer->Unbind();
 	}
 }
 
@@ -75,7 +72,6 @@ void Sandbox2D::OnImGuiRender()
 {
     ETOD_PROFILE_FUNCTION();
 
-<<<<<<< HEAD
 	ImGui::Begin(" Palette Demo | EToD Engine ");  // Settings
 	
 	auto stats = ETOD::Renderer2D::GetStats();
@@ -87,7 +83,6 @@ void Sandbox2D::OnImGuiRender()
 	
 	ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));  // Square Color
 	ImGui::End();
-=======
     // Note: Switch this to ture to enable dockspace
 
     static bool dockingEnabled = true;
@@ -173,9 +168,6 @@ void Sandbox2D::OnImGuiRender()
 
         ImGui::ColorEdit4("Square Color", glm::value_ptr(m_SquareColor));  // Square Color
 
-        uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
-        ImGui::Image((void*)textureID, ImVec2{ 1280, 720 });
-
         ImGui::End();
 
         ImGui::End();
@@ -198,8 +190,6 @@ void Sandbox2D::OnImGuiRender()
 
         ImGui::End();
     }
-
->>>>>>> a9f7a0b43492a2329f746bf7e65ad6686849ce82
 }
 
 void Sandbox2D::OnEvent(ETOD::Event& e)

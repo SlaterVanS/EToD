@@ -8,7 +8,7 @@ namespace ETOD {
 	{
 	public:
 		ETODEditor()
-			: Application("EToD Editor -Powered by SlaterVanS Studio.")
+			: Application("EToD Editor -Powered by SlaterVanS Studio. ")
 		{
 			PushLayer(new EditorLayer());
 		}
