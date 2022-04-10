@@ -25,6 +25,7 @@ namespace ETOD {
 #define ETOD_CORE_INFO(...)      ::ETOD::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define ETOD_CORE_WARN(...)      ::ETOD::Log::GetCoreLogger()->warn(__VA_ARGS__)
 #define ETOD_CORE_ERROR(...)     ::ETOD::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define ETOD_CORE_CRITICAL(...)  ::ETOD::Log::GetCoreLogger()->critical(__VA_ARGS__)
 #define ETOD_CORE_FATAL(...)     ::ETOD::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 //Client log macros
@@ -32,4 +33,5 @@ namespace ETOD {
 #define ETOD_INFO(...)           ::ETOD::Log::GetClientLogger()->info(__VA_ARGS__)
 #define ETOD_WARN(...)           ::ETOD::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define ETOD_ERROR(...)          ::ETOD::Log::GetClientLogger()->error(__VA_ARGS__)
+#define ETOD_CRITICAL(...)       ::ETOD::Log::GetClientLogger()->critical(__VA_ARGS__)
 #define ETOD_FATAL(...)          ::ETOD::Log::GetClientLogger()->fatal(__VA_ARGS__)
