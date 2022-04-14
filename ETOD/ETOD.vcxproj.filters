@@ -87,6 +87,9 @@
     <ClInclude Include="src\ETOD\Core\MouseButtonCodes.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Core\MouseCodes.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Core\Timestep.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
@@ -1422,7 +1425,8 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Core\MouseCodes.h" />
+    <ClInclude Include="src\ETOD\Scene\Scene.h" />
+    <ClInclude Include="src\ETOD\Scene\Components.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">
@@ -1509,5 +1513,6 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\Scene\Scene.cpp" />
   </ItemGroup>
 </Project>

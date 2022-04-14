@@ -9,6 +9,11 @@ workspace "ETOD"
 		"Dist"
 	}
 
+	flags
+	{
+		"MultiProcessorCompile"
+	}
+
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
@@ -18,6 +23,7 @@ IncludeDir["Glad"] = "ETOD/vendor/Glad/include"
 IncludeDir["ImGui"] = "ETOD/vendor/imgui"
 IncludeDir["glm"] = "ETOD/vendor/glm"
 IncludeDir["stb_image"] = "ETOD/vendor/stb_image"
+IncludeDir["entt"] = "ETOD/vendor/entt/include"
 
 group "Dependencies"
 	include "ETOD/vendor/GLFW"
@@ -61,7 +67,8 @@ project "ETOD"
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}"
+		"%{IncludeDir.stb_image}",
+		"%{IncludeDir.entt}"
 	}
 
 	links
@@ -168,7 +175,8 @@ project "EToD-Editor"
 		"ETOD/vendor/spdlog/include",
 		"ETOD/src",
 		"ETOD/vendor",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.entt}"
 	}
 
 	links
