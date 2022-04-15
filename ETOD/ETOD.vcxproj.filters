@@ -1428,6 +1428,7 @@
     <ClInclude Include="src\ETOD\Scene\Scene.h" />
     <ClInclude Include="src\ETOD\Scene\Components.h" />
     <ClInclude Include="src\ETOD\Scene\Entity.h" />
+    <ClInclude Include="src\ETOD\Renderer\Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">

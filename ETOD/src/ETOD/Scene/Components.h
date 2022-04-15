@@ -2,6 +2,8 @@
 
 #include <glm/glm.hpp>
 
+#include "ETOD/Renderer/Camera.h"
+
 namespace ETOD {
 
 	struct TagComponent
@@ -35,6 +37,17 @@ namespace ETOD {
 		SpriteRendererComponent(const SpriteRendererComponent&) = default;
 		SpriteRendererComponent(const glm::vec4& color)
 			: Color(color) {}
+	};
+
+	struct CameraComponent
+	{
+		ETOD::Camera Camera;
+		bool Primary = true;  // ETOD: think about moving to Scene
+
+		CameraComponent() = default;
+		CameraComponent(const CameraComponent&) = default;
+		CameraComponent(const glm::mat4& projection)
+			: Camera(projection) {}
 	};
 
 }

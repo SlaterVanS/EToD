@@ -16,6 +16,15 @@ namespace ETOD {
     {
         ETOD_PROFILE_FUNCTION();
 
+        // Resize
+        /*if (FramebufferSpecification spec = m_Framebuffer->GetSpecification();
+            m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
+            (spec.Width != m_ViewportSize.x || spec.Height != m_ViewportSize.y))
+        {
+            m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+            m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
+        }*/
+
         m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
 
         FramebufferSpecification fbSpec;
@@ -30,6 +39,13 @@ namespace ETOD {
         square.AddComponent<SpriteRendererComponent>(glm::vec4{ 0.0f, 1.0f, 1.0f, 1.0f });
 
         m_SquareEntity = square;
+
+        m_CameraEntity = m_ActiveScene->CreateEntity("Camera Entity");
+        m_CameraEntity.AddComponent<CameraComponent>(glm::ortho( -16.0f, 16.0f, -9.0f, 9.0f, -1.0f, 1.0f ));
+
+        m_SecondCamera = m_ActiveScene->CreateEntity("Clip-Space Entity");
+        auto& cc = m_SecondCamera.AddComponent<CameraComponent>(glm::ortho( -1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f));
+        cc.Primary = false;
     }
 
 
@@ -42,6 +58,7 @@ namespace ETOD {
     {
         ETOD_PROFILE_FUNCTION();
 
+        
         // Update
         if (m_ViewportFocused)
         {
@@ -59,7 +76,7 @@ namespace ETOD {
          //rotation += ts * 50.0f;
 
          //ETOD_PROFILE_SCOPE("Renderer Draw");
-         Renderer2D::BeginScene(m_CameraController.GetCamera());
+         //Renderer2D::BeginScene(m_CameraController.GetCamera());
 
          // Update Scene
          m_ActiveScene->OnUpdata(ts);
@@ -69,7 +86,7 @@ namespace ETOD {
          //Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f, 1.0f });
          //Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 20.0f, 20.0f }, m_CheckerboardTexture, 10.0f);
          //Renderer2D::DrawRotatedQuad({ -2.0f, 0.0f, 0.0f }, { 1.0f, 1.0f }, rotation, m_CheckerboardTexture, 20.0f);
-         Renderer2D::EndScene();
+         //Renderer2D::EndScene();
 
         /*Renderer2D::BeginScene(m_CameraController.GetCamera());
          for (float y = -5.0f; y < 5.0f; y += 0.5f)
@@ -159,7 +176,8 @@ namespace ETOD {
             ImGui::EndMenuBar();
         }
         
-        ImGui::Begin(" Settings ");  // Settings
+        // Settings
+        ImGui::Begin(" Settings "); 
         
         auto stats = Renderer2D::GetStats();
         ImGui::Text("Renderer2D Stats:");
@@ -177,6 +195,15 @@ namespace ETOD {
             auto& squareColor = m_SquareEntity.GetComponent<SpriteRendererComponent>().Color;
             ImGui::ColorEdit4("Square Color", glm::value_ptr(squareColor));  // Square Color
             ImGui::Separator();
+        }
+
+        ImGui::DragFloat3("Camera Transform",
+            glm::value_ptr(m_CameraEntity.GetComponent<TransformComponent>().Transform[3]));
+
+        if (ImGui::Checkbox("Camera A", &m_PrimaryCamera))
+        {
+            m_CameraEntity.GetComponent<CameraComponent>().Primary = m_PrimaryCamera;
+            m_SecondCamera.GetComponent<CameraComponent>().Primary = !m_PrimaryCamera;
         }
 
         ImGui::End();

@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\ETOD.h" />
+    <ClInclude Include="src\ETOD\Renderer\Camera.h" />
     <ClInclude Include="src\ETOD\Core\Application.h" />
     <ClInclude Include="src\ETOD\Core\Core.h" />
     <ClInclude Include="src\ETOD\Core\EntryPoint.h" />
