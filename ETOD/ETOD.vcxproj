@@ -176,6 +176,7 @@
     <ClInclude Include="src\ETOD\Renderer\Texture.h" />
     <ClInclude Include="src\ETOD\Renderer\VertexArray.h" />
     <ClInclude Include="src\ETOD\Scene\Components.h" />
+    <ClInclude Include="src\ETOD\Scene\Entity.h" />
     <ClInclude Include="src\ETOD\Scene\Scene.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -621,6 +622,7 @@
     <ClCompile Include="src\ETOD\Renderer\Shader.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Texture.cpp" />
     <ClCompile Include="src\ETOD\Renderer\VertexArray.cpp" />
+    <ClCompile Include="src\ETOD\Scene\Entity.cpp" />
     <ClCompile Include="src\ETOD\Scene\Scene.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />

@@ -16,6 +16,7 @@
 #include "ETOD/ImGui/ImGuiLayer.h"
 
 #include "ETOD/Scene/Scene.h"
+#include "ETOD/Scene/Entity.h"
 #include "ETOD/Scene/Components.h"
 
 // ---Renderer-----------------------

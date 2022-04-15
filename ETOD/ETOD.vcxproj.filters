@@ -1427,6 +1427,7 @@
     </ClInclude>
     <ClInclude Include="src\ETOD\Scene\Scene.h" />
     <ClInclude Include="src\ETOD\Scene\Components.h" />
+    <ClInclude Include="src\ETOD\Scene\Entity.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">
@@ -1514,5 +1515,6 @@
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Scene\Scene.cpp" />
+    <ClCompile Include="src\ETOD\Scene\Entity.cpp" />
   </ItemGroup>
 </Project>
