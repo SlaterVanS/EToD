@@ -2,7 +2,7 @@
 
 #include <glm/glm.hpp>
 
-#include "ETOD/Renderer/Camera.h"
+#include "SceneCamera.h"
 
 namespace ETOD {
 
@@ -22,7 +22,7 @@ namespace ETOD {
 
 		TransformComponent() = default;
 		TransformComponent(const TransformComponent&) = default;
-		TransformComponent(const glm::mat4 & transform)
+		TransformComponent(const glm::mat4& transform)
 			: Transform(transform) {}
 
 		operator glm::mat4& () { return Transform; }
@@ -41,13 +41,12 @@ namespace ETOD {
 
 	struct CameraComponent
 	{
-		ETOD::Camera Camera;
+		SceneCamera Camera;
 		bool Primary = true;  // ETOD: think about moving to Scene
+		bool FixedAspectRatio = false;
 
 		CameraComponent() = default;
 		CameraComponent(const CameraComponent&) = default;
-		CameraComponent(const glm::mat4& projection)
-			: Camera(projection) {}
 	};
 
 }
