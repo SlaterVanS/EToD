@@ -17,6 +17,7 @@
 
 #include "ETOD/Scene/Scene.h"
 #include "ETOD/Scene/Entity.h"
+#include "ETOD/Scene/ScriptableEntity.h"
 #include "ETOD/Scene/Components.h"
 
 // ---Renderer-----------------------

@@ -145,7 +145,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\ETOD.h" />
-    <ClInclude Include="src\ETOD\Renderer\Camera.h" />
     <ClInclude Include="src\ETOD\Core\Application.h" />
     <ClInclude Include="src\ETOD\Core\Core.h" />
     <ClInclude Include="src\ETOD\Core\EntryPoint.h" />
@@ -165,6 +164,7 @@
     <ClInclude Include="src\ETOD\Events\MouseEvent.h" />
     <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\ETOD\Renderer\Buffer.h" />
+    <ClInclude Include="src\ETOD\Renderer\Camera.h" />
     <ClInclude Include="src\ETOD\Renderer\Framebuffer.h" />
     <ClInclude Include="src\ETOD\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h" />
@@ -180,6 +180,7 @@
     <ClInclude Include="src\ETOD\Scene\Entity.h" />
     <ClInclude Include="src\ETOD\Scene\Scene.h" />
     <ClInclude Include="src\ETOD\Scene\SceneCamera.h" />
+    <ClInclude Include="src\ETOD\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
