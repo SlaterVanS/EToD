@@ -39,7 +39,7 @@ The plan for EToD Engine is two-fold: to create a powerful 3D engine, but also t
 
 By the end 2022, we want to make a game using the EToD game engine. Not like the time I made a game in one hour using the engine, but this time by using the proper tools that would be required to make a game with EToD. This means we need to add a full 2D workflow:
 
-- Design the game scene by using EToD_Editor, the ToD editor,
+- Design the game scene by using EToD_Editor, the EToD editor,
 - Test the game inside EToD_Edito, including the ability to save/load the created game,
 - Load and play the game inside Sandbox.
 
