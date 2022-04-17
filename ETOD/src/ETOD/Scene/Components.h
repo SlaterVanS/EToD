@@ -43,7 +43,7 @@ namespace ETOD {
 	struct CameraComponent
 	{
 		SceneCamera Camera;
-		bool Primary = true;  // ETOD: think about moving to Scene
+		bool Primary = true; // TODO: think about moving to Scene
 		bool FixedAspectRatio = false;
 
 		CameraComponent() = default;

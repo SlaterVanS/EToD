@@ -12,12 +12,10 @@ namespace ETOD {
 
 	Scene::Scene()
 	{
-
 	}
 
 	Scene::~Scene()
 	{
-		
 	}
 
 	Entity Scene::CreateEntity(const std::string& name)
@@ -29,23 +27,22 @@ namespace ETOD {
 		return entity;
 	}
 
-	void Scene::OnUpdata(Timestep ts)
+	void Scene::OnUpdate(Timestep ts)
 	{
 		// Update scripts
 		{
 			m_Registry.view<NativeScriptComponent>().each([=](auto entity, auto& nsc)
-			{
-				// ETOD: Move to Scene::OnScenePlay
-				if (!nsc.Instance)
 				{
-					nsc.Instance = nsc.InstantiateScript();
-					nsc.Instance->m_Entity = Entity{ entity, this };
-					nsc.Instance->OnCreate();
-				}
+					// TODO: Move to Scene::OnScenePlay
+					if (!nsc.Instance)
+					{
+						nsc.Instance = nsc.InstantiateScript();
+						nsc.Instance->m_Entity = Entity{ entity, this };
+						nsc.Instance->OnCreate();
+					}
 
-				nsc.Instance->OnUpdate(ts);
-
-			});
+					nsc.Instance->OnUpdate(ts);
+				});
 		}
 
 		// Render 2D
@@ -71,7 +68,6 @@ namespace ETOD {
 			Renderer2D::BeginScene(mainCamera->GetProjection(), *cameraTransform);
 
 			auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
-
 			for (auto entity : group)
 			{
 				auto [transform, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
@@ -81,6 +77,7 @@ namespace ETOD {
 
 			Renderer2D::EndScene();
 		}
+
 	}
 
 	void Scene::OnViewportResize(uint32_t width, uint32_t height)
@@ -88,16 +85,15 @@ namespace ETOD {
 		m_ViewportWidth = width;
 		m_ViewportHeight = height;
 
-
 		// Resize our non-FixedAspectRatio cameras
 		auto view = m_Registry.view<CameraComponent>();
 		for (auto entity : view)
 		{
 			auto& cameraComponent = view.get<CameraComponent>(entity);
 			if (!cameraComponent.FixedAspectRatio)
-			{
 				cameraComponent.Camera.SetViewportSize(width, height);
-			}
 		}
+
 	}
+
 }

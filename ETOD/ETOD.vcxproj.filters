@@ -123,6 +123,9 @@
     <ClInclude Include="src\ETOD\Renderer\Camera.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\EditorCamera.h">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\Framebuffer.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
@@ -1467,6 +1470,9 @@
       <Filter>src\ETOD\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\EditorCamera.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp">

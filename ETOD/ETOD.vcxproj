@@ -165,6 +165,7 @@
     <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\ETOD\Renderer\Buffer.h" />
     <ClInclude Include="src\ETOD\Renderer\Camera.h" />
+    <ClInclude Include="src\ETOD\Renderer\EditorCamera.h" />
     <ClInclude Include="src\ETOD\Renderer\Framebuffer.h" />
     <ClInclude Include="src\ETOD\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h" />
@@ -615,6 +616,7 @@
     <ClCompile Include="src\ETOD\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\ETOD\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\ETOD\Renderer\EditorCamera.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\ETOD\Renderer\OrthographicCameraController.cpp" />
@@ -656,4 +658,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 
