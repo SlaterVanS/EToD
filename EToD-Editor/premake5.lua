@@ -19,7 +19,8 @@ project "EToD-Editor"
 		"%{wks.location}/ETOD/src",
 		"%{wks.location}/ETOD/vendor",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.entt}"
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
