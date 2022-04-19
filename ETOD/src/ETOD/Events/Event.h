@@ -1,7 +1,7 @@
 #pragma once
 
 #include "etodpch.h"
-#include "ETOD/Core/Core.h"
+#include "ETOD/Core/Base.h"
 
 namespace ETOD {
 
@@ -35,7 +35,7 @@ namespace ETOD {
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class ETOD_API Event
+	class Event
 	{
 		friend class EventDispatcher;
 	public:

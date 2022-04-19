@@ -21,7 +21,7 @@ namespace ETOD {
 
 	void SceneHierarchyPanel::OnImGuiRender()
 	{
-		ImGui::Begin("Scene Hierarchy");
+		ImGui::Begin(" Scene Hierarchy ");
 
 		m_Context->m_Registry.each([&](auto entityID)
 			{
@@ -45,7 +45,7 @@ namespace ETOD {
 
 		ImGui::End();
 
-		ImGui::Begin("Properties");
+		ImGui::Begin(" Properties ");
 		if (m_SelectionContext)
 		{
 			DrawComponents(m_SelectionContext);

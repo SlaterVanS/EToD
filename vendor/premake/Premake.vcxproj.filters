@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="..">
+      <UniqueIdentifier>{61705900-4DFC-870B-B6AA-880BA255880B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\ETOD">
+      <UniqueIdentifier>{9C9A7D47-087A-FCE2-1192-87B97DF06244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\ETOD\vendor">
+      <UniqueIdentifier>{79A99D27-6577-912D-4E0B-02543A786D92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\ETOD\vendor\GLFW">
+      <UniqueIdentifier>{58384AC7-C499-27D5-4D07-6E87B9675E94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\ETOD\vendor\Glad">
+      <UniqueIdentifier>{00C44AC7-6C25-28D5-F592-6E8761F35E94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\ETOD\vendor\imgui">
+      <UniqueIdentifier>{A32D0BB3-8FBC-947C-38DB-A8772449A522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\ETOD\vendor\yaml-cpp">
+      <UniqueIdentifier>{4BC8D029-B7FF-18C1-C009-7DE42CC03FBA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\EToD-Editor">
+      <UniqueIdentifier>{F0F6D5AA-DCC4-C9B0-C558-3AD7B1C5A515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\Sandbox">
+      <UniqueIdentifier>{3F7B6B1D-2B33-AD6A-943A-86C68011485B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\ETOD\premake5.lua">
+      <Filter>..\ETOD</Filter>
+    </None>
+    <None Include="..\..\ETOD\vendor\GLFW\premake5.lua">
+      <Filter>..\ETOD\vendor\GLFW</Filter>
+    </None>
+    <None Include="..\..\ETOD\vendor\Glad\premake5.lua">
+      <Filter>..\ETOD\vendor\Glad</Filter>
+    </None>
+    <None Include="..\..\ETOD\vendor\imgui\premake5.lua">
+      <Filter>..\ETOD\vendor\imgui</Filter>
+    </None>
+    <None Include="..\..\ETOD\vendor\yaml-cpp\premake5.lua">
+      <Filter>..\ETOD\vendor\yaml-cpp</Filter>
+    </None>
+    <None Include="..\..\EToD-Editor\premake5.lua">
+      <Filter>..\EToD-Editor</Filter>
+    </None>
+    <None Include="..\..\Sandbox\premake5.lua">
+      <Filter>..\Sandbox</Filter>
+    </None>
+    <None Include="..\..\premake5.lua">
+      <Filter>..</Filter>
+    </None>
+    <None Include="premake5.lua" />
+  </ItemGroup>
+</Project>

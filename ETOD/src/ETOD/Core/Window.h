@@ -2,7 +2,7 @@
 
 #include "etodpch.h"
 
-#include "ETOD/Core/Core.h"
+#include "ETOD/Core/Base.h"
 #include "ETOD/Events/Event.h"
 
 namespace ETOD {
@@ -23,7 +23,7 @@ namespace ETOD {
 	};
 
 	// Interface representing a desktop system based Window
-	class ETOD_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;

@@ -1,13 +1,13 @@
 #pragma once
 
-#include "ETOD/Core/Core.h"
+#include "ETOD/Core/Base.h"
 #include "Layer.h"
 
 #include <vector>
 
 namespace ETOD {
 
-	class ETOD_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

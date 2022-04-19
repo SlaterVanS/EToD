@@ -66,6 +66,12 @@
     <ClInclude Include="src\ETOD\Core\Application.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Core\Assert.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\Base.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Core\Core.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
@@ -91,6 +97,9 @@
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Core\MouseCodes.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\PlatformDetection.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Core\Timestep.h">
@@ -169,6 +178,9 @@
       <Filter>src\ETOD\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Scene\SceneCamera.h">
+      <Filter>src\ETOD\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Scene\SceneSerializer.h">
       <Filter>src\ETOD\Scene</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Scene\ScriptableEntity.h">
@@ -1512,6 +1524,9 @@
       <Filter>src\ETOD\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Scene\SceneCamera.cpp">
+      <Filter>src\ETOD\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Scene\SceneSerializer.cpp">
       <Filter>src\ETOD\Scene</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">

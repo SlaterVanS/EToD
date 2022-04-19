@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ETOD/Core/Core.h"
+#include "ETOD/Core/Base.h"
 #include "ETOD/Core/Log.h"
 #include "ETOD/Scene/Scene.h"
 

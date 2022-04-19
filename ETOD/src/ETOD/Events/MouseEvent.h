@@ -5,7 +5,7 @@
 
 namespace ETOD {
 
-	class ETOD_API MouseMovedEvent : public Event
+	class MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -27,7 +27,7 @@ namespace ETOD {
 		float m_MouseX, m_MouseY;                   //ww.cpp      146/147
 	};
 
-	class ETOD_API MouseScrolledEvent : public Event
+	class MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset)
@@ -49,7 +49,7 @@ namespace ETOD {
 		float m_XOffset, m_YOffset;
 	};
 
-	class ETOD_API MouseButtonEvent : public Event
+	class MouseButtonEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -62,7 +62,7 @@ namespace ETOD {
 		int m_Button;
 	};
 
-	class ETOD_API MouseButtonPressedEvent : public MouseButtonEvent
+	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -78,7 +78,7 @@ namespace ETOD {
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class ETOD_API MouseButtonReleasedEvent : public MouseButtonEvent
+	class MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)
