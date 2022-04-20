@@ -6,6 +6,8 @@
 
 #include "Camera.h"
 
+#include "ETOD/Renderer/EditorCamera.h"
+
 namespace ETOD {
 
 	class Renderer2D
@@ -15,6 +17,7 @@ namespace ETOD {
 		static void Shutdown();
 
 		static void BeginScene(const Camera& camera, const glm::mat4& transform);
+		static void BeginScene(const EditorCamera& camera);
 		static void BeginScene(const OrthographicCamera& camera); // ETOD: Remove
 		static void EndScene();
 		static void Flush();
