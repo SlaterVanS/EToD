@@ -27,6 +27,7 @@ namespace ETOD {
         m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
 
         FramebufferSpecification fbSpec;
+        fbSpec.Attachments = { FramebufferTextureFormat::RGBA8, FramebufferTextureFormat::RGBA8, FramebufferTextureFormat::Depth };
         fbSpec.Width = 1280;
         fbSpec.Height = 720;
         m_Framebuffer = Framebuffer::Create(fbSpec);
@@ -201,27 +202,27 @@ namespace ETOD {
         
         if (ImGui::BeginMenuBar())
         {
-            if (ImGui::BeginMenu("File"))
+            if (ImGui::BeginMenu(" File ")) //File
             {
                 // Disabling fullscreen would allow the window to be moved to the front of other windows,
                 // which we can't undo at the moment without finer window depth/z control.
                 
-                if (ImGui::MenuItem("New", "Ctrl+N"))
+                if (ImGui::MenuItem("New", " Ctrl+N ")) // New
                 {
                     NewScene();
                 }
 
-                if (ImGui::MenuItem("Open...", "Ctrl+O"))
+                if (ImGui::MenuItem("Open...", " Ctrl+O ")) // Open...
                 {
                     OpenScene();
                 }
 
-                if (ImGui::MenuItem("Save As...", "Ctrl+Shift+S"))
+                if (ImGui::MenuItem("Save As...", " Ctrl+Shift+S ")) // Save As...
                 {
                     SaveSceneAs();
                 }
 
-                if (ImGui::MenuItem("Exit")) Application::Get().Close();
+                if (ImGui::MenuItem("Exit")) Application::Get().Close(); // Exit
                 ImGui::EndMenu();
             }
         
@@ -231,7 +232,7 @@ namespace ETOD {
         m_SceneHierarchyPanel.OnImGuiRender();
 
         // Settings
-        ImGui::Begin(" Stats "); 
+        ImGui::Begin(" Stats ");  // Stats
         
         auto stats = Renderer2D::GetStats();
         ImGui::Text("Renderer2D Stats:");
@@ -243,7 +244,7 @@ namespace ETOD {
         ImGui::End();
         
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
-        ImGui::Begin(" Viewport ");
+        ImGui::Begin(" Viewport "); // Viewport
  
         m_ViewportFocused = ImGui::IsWindowFocused();
         m_ViewportHovered = ImGui::IsWindowHovered();
@@ -253,7 +254,7 @@ namespace ETOD {
         ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
         m_ViewportSize = { viewportPanelSize.x,viewportPanelSize.y };
 
-        uint32_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
+        uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
         ImGui::Image((void*)textureID, ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0 , 1 }, ImVec2{ 1 , 0 });
 
         // Gizmos

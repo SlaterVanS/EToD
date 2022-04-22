@@ -1,8 +1,7 @@
 // Basic Texture Shader
 
 #type vertex
-
-#version 330 core
+#version 450 core
 
 layout(location = 0) in vec3 a_Position;
 layout(location = 1) in vec4 a_Color;
@@ -27,9 +26,10 @@ void main()
 }
 
 #type fragment
-#version 330 core
+#version 450 core
 
 layout(location = 0) out vec4 color;
+layout(location = 1) out vec4 color2;
 
 in vec4 v_Color;
 in vec2 v_TexCoord;
@@ -42,4 +42,6 @@ void main()
 {
 	// EToD: u_TilingFactor
 	color = texture(u_Texture[int(v_TexIndex)], v_TexCoord * v_TilingFactor) * v_Color;
+
+	color2 = vec4( 0.9, 0.2, 0.3, 1.0 );
 }
