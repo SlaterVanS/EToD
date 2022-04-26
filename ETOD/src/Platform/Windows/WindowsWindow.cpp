@@ -42,7 +42,7 @@ namespace ETOD {
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
-		ETOD_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
+		ETOD_CORE_INFO("´´½¨´°¿Ú {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (s_GLFWWindowCount == 0)
 		{
