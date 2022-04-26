@@ -19,6 +19,9 @@
     <Filter Include="src\ETOD\ImGui">
       <UniqueIdentifier>{12F8338A-FEC5-2790-E759-98B6D3C603F5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ETOD\Math">
+      <UniqueIdentifier>{C12A5180-2DEB-CCB6-F625-163462A51193}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ETOD\Renderer">
       <UniqueIdentifier>{8EBD9E09-FAD3-9C9F-434B-28C1AFA06D27}</UniqueIdentifier>
     </Filter>
@@ -78,9 +81,6 @@
     <ClInclude Include="src\ETOD\Core\Base.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Core\Core.h">
-      <Filter>src\ETOD\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\ETOD\Core\EntryPoint.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
@@ -97,9 +97,6 @@
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Core\Log.h">
-      <Filter>src\ETOD\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ETOD\Core\MouseButtonCodes.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Core\MouseCodes.h">
@@ -131,6 +128,9 @@
     </ClInclude>
     <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h">
       <Filter>src\ETOD\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Math\Math.h">
+      <Filter>src\ETOD\Math</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\Buffer.h">
       <Filter>src\ETOD\Renderer</Filter>
@@ -1473,7 +1473,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\ETOD\Math\Math.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">
@@ -1494,6 +1493,9 @@
     <ClCompile Include="src\ETOD\ImGui\ImGuiLayer.cpp">
       <Filter>src\ETOD\ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\Math\Math.cpp">
+      <Filter>src\ETOD\Math</Filter>
+    </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
@@ -1501,6 +1503,9 @@
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\GraphicsContext.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp">
@@ -1581,6 +1586,6 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\ETOD\Math\Math.cpp" />
+    <ClCompile Include="src\ETOD\Core\Window.cpp" />
   </ItemGroup>
 </Project>

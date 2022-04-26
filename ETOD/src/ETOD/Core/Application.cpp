@@ -1,17 +1,15 @@
 #include "etodpch.h"
-#include "Application.h"
+#include "ETOD/Core/Application.h"
 
-#include "Log.h"
+#include "ETOD/Core/Log.h"
 
 #include "ETOD/Renderer/Renderer.h"
 
-#include "Input.h"
+#include "ETOD/Core/Input.h"
 
 #include <GLFW/glfw3.h>
 
 namespace ETOD {
-
-#define BIND_EVEBT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 	Application* Application::s_Instance = nullptr;
 
@@ -19,11 +17,10 @@ namespace ETOD {
 	{
 		ETOD_PROFILE_FUNCTION();
 
-		ETOD_CORE_ASSERT(!s_Instance, " 应用程序已经存在！"); // Application already exists!
+		ETOD_CORE_ASSERT(!s_Instance, "Application already exists!");
 		s_Instance = this;
-
-		m_Window = std::unique_ptr<Window>(Window::Create(WindowProps(name)));
-		m_Window->SetEventCallback(BIND_EVEBT_FN(OnEvent));
+		m_Window = Window::Create(WindowProps(name));
+		m_Window->SetEventCallback(ETOD_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
 
@@ -34,6 +31,8 @@ namespace ETOD {
 	Application::~Application()
 	{
 		ETOD_PROFILE_FUNCTION();
+
+		Renderer::Shutdown();
 	}
 
 	void Application::PushLayer(Layer* layer)
@@ -62,17 +61,14 @@ namespace ETOD {
 		ETOD_PROFILE_FUNCTION();
 
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVEBT_FN(OnWindowClose));
+		dispatcher.Dispatch<WindowCloseEvent>(ETOD_BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<WindowResizeEvent>(ETOD_BIND_EVENT_FN(Application::OnWindowResize));
 
-		//ETOD_CORE_TRACE("{0}", e); // Log information
-
-		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVEBT_FN(OnWindowResize));
-
-		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+		for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
 		{
-			(*--it)->OnEvent(e);
 			if (e.Handled)
 				break;
+			(*it)->OnEvent(e);
 		}
 	}
 
@@ -84,7 +80,7 @@ namespace ETOD {
 		{
 			ETOD_PROFILE_SCOPE("RunLoop");
 
-			double time = (float)glfwGetTime(); //Platform::GetTime
+			float time = (float)glfwGetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
@@ -105,13 +101,11 @@ namespace ETOD {
 						layer->OnImGuiRender();
 				}
 				m_ImGuiLayer->End();
-
 			}
 
 			m_Window->OnUpdate();
 		}
 	}
-
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
@@ -134,4 +128,5 @@ namespace ETOD {
 
 		return false;
 	}
+
 }

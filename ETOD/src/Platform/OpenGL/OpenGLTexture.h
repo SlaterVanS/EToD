@@ -21,7 +21,7 @@ namespace ETOD {
 
 		virtual void Bind(uint32_t slot = 0) const override;
 
-		virtual bool operator==(const Texture& other) const override 
+		virtual bool operator==(const Texture& other) const override
 		{
 			return m_RendererID == ((OpenGLTexture2D&)other).m_RendererID;
 		}
@@ -31,4 +31,5 @@ namespace ETOD {
 		uint32_t m_RendererID;
 		GLenum m_InternalFormat, m_DataFormat;
 	};
+
 }

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "ETOD/Renderer/EditorCamera.h"
 #include "ETOD/Core/Timestep.h"
+#include "ETOD/Renderer/EditorCamera.h"
 
 #include "entt.hpp"
 
@@ -16,7 +16,7 @@ namespace ETOD {
 		~Scene();
 
 		Entity CreateEntity(const std::string& name = std::string());
-		void DestoryEntity(Entity entity);
+		void DestroyEntity(Entity entity);
 
 		void OnUpdateRuntime(Timestep ts);
 		void OnUpdateEditor(Timestep ts, EditorCamera& camera);

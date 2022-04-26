@@ -1,16 +1,11 @@
 #include "etodpch.h"
-#include "Layer.h"
+#include "ETOD/Core/Layer.h"
 
 namespace ETOD {
 
 	Layer::Layer(const std::string& debugName)
 		: m_DebugName(debugName)
 	{
-
 	}
 
-	Layer::~Layer()
-	{
-
-	}
 }

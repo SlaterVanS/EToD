@@ -46,4 +46,5 @@ namespace ETOD {
 
 		float m_AspectRatio = 0.0f;
 	};
+
 }

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Base.h"
+#include "ETOD/Core/Base.h"
 
-#include "Window.h"
+#include "ETOD/Core/Window.h"
 #include "ETOD/Core/LayerStack.h"
 #include "ETOD/Events/Event.h"
 #include "ETOD/Events/ApplicationEvent.h"
@@ -10,6 +10,8 @@
 #include "ETOD/Core/Timestep.h"
 
 #include "ETOD/ImGui/ImGuiLayer.h"
+
+int main(int argc, char** argv);
 
 namespace ETOD {
 
@@ -19,25 +21,24 @@ namespace ETOD {
 		Application(const std::string& name = "EToD App -Powered by SlaterVanS Studio.");
 		virtual ~Application();
 
-		void Run();
-
 		void OnEvent(Event& e);
 
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
-		inline Window& GetWindow() { return *m_Window; }
+		Window& GetWindow() { return *m_Window; }
 
 		void Close();
 
 		ImGuiLayer* GetImGuiLayer() { return m_ImGuiLayer; }
 
-		inline static Application& Get() { return *s_Instance; }
+		static Application& Get() { return *s_Instance; }
 	private:
+		void Run();
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
 	private:
-		std::unique_ptr<Window> m_Window;
+		Scope<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		bool m_Minimized = false;
@@ -45,11 +46,10 @@ namespace ETOD {
 		float m_LastFrameTime = 0.0f;
 	private:
 		static Application* s_Instance;
+		friend int ::main(int argc, char** argv);
 	};
 
-
-	//To be define in CLIENT
+	// To be defined in CLIENT
 	Application* CreateApplication();
 
 }
-
