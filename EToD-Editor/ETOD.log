@@ -1,13 +1,13 @@
-[22:19:25] [warning] ETOD: 初始化日志系统! 
-[22:19:25] [info] APP:  EToD Engine 开发者你好! 
-[22:19:25] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio.  (1600, 900)
-[22:19:26] [info] ETOD: OpenGL 渲染信息: 
-[22:19:26] [info] ETOD: 厂商: Intel
-[22:19:26] [info] ETOD: 型号: Intel(R) UHD Graphics 630
-[22:19:26] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
-[22:19:30] [trace] ETOD: Deserializing scene 'Untitled'
-[22:19:30] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Left
-[22:19:30] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Right
-[22:19:30] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera
-[22:19:30] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Top
-[22:19:30] [error] ETOD: API_ID_RECOMPILE_FRAGMENT_SHADER performance warning has been generated. Fragment shader recompiled due to state change.
+[19:32:25] [warning] ETOD: 初始化日志系统! 
+[19:32:25] [info] APP:  EToD Engine 开发者你好! 
+[19:32:25] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio.  (1600, 900)
+[19:32:26] [info] ETOD: OpenGL 渲染信息: 
+[19:32:26] [info] ETOD: 厂商: Intel
+[19:32:26] [info] ETOD: 型号: Intel(R) UHD Graphics 630
+[19:32:26] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
+[19:32:31] [trace] ETOD: Deserializing scene 'Untitled'
+[19:32:31] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Left
+[19:32:31] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Right
+[19:32:31] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera
+[19:32:31] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Top
+[19:32:31] [error] ETOD: API_ID_RECOMPILE_FRAGMENT_SHADER performance warning has been generated. Fragment shader recompiled due to state change.

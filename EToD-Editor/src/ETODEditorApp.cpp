@@ -7,8 +7,8 @@ namespace ETOD {
 	class ETODEditor : public Application
 	{
 	public:
-		ETODEditor()
-			: Application("EToD Editor -Powered by SlaterVanS Studio. ")
+		ETODEditor(ApplicationCommandLineArgs args)
+			: Application("EToD Editor -Powered by SlaterVanS Studio. ", args)
 		{
 			PushLayer(new EditorLayer());
 		}
@@ -20,8 +20,8 @@ namespace ETOD {
 
 	};
 
-	Application* CreateApplication()
+	Application* CreateApplication(ApplicationCommandLineArgs args)
 	{
-		return new ETODEditor();
+		return new ETODEditor(args);
 	}
 }
