@@ -105,6 +105,9 @@
     <ClInclude Include="src\ETOD\Core\PlatformDetection.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Core\Timer.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Core\Timestep.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
@@ -171,6 +174,9 @@
     <ClInclude Include="src\ETOD\Renderer\Texture.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\UniformBuffer.h">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\VertexArray.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
@@ -211,6 +217,9 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
@@ -1487,6 +1496,9 @@
     <ClCompile Include="src\ETOD\Core\Log.cpp">
       <Filter>src\ETOD\Core</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\Core\Window.cpp">
+      <Filter>src\ETOD\Core</Filter>
+    </ClCompile>
     <ClCompile Include="src\ETOD\ImGui\ImGuiBuild.cpp">
       <Filter>src\ETOD\ImGui</Filter>
     </ClCompile>
@@ -1532,6 +1544,9 @@
     <ClCompile Include="src\ETOD\Renderer\Texture.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\UniformBuffer.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\VertexArray.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
@@ -1565,6 +1580,9 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1586,6 +1604,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\ETOD\Core\Window.cpp" />
   </ItemGroup>
 </Project>

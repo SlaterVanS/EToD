@@ -1,13 +1,20 @@
-[22:19:25] [warning] ETOD: 初始化日志系统! 
-[22:19:25] [info] APP:  EToD Engine 开发者你好! 
-[22:19:25] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio.  (1600, 900)
-[22:19:26] [info] ETOD: OpenGL 渲染信息: 
-[22:19:26] [info] ETOD: 厂商: Intel
-[22:19:26] [info] ETOD: 型号: Intel(R) UHD Graphics 630
-[22:19:26] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
-[22:19:30] [trace] ETOD: Deserializing scene 'Untitled'
-[22:19:30] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Left
-[22:19:30] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Right
-[22:19:30] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera
-[22:19:30] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Top
-[22:19:30] [error] ETOD: API_ID_RECOMPILE_FRAGMENT_SHADER performance warning has been generated. Fragment shader recompiled due to state change.
+[17:40:02] [warning] ETOD: 初始化日志系统! 
+[17:40:02] [info] APP:  EToD Engine 开发者你好! 
+[17:40:02] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
+[17:40:02] [info] ETOD: OpenGL 渲染信息: 
+[17:40:02] [info] ETOD: 厂商: Intel
+[17:40:02] [info] ETOD: 型号: Intel(R) UHD Graphics 630
+[17:40:02] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
+[17:40:02] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
+[17:40:02] [trace] ETOD:     1 uniform buffers
+[17:40:02] [trace] ETOD:     0 resources
+[17:40:02] [trace] ETOD: Uniform buffers:
+[17:40:02] [trace] ETOD:   _47_49
+[17:40:02] [trace] ETOD:     Size = 64
+[17:40:02] [trace] ETOD:     Binding = 0
+[17:40:02] [trace] ETOD:     Members = 1
+[17:40:02] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
+[17:40:02] [trace] ETOD:     0 uniform buffers
+[17:40:02] [trace] ETOD:     1 resources
+[17:40:02] [trace] ETOD: Uniform buffers:
+[17:40:02] [warning] ETOD: Shader creation took 56.2339 ms
