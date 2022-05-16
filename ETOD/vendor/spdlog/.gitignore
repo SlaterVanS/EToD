@@ -1,6 +1,4 @@
 # Auto generated files
-[Dd]ebug/
-[Rr]elease/
 build/*
 *.slo
 *.lo
@@ -36,9 +34,6 @@ build/*
 # Codelite
 .codelite
 
-# KDevelop
-*.kdev4
-
 # .orig files
 *.orig
 
@@ -51,13 +46,11 @@ example/*
 !example/example.sln
 !example/example.vcxproj
 !example/CMakeLists.txt
-!example/meson.build
 !example/multisink.cpp
 !example/jni
 
 # generated files
 generated
-version.rc
 
 # Cmake
 CMakeCache.txt
@@ -70,23 +63,6 @@ install_manifest.txt
 /tests/tests.VC.db
 /tests/tests
 /tests/logs/*
-spdlogConfig.cmake
-spdlogConfigVersion.cmake
 
 # idea
 .idea/
-cmake-build-*/
-*.db
-*.ipch
-*.filters
-*.db-wal
-*.opendb
-*.db-shm
-*.vcxproj
-*.tcl
-*.user
-*.sln
-
-# macos
-*.DS_store
-*.xcodeproj/
