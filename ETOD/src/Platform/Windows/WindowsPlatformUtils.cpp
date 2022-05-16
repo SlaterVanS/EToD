@@ -10,7 +10,7 @@
 
 namespace ETOD {
 
-	std::string FileDialogs::OpenFile(const char* filter)
+	std::optional<std::string> FileDialogs::OpenFile(const char* filter)
 	{
 		OPENFILENAMEA ofn;
 		CHAR szFile[260] = { 0 };
@@ -28,12 +28,16 @@ namespace ETOD {
 
 		if (GetOpenFileNameA(&ofn) == TRUE)
 			return ofn.lpstrFile;
+<<<<<<< HEAD
 
 		return std::string();
 
+=======
+		return std::nullopt;
+>>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 	}
 
-	std::string FileDialogs::SaveFile(const char* filter)
+	std::optional<std::string> FileDialogs::SaveFile(const char* filter)
 	{
 		OPENFILENAMEA ofn;
 		CHAR szFile[260] = { 0 };
@@ -54,8 +58,7 @@ namespace ETOD {
 
 		if (GetSaveFileNameA(&ofn) == TRUE)
 			return ofn.lpstrFile;
-
-		return std::string();
+		return std::nullopt;
 	}
 
 }
