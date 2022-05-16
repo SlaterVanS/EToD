@@ -3,10 +3,7 @@
 
 #include "ETOD/Renderer/VertexArray.h"
 #include "ETOD/Renderer/Shader.h"
-<<<<<<< HEAD
 #include "ETOD/Renderer/UniformBuffer.h"
-=======
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 #include "ETOD/Renderer/RenderCommand.h"
 
 #include <glm/gtc/matrix_transform.hpp>
@@ -107,11 +104,6 @@ namespace ETOD {
 			samplers[i] = i;
 
 		s_Data.TextureShader = Shader::Create("assets/shaders/Texture.glsl");
-<<<<<<< HEAD
-=======
-		s_Data.TextureShader->Bind();
-		s_Data.TextureShader->SetIntArray("u_Textures", samplers, s_Data.MaxTextureSlots);
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 
 		// Set first texture slot to 0
 		s_Data.TextureSlots[0] = s_Data.WhiteTexture;
@@ -127,7 +119,6 @@ namespace ETOD {
 	void Renderer2D::Shutdown()
 	{
 		ETOD_PROFILE_FUNCTION();
-<<<<<<< HEAD
 
 		delete[] s_Data.QuadVertexBufferBase;
 	}
@@ -142,35 +133,12 @@ namespace ETOD {
 		StartBatch();
 	}
 
-=======
-
-		delete[] s_Data.QuadVertexBufferBase;
-	}
-
-	void Renderer2D::BeginScene(const OrthographicCamera& camera)
-	{
-		ETOD_PROFILE_FUNCTION();
-
-		s_Data.TextureShader->Bind();
-		s_Data.TextureShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
-
-		StartBatch();
-	}
-
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 	void Renderer2D::BeginScene(const Camera& camera, const glm::mat4& transform)
 	{
 		ETOD_PROFILE_FUNCTION();
 
-<<<<<<< HEAD
 		s_Data.CameraBuffer.ViewProjection = camera.GetProjection() * glm::inverse(transform);
 		s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(Renderer2DData::CameraData));
-=======
-		glm::mat4 viewProj = camera.GetProjection() * glm::inverse(transform);
-
-		s_Data.TextureShader->Bind();
-		s_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 
 		StartBatch();
 	}
@@ -179,15 +147,8 @@ namespace ETOD {
 	{
 		ETOD_PROFILE_FUNCTION();
 
-<<<<<<< HEAD
 		s_Data.CameraBuffer.ViewProjection = camera.GetViewProjection();
 		s_Data.CameraUniformBuffer->SetData(&s_Data.CameraBuffer, sizeof(Renderer2DData::CameraData));
-=======
-		glm::mat4 viewProj = camera.GetViewProjection();
-
-		s_Data.TextureShader->Bind();
-		s_Data.TextureShader->SetMat4("u_ViewProjection", viewProj);
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 
 		StartBatch();
 	}
@@ -219,10 +180,7 @@ namespace ETOD {
 		for (uint32_t i = 0; i < s_Data.TextureSlotIndex; i++)
 			s_Data.TextureSlots[i]->Bind(i);
 
-<<<<<<< HEAD
 		s_Data.TextureShader->Bind();
-=======
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 		RenderCommand::DrawIndexed(s_Data.QuadVertexArray, s_Data.QuadIndexCount);
 		s_Data.Stats.DrawCalls++;
 	}

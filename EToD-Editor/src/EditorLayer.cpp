@@ -412,47 +412,26 @@ namespace ETOD {
 
 	void EditorLayer::OpenScene()
 	{
-<<<<<<< HEAD
 		std::string filepath = FileDialogs::OpenFile("ETOD Scene (*.etod)\0*.etod\0");
 		if (!filepath.empty())
-=======
-		std::optional<std::string> filepath = FileDialogs::OpenFile("ETOD Scene (*.etod)\0*.etod\0");
-		if (filepath)
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 		{
 			m_ActiveScene = CreateRef<Scene>();
 			m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 			m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 
 			SceneSerializer serializer(m_ActiveScene);
-<<<<<<< HEAD
 			serializer.Deserialize(filepath);
-=======
-			serializer.Deserialize(*filepath);
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 		}
 	}
 
 	void EditorLayer::SaveSceneAs()
 	{
-<<<<<<< HEAD
 		std::string filepath = FileDialogs::SaveFile("ETOD Scene (*.etod)\0*.etod\0");
 		if (!filepath.empty())
 		{
 			SceneSerializer serializer(m_ActiveScene);
 			serializer.Serialize(filepath);
-=======
-		std::optional<std::string> filepath = FileDialogs::SaveFile("ETOD Scene (*.etod)\0*.etod\0");
-		if (filepath)
-		{
-			SceneSerializer serializer(m_ActiveScene);
-			serializer.Serialize(*filepath);
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 		}
 	}
 
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141

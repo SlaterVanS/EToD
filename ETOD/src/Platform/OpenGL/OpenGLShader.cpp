@@ -14,7 +14,6 @@
 
 namespace ETOD {
 
-<<<<<<< HEAD
 	namespace Utils {
 
 		static GLenum ShaderTypeFromString(const std::string& type)
@@ -86,17 +85,6 @@ namespace ETOD {
 		}
 
 
-=======
-	static GLenum ShaderTypeFromString(const std::string& type)
-	{
-		if (type == "vertex")
-			return GL_VERTEX_SHADER;
-		if (type == "fragment" || type == "pixel")
-			return GL_FRAGMENT_SHADER;
-
-		ETOD_CORE_ASSERT(false, "Unknown shader type!");
-		return 0;
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 	}
 
 	OpenGLShader::OpenGLShader(const std::string& filepath)
@@ -196,11 +184,7 @@ namespace ETOD {
 			ETOD_CORE_ASSERT(nextLinePos != std::string::npos, "Syntax error");
 			pos = source.find(typeToken, nextLinePos); //Start of next shader type declaration line
 
-<<<<<<< HEAD
 			shaderSources[Utils::ShaderTypeFromString(type)] = (pos == std::string::npos) ? source.substr(nextLinePos) : source.substr(nextLinePos, pos - nextLinePos);
-=======
-			shaderSources[ShaderTypeFromString(type)] = (pos == std::string::npos) ? source.substr(nextLinePos) : source.substr(nextLinePos, pos - nextLinePos);
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 		}
 
 		return shaderSources;
@@ -209,7 +193,6 @@ namespace ETOD {
 	void OpenGLShader::CompileOrGetVulkanBinaries(const std::unordered_map<GLenum, std::string>& shaderSources)
 	{
 		GLuint program = glCreateProgram();
-<<<<<<< HEAD
 
 		shaderc::Compiler compiler;
 		shaderc::CompileOptions options;
@@ -223,12 +206,6 @@ namespace ETOD {
 		auto& shaderData = m_VulkanSPIRV;
 		shaderData.clear();
 		for (auto&& [stage, source] : shaderSources)
-=======
-		ETOD_CORE_ASSERT(shaderSources.size() <= 2, "We only support 2 shaders for now");
-		std::array<GLenum, 2> glShaderIDs;
-		int glShaderIDIndex = 0;
-		for (auto& kv : shaderSources)
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 		{
 			std::filesystem::path shaderFilePath = m_FilePath;
 			std::filesystem::path cachedPath = cacheDirectory / (shaderFilePath.filename().string() + Utils::GLShaderStageCachedVulkanFileExtension(stage));
@@ -240,7 +217,6 @@ namespace ETOD {
 				auto size = in.tellg();
 				in.seekg(0, std::ios::beg);
 
-<<<<<<< HEAD
 				auto& data = shaderData[stage];
 				data.resize(size / sizeof(uint32_t));
 				in.read((char*)data.data(), size);
@@ -346,30 +322,6 @@ namespace ETOD {
 
 		GLint isLinked;
 		glGetProgramiv(program, GL_LINK_STATUS, &isLinked);
-=======
-				std::vector<GLchar> infoLog(maxLength);
-				glGetShaderInfoLog(shader, maxLength, &maxLength, &infoLog[0]);
-
-				glDeleteShader(shader);
-
-				ETOD_CORE_ERROR("{0}", infoLog.data());
-				ETOD_CORE_ASSERT(false, "Shader compilation failure!");
-				break;
-			}
-
-			glAttachShader(program, shader);
-			glShaderIDs[glShaderIDIndex++] = shader;
-		}
-
-		m_RendererID = program;
-
-		// Link our program
-		glLinkProgram(program);
-
-		// Note the different functions here: glGetProgram* instead of glGetShader*.
-		GLint isLinked = 0;
-		glGetProgramiv(program, GL_LINK_STATUS, (int*)&isLinked);
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 		if (isLinked == GL_FALSE)
 		{
 			GLint maxLength;
@@ -381,28 +333,15 @@ namespace ETOD {
 
 			glDeleteProgram(program);
 
-<<<<<<< HEAD
 			for (auto id : shaderIDs)
 				glDeleteShader(id);
 		}
 
 		for (auto id : shaderIDs)
-=======
-			for (auto id : glShaderIDs)
-				glDeleteShader(id);
-
-			ETOD_CORE_ERROR("{0}", infoLog.data());
-			ETOD_CORE_ASSERT(false, "Shader link failure!");
-			return;
-		}
-
-		for (auto id : glShaderIDs)
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 		{
 			glDetachShader(program, id);
 			glDeleteShader(id);
 		}
-<<<<<<< HEAD
 
 		m_RendererID = program;
 	}
@@ -429,8 +368,6 @@ namespace ETOD {
 			ETOD_CORE_TRACE("    Binding = {0}", binding);
 			ETOD_CORE_TRACE("    Members = {0}", memberCount);
 		}
-=======
->>>>>>> c8d7e32c9608f05a2d6091a29a2123ccf7efd141
 	}
 
 	void OpenGLShader::Bind() const
