@@ -2,6 +2,7 @@
 
 #include "ETOD.h"
 #include "Panels/SceneHierarchyPanel.h"
+#include "Panels/ContentBrowserPanel.h"
 
 #include "ETOD/Renderer/EditorCamera.h"
 
@@ -57,6 +58,7 @@ namespace ETOD {
 
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
+		ContentBrowserPanel m_ContentBrowserPanel;
 	};
 
 }

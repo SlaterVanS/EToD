@@ -37,10 +37,10 @@ namespace ETOD {
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
 		auto fonts = ImGui::GetIO().Fonts;
-		io.Fonts->AddFontFromFileTTF("assets/fonts/HarmonyOS_Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Bold.ttf", 16.0f, NULL, fonts->GetGlyphRangesChineseSimplifiedCommon());
+		io.Fonts->AddFontFromFileTTF("assets/fonts/HarmonyOS_Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Bold.ttf", 15.5f, NULL, fonts->GetGlyphRangesChineseSimplifiedCommon());
 		//io.Fonts->AddFontFromFileTTF("assets/fonts/opensans/OpenSans-Bold.ttf", 18.0f);
 
-		io.FontDefault = io.Fonts->AddFontFromFileTTF("assets/fonts/HarmonyOS_Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Regular.ttf", 17.0f, NULL, fonts->GetGlyphRangesChineseSimplifiedCommon());
+		io.FontDefault = io.Fonts->AddFontFromFileTTF("assets/fonts/HarmonyOS_Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Regular.ttf", 16.5f, NULL, fonts->GetGlyphRangesChineseSimplifiedCommon());
 		//io.FontDefault = io.Fonts->AddFontFromFileTTF("assets/fonts/opensans/OpenSans-Regular.ttf", 18.0f);
 
 		// Setup Dear ImGui style
