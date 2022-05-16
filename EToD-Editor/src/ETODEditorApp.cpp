@@ -4,24 +4,24 @@
 #include "EditorLayer.h"
 
 namespace ETOD {
-	class ETODEditor : public Application
+
+	class ETODnut : public Application
 	{
 	public:
-		ETODEditor()
-			: Application("EToD Editor -Powered by SlaterVanS Studio. ")
+		ETODnut(ApplicationCommandLineArgs args)
+			: Application("EToD Editor -Powered by SlaterVanS Studio.", args) //EToD Editor -Powered by SlaterVanS Studio. 
 		{
 			PushLayer(new EditorLayer());
 		}
 
-		~ETODEditor()
+		~ETODnut()
 		{
-
 		}
-
 	};
 
-	Application* CreateApplication()
+	Application* CreateApplication(ApplicationCommandLineArgs args)
 	{
-		return new ETODEditor();
+		return new ETODnut(args);
 	}
+
 }

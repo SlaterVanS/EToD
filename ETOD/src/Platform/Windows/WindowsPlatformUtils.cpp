@@ -27,11 +27,10 @@ namespace ETOD {
 		ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_NOCHANGEDIR;
 
 		if (GetOpenFileNameA(&ofn) == TRUE)
-		{
 			return ofn.lpstrFile;
-		}
 
 		return std::string();
+
 	}
 
 	std::string FileDialogs::SaveFile(const char* filter)

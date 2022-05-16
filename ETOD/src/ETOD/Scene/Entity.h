@@ -16,7 +16,7 @@ namespace ETOD {
 		template<typename T, typename... Args>
 		T& AddComponent(Args&&... args)
 		{
-			ETOD_CORE_ASSERT(!HasComponent<T>(), " 实体已经拥有了组件！ ");  // Entity already has component!
+			ETOD_CORE_ASSERT(!HasComponent<T>(), "Entity already has component!");
 			T& component = m_Scene->m_Registry.emplace<T>(m_EntityHandle, std::forward<Args>(args)...);
 			m_Scene->OnComponentAdded<T>(*this, component);
 			return component;
@@ -25,8 +25,7 @@ namespace ETOD {
 		template<typename T>
 		T& GetComponent()
 		{
-			ETOD_CORE_ASSERT(HasComponent<T>(), " 实体没有组件！ ");  // Entity does not have component!
-
+			ETOD_CORE_ASSERT(HasComponent<T>(), "Entity does not have component!");
 			return m_Scene->m_Registry.get<T>(m_EntityHandle);
 		}
 
@@ -39,8 +38,7 @@ namespace ETOD {
 		template<typename T>
 		void RemoveComponent()
 		{
-			ETOD_CORE_ASSERT(HasComponent<T>(), " 实体没有组件！ ");  // Entity does not have component!
-
+			ETOD_CORE_ASSERT(HasComponent<T>(), "Entity does not have component!");
 			m_Scene->m_Registry.remove<T>(m_EntityHandle);
 		}
 
@@ -57,7 +55,6 @@ namespace ETOD {
 		{
 			return !(*this == other);
 		}
-
 	private:
 		entt::entity m_EntityHandle{ entt::null };
 		Scene* m_Scene = nullptr;

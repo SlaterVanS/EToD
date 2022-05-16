@@ -3,7 +3,8 @@
 #include "ETOD/Renderer/RendererAPI.h"
 
 namespace ETOD {
-	class OpenGLRendererAPI :public RendererAPI
+
+	class OpenGLRendererAPI : public RendererAPI
 	{
 	public:
 		virtual void Init() override;
@@ -14,4 +15,6 @@ namespace ETOD {
 
 		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) override;
 	};
+
+
 }

@@ -6,7 +6,7 @@ struct GLFWwindow;
 
 namespace ETOD {
 
-	class OpenGLContext :public GraphicsContext
+	class OpenGLContext : public GraphicsContext
 	{
 	public:
 		OpenGLContext(GLFWwindow* windowHandle);
@@ -16,4 +16,5 @@ namespace ETOD {
 	private:
 		GLFWwindow* m_WindowHandle;
 	};
+
 }

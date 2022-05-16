@@ -15,10 +15,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7155847C-5D8C-850D-0679-6B10F28E010F}</ProjectGuid>
+    <ProjectGuid>{9159847C-7D90-850D-267D-6B101293010F}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ETOD</RootNamespace>
+    <RootNamespace>EToD</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -54,21 +54,21 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>..\bin\Debug-windows-x86_64\ETOD\</OutDir>
-    <IntDir>..\bin-int\Debug-windows-x86_64\ETOD\</IntDir>
-    <TargetName>ETOD</TargetName>
+    <OutDir>..\bin\Debug-windows-x86_64\EToD\</OutDir>
+    <IntDir>..\bin-int\Debug-windows-x86_64\EToD\</IntDir>
+    <TargetName>EToD</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\bin\Release-windows-x86_64\ETOD\</OutDir>
-    <IntDir>..\bin-int\Release-windows-x86_64\ETOD\</IntDir>
-    <TargetName>ETOD</TargetName>
+    <OutDir>..\bin\Release-windows-x86_64\EToD\</OutDir>
+    <IntDir>..\bin-int\Release-windows-x86_64\EToD\</IntDir>
+    <TargetName>EToD</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
-    <OutDir>..\bin\Dist-windows-x86_64\ETOD\</OutDir>
-    <IntDir>..\bin-int\Dist-windows-x86_64\ETOD\</IntDir>
-    <TargetName>ETOD</TargetName>
+    <OutDir>..\bin\Dist-windows-x86_64\EToD\</OutDir>
+    <IntDir>..\bin-int\Dist-windows-x86_64\EToD\</IntDir>
+    <TargetName>EToD</TargetName>
     <TargetExt>.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -76,12 +76,12 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>etodpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;ETOD_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\yaml-cpp\include;vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;EToD_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\yaml-cpp\include;vendor\ImGuizmo;C:\VulkanSDK\1.2.170.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -90,7 +90,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;vendor\VulkanSDK\Lib\shaderc_sharedd.lib;vendor\VulkanSDK\Lib\spirv-cross-cored.lib;vendor\VulkanSDK\Lib\spirv-cross-glsld.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -98,14 +98,14 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>etodpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;ETOD_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\yaml-cpp\include;vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;EToD_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\yaml-cpp\include;vendor\ImGuizmo;C:\VulkanSDK\1.2.170.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -115,7 +115,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;C:\VulkanSDK\1.2.170.0\Lib\shaderc_shared.lib;C:\VulkanSDK\1.2.170.0\Lib\spirv-cross-core.lib;C:\VulkanSDK\1.2.170.0\Lib\spirv-cross-glsl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -123,14 +123,14 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>etodpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;ETOD_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\yaml-cpp\include;vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;EToD_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\yaml-cpp\include;vendor\ImGuizmo;C:\VulkanSDK\1.2.170.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -140,7 +140,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;C:\VulkanSDK\1.2.170.0\Lib\shaderc_shared.lib;C:\VulkanSDK\1.2.170.0\Lib\spirv-cross-core.lib;C:\VulkanSDK\1.2.170.0\Lib\spirv-cross-glsl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -148,16 +148,15 @@
     <ClInclude Include="src\ETOD\Core\Application.h" />
     <ClInclude Include="src\ETOD\Core\Assert.h" />
     <ClInclude Include="src\ETOD\Core\Base.h" />
-    <ClInclude Include="src\ETOD\Core\Core.h" />
     <ClInclude Include="src\ETOD\Core\EntryPoint.h" />
     <ClInclude Include="src\ETOD\Core\Input.h" />
     <ClInclude Include="src\ETOD\Core\KeyCodes.h" />
     <ClInclude Include="src\ETOD\Core\Layer.h" />
     <ClInclude Include="src\ETOD\Core\LayerStack.h" />
     <ClInclude Include="src\ETOD\Core\Log.h" />
-    <ClInclude Include="src\ETOD\Core\MouseButtonCodes.h" />
     <ClInclude Include="src\ETOD\Core\MouseCodes.h" />
     <ClInclude Include="src\ETOD\Core\PlatformDetection.h" />
+    <ClInclude Include="src\ETOD\Core\Timer.h" />
     <ClInclude Include="src\ETOD\Core\Timestep.h" />
     <ClInclude Include="src\ETOD\Core\Window.h" />
     <ClInclude Include="src\ETOD\Debug\Instrumentor.h" />
@@ -180,6 +179,7 @@
     <ClInclude Include="src\ETOD\Renderer\RendererAPI.h" />
     <ClInclude Include="src\ETOD\Renderer\Shader.h" />
     <ClInclude Include="src\ETOD\Renderer\Texture.h" />
+    <ClInclude Include="src\ETOD\Renderer\UniformBuffer.h" />
     <ClInclude Include="src\ETOD\Renderer\VertexArray.h" />
     <ClInclude Include="src\ETOD\Scene\Components.h" />
     <ClInclude Include="src\ETOD\Scene\Entity.h" />
@@ -194,6 +194,7 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLUniformBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\etodpch.h" />
@@ -263,8 +264,6 @@
     <ClInclude Include="vendor\glm\glm\ext.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_clip_space.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_clip_space.inl" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_common.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_common.inl" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_double2x2.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_double2x2_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_double2x3.hpp" />
@@ -301,50 +300,12 @@
     <ClInclude Include="vendor\glm\glm\ext\matrix_float4x3_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_float4x4.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_float4x4_precision.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x2.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x2_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x3.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x3_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x4.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int2x4_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x2.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x2_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x3.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x3_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x4.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int3x4_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x2.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x2_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x3.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x3_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x4.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_int4x4_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_integer.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_integer.inl" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_projection.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_projection.inl" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_relational.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_relational.inl" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_transform.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\matrix_transform.inl" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x2.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x2_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x3.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x3_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x4.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint2x4_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x2.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x2_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x3.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x3_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x4.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint3x4_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x2.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x2_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x3.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x3_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x4.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\matrix_uint4x4_sized.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\quaternion_common.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\quaternion_common.inl" />
     <ClInclude Include="vendor\glm\glm\ext\quaternion_common_simd.inl" />
@@ -367,12 +328,6 @@
     <ClInclude Include="vendor\glm\glm\ext\scalar_constants.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\scalar_constants.inl" />
     <ClInclude Include="vendor\glm\glm\ext\scalar_int_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\scalar_integer.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\scalar_integer.inl" />
-    <ClInclude Include="vendor\glm\glm\ext\scalar_packing.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\scalar_packing.inl" />
-    <ClInclude Include="vendor\glm\glm\ext\scalar_reciprocal.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\scalar_reciprocal.inl" />
     <ClInclude Include="vendor\glm\glm\ext\scalar_relational.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\scalar_relational.inl" />
     <ClInclude Include="vendor\glm\glm\ext\scalar_uint_sized.hpp" />
@@ -405,29 +360,23 @@
     <ClInclude Include="vendor\glm\glm\ext\vector_float4.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_float4_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_int1.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_int1_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int1_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_int2.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_int2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int2_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_int3.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_int3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int3_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_int4.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_int4_sized.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_integer.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_integer.inl" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_packing.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_packing.inl" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_reciprocal.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_reciprocal.inl" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_int4_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_relational.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_relational.inl" />
     <ClInclude Include="vendor\glm\glm\ext\vector_uint1.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_uint1_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint1_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_uint2.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_uint2_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint2_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_uint3.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_uint3_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint3_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_uint4.hpp" />
-    <ClInclude Include="vendor\glm\glm\ext\vector_uint4_sized.hpp" />
+    <ClInclude Include="vendor\glm\glm\ext\vector_uint4_precision.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_ulp.hpp" />
     <ClInclude Include="vendor\glm\glm\ext\vector_ulp.inl" />
     <ClInclude Include="vendor\glm\glm\fwd.hpp" />
@@ -460,6 +409,7 @@
     <ClInclude Include="vendor\glm\glm\gtc\random.hpp" />
     <ClInclude Include="vendor\glm\glm\gtc\random.inl" />
     <ClInclude Include="vendor\glm\glm\gtc\reciprocal.hpp" />
+    <ClInclude Include="vendor\glm\glm\gtc\reciprocal.inl" />
     <ClInclude Include="vendor\glm\glm\gtc\round.hpp" />
     <ClInclude Include="vendor\glm\glm\gtc\round.inl" />
     <ClInclude Include="vendor\glm\glm\gtc\type_aligned.hpp" />
@@ -553,8 +503,6 @@
     <ClInclude Include="vendor\glm\glm\gtx\optimum_pow.inl" />
     <ClInclude Include="vendor\glm\glm\gtx\orthonormalize.hpp" />
     <ClInclude Include="vendor\glm\glm\gtx\orthonormalize.inl" />
-    <ClInclude Include="vendor\glm\glm\gtx\pca.hpp" />
-    <ClInclude Include="vendor\glm\glm\gtx\pca.inl" />
     <ClInclude Include="vendor\glm\glm\gtx\perpendicular.hpp" />
     <ClInclude Include="vendor\glm\glm\gtx\perpendicular.inl" />
     <ClInclude Include="vendor\glm\glm\gtx\polar_coordinates.hpp" />
@@ -620,12 +568,14 @@
     <ClCompile Include="src\ETOD\Core\Layer.cpp" />
     <ClCompile Include="src\ETOD\Core\LayerStack.cpp" />
     <ClCompile Include="src\ETOD\Core\Log.cpp" />
+    <ClCompile Include="src\ETOD\Core\Window.cpp" />
     <ClCompile Include="src\ETOD\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\ETOD\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\ETOD\Math\Math.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\EditorCamera.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp" />
+    <ClCompile Include="src\ETOD\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="src\ETOD\Renderer\OrthographicCameraController.cpp" />
     <ClCompile Include="src\ETOD\Renderer\RenderCommand.cpp" />
@@ -634,6 +584,7 @@
     <ClCompile Include="src\ETOD\Renderer\RendererAPI.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Shader.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Texture.cpp" />
+    <ClCompile Include="src\ETOD\Renderer\UniformBuffer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\ETOD\Scene\Entity.cpp" />
     <ClCompile Include="src\ETOD\Scene\Scene.cpp" />
@@ -645,6 +596,7 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLUniformBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsPlatformUtils.cpp" />
