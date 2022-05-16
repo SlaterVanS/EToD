@@ -10,9 +10,6 @@
 [submodule "ETOD/vendor/glm"]
 	path = ETOD/vendor/glm
 	url = https://github.com/g-truc/glm
-[submodule "ETOD/vendor/yaml-cpp"]
-	path = ETOD/vendor/yaml-cpp
-	url = git://github.com/TheCherno/yaml-cpp
 [submodule "ETOD/vendor/ImGuizmo"]
 	path = ETOD/vendor/ImGuizmo
 	url = git://github.com/TheCherno/ImGuizmo

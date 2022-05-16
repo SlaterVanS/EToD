@@ -1,13 +1,41 @@
 #include "etodpch.h"
-#include "OpenGLRendererAPI.h"
+#include "Platform/OpenGL/OpenGLRendererAPI.h"
 
 #include <glad/glad.h>
 
 namespace ETOD {
-	
+
+	void OpenGLMessageCallback(
+		unsigned source,
+		unsigned type,
+		unsigned id,
+		unsigned severity,
+		int length,
+		const char* message,
+		const void* userParam)
+	{
+		switch (severity)
+		{
+		case GL_DEBUG_SEVERITY_HIGH:         ETOD_CORE_CRITICAL(message); return;
+		case GL_DEBUG_SEVERITY_MEDIUM:       ETOD_CORE_ERROR(message); return;
+		case GL_DEBUG_SEVERITY_LOW:          ETOD_CORE_WARN(message); return;
+		case GL_DEBUG_SEVERITY_NOTIFICATION: ETOD_CORE_TRACE(message); return;
+		}
+
+		ETOD_CORE_ASSERT(false, "Unknown severity level!");
+	}
+
 	void OpenGLRendererAPI::Init()
 	{
 		ETOD_PROFILE_FUNCTION();
+
+#ifdef ETOD_DEBUG
+		glEnable(GL_DEBUG_OUTPUT);
+		glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+		glDebugMessageCallback(OpenGLMessageCallback, nullptr);
+
+		glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DEBUG_SEVERITY_NOTIFICATION, 0, NULL, GL_FALSE);
+#endif
 
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -32,8 +60,9 @@ namespace ETOD {
 
 	void OpenGLRendererAPI::DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount)
 	{
-		uint32_t count = indexCount ? vertexArray->GetIndexBuffer()->GetCount() : indexCount;
+		uint32_t count = indexCount ? indexCount : vertexArray->GetIndexBuffer()->GetCount();
 		glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
+
 }

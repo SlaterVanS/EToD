@@ -1,4 +1,5 @@
 include "./vendor/premake/premake_customization/solution_items.lua"
+include "Dependencies.lua"
 
 workspace "ETOD"
 	architecture "x86_64"
@@ -23,25 +24,14 @@ workspace "ETOD"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
--- Include directories relative to root folder (solution directory)
-IncludeDir = {}
-IncludeDir["GLFW"] = "%{wks.location}/ETOD/vendor/GLFW/include"
-IncludeDir["Glad"] = "%{wks.location}/ETOD/vendor/Glad/include"
-IncludeDir["ImGui"] = "%{wks.location}/ETOD/vendor/imgui"
-IncludeDir["glm"] = "%{wks.location}/ETOD/vendor/glm"
-IncludeDir["stb_image"] = "%{wks.location}/ETOD/vendor/stb_image"
-IncludeDir["entt"] = "%{wks.location}/ETOD/vendor/entt/include"
-IncludeDir["yaml_cpp"] = "%{wks.location}/ETOD/vendor/yaml-cpp/include"
-IncludeDir["ImGuizmo"] = "%{wks.location}/ETOD/vendor/ImGuizmo"
-
 group "Dependencies"
 	include "vendor/premake"
-	include "ETOD/vendor/GLFW"
-	include "ETOD/vendor/Glad"
-	include "ETOD/vendor/imgui"
-	include "ETOD/vendor/yaml-cpp"
+	include "EToD/vendor/GLFW"
+	include "EToD/vendor/Glad"
+	include "EToD/vendor/imgui"
+	include "EToD/vendor/yaml-cpp"
 group ""
 
-include "ETOD"
+include "EToD"
 include "Sandbox"
 include "EToD-Editor"

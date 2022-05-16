@@ -1,9 +1,8 @@
 #include "etodpch.h"
-#include "OpenGLContext.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
-#include <GL/GL.h>
 
 namespace ETOD {
 
@@ -25,6 +24,8 @@ namespace ETOD {
 		ETOD_CORE_INFO("厂商: {0}", glGetString(GL_VENDOR)); //Vendor
 		ETOD_CORE_INFO("型号: {0}", glGetString(GL_RENDERER)); //Renderer
 		ETOD_CORE_INFO("版本: {0}", glGetString(GL_VERSION)); //Version
+
+		ETOD_CORE_ASSERT(GLVersion.major > 4 || (GLVersion.major == 4 && GLVersion.minor >= 5), "EToD Engine 至少需要OpenGL 4.5版!"); // EToD requires at least OpenGL version 4.5!
 	}
 
 	void OpenGLContext::SwapBuffers()
@@ -33,4 +34,5 @@ namespace ETOD {
 
 		glfwSwapBuffers(m_WindowHandle);
 	}
+
 }

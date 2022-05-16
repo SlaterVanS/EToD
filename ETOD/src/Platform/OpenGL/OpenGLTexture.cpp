@@ -1,10 +1,10 @@
 #include "etodpch.h"
-#include "OpenGLTexture.h"
+#include "Platform/OpenGL/OpenGLTexture.h"
 
-#include "stb_image.h"
+#include <stb_image.h>
 
 namespace ETOD {
-	
+
 	OpenGLTexture2D::OpenGLTexture2D(uint32_t width, uint32_t height)
 		: m_Width(width), m_Height(height)
 	{
@@ -23,7 +23,7 @@ namespace ETOD {
 		glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	}
 
-	OpenGLTexture2D::OpenGLTexture2D(const std::string & path)
+	OpenGLTexture2D::OpenGLTexture2D(const std::string& path)
 		: m_Path(path)
 	{
 		ETOD_PROFILE_FUNCTION();
@@ -31,11 +31,11 @@ namespace ETOD {
 		int width, height, channels;
 		stbi_set_flip_vertically_on_load(1);
 		stbi_uc* data = nullptr;
-		{		
+		{
 			ETOD_PROFILE_SCOPE("stbi_load - OpenGLTexture2D::OpenGLTexture2D(const std::string&)");
 			data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 		}
-		ETOD_CORE_ASSERT(data, " 无法加载图像！"); // Failed to load image!
+		ETOD_CORE_ASSERT(data, "Failed to load image!");
 		m_Width = width;
 		m_Height = height;
 
@@ -45,7 +45,7 @@ namespace ETOD {
 			internalFormat = GL_RGBA8;
 			dataFormat = GL_RGBA;
 		}
-		else if(channels == 3)
+		else if (channels == 3)
 		{
 			internalFormat = GL_RGB8;
 			dataFormat = GL_RGB;
@@ -54,7 +54,7 @@ namespace ETOD {
 		m_InternalFormat = internalFormat;
 		m_DataFormat = dataFormat;
 
-		ETOD_CORE_ASSERT(internalFormat & dataFormat, " 格式不支持！"); // Format not supported!
+		ETOD_CORE_ASSERT(internalFormat & dataFormat, "Format not supported!");
 
 		glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
 		glTextureStorage2D(m_RendererID, 1, internalFormat, m_Width, m_Height);
@@ -82,7 +82,7 @@ namespace ETOD {
 		ETOD_PROFILE_FUNCTION();
 
 		uint32_t bpp = m_DataFormat == GL_RGBA ? 4 : 3;
-		ETOD_CORE_ASSERT(size == m_Width * m_Height * bpp, " 数据必须是完整的纹理！"); // Data must be entire texture!
+		ETOD_CORE_ASSERT(size == m_Width * m_Height * bpp, "Data must be entire texture!");
 		glTextureSubImage2D(m_RendererID, 0, 0, 0, m_Width, m_Height, m_DataFormat, GL_UNSIGNED_BYTE, data);
 	}
 
@@ -92,5 +92,4 @@ namespace ETOD {
 
 		glBindTextureUnit(slot, m_RendererID);
 	}
-
 }
