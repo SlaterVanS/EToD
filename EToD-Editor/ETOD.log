@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [17:40:02] [warning] ETOD: 初始化日志系统! 
 [17:40:02] [info] APP:  EToD Engine 开发者你好! 
 [17:40:02] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
@@ -18,3 +19,25 @@
 [17:40:02] [trace] ETOD:     1 resources
 [17:40:02] [trace] ETOD: Uniform buffers:
 [17:40:02] [warning] ETOD: Shader creation took 56.2339 ms
+=======
+[15:09:37] [warning] ETOD: 初始化日志系统! 
+[15:09:37] [info] APP:  EToD Engine 开发者你好! 
+[15:09:37] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
+[15:09:37] [info] ETOD: OpenGL 渲染信息: 
+[15:09:37] [info] ETOD: 厂商: Intel
+[15:09:37] [info] ETOD: 型号: Intel(R) UHD Graphics 630
+[15:09:37] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
+[15:09:37] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
+[15:09:37] [trace] ETOD:     1 uniform buffers
+[15:09:37] [trace] ETOD:     0 resources
+[15:09:37] [trace] ETOD: Uniform buffers:
+[15:09:37] [trace] ETOD:   _47_49
+[15:09:37] [trace] ETOD:     Size = 64
+[15:09:37] [trace] ETOD:     Binding = 0
+[15:09:37] [trace] ETOD:     Members = 1
+[15:09:37] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
+[15:09:37] [trace] ETOD:     0 uniform buffers
+[15:09:37] [trace] ETOD:     1 resources
+[15:09:37] [trace] ETOD: Uniform buffers:
+[15:09:37] [warning] ETOD: Shader creation took 75.656 ms
+>>>>>>> 1c8236d76ebf43a9803f0e657cc1427776072ae1
