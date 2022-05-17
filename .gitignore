@@ -5,6 +5,8 @@ bin-int/
 # ETOD files
 *.log
 *.ttf
+**.sln
+*.sln
 
 # Visual Studio files and folder
 .vs/
@@ -15,6 +17,7 @@ bin-int/
 **.user
 **.json
 **.ttf
+*.sln
 
 # Directories
 ETOD/vendor/VulkanSDK
