@@ -16,3 +16,6 @@
 [submodule "ETOD/vendor/ImGuizmo"]
 	path = ETOD/vendor/ImGuizmo
 	url = git://github.com/TheCherno/ImGuizmo
+[submodule "ETOD/vendor/Box2D"]
+	path = ETOD/vendor/Box2D
+	url = git://github.com/TheCherno/box2d

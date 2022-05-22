@@ -241,8 +241,21 @@ namespace ETOD {
 				ImGui::EndMenu();
 			}
 
+			/*if (ImGui::BeginMenu("Language"))
+			{
+				if (ImGui::MenuItem("Chinese"))
+				{
+				}
+				
+				if (ImGui::MenuItem("English"))
+				{
+				}
+				ImGui::EndMenu();
+			}*/
+
 			ImGui::EndMenuBar();
 		}
+
 
 		m_SceneHierarchyPanel.OnImGuiRender();
 		m_ContentBrowserPanel.OnImGuiRender();
@@ -498,11 +511,12 @@ namespace ETOD {
 	void EditorLayer::OnScenePlay()
 	{
 		m_SceneState = SceneState::Play;
+		m_ActiveScene->OnRuntimeStart();
 	}
 
 	void EditorLayer::OnSceneStop()
 	{
 		m_SceneState = SceneState::Edit;
-
+		m_ActiveScene->OnRuntimeStop();
 	}
 }

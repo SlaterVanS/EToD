@@ -78,6 +78,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="..\..\ETOD\premake5.lua" />
+    <None Include="..\..\ETOD\vendor\Box2D\premake5.lua" />
     <None Include="..\..\ETOD\vendor\GLFW\premake5.lua" />
     <None Include="..\..\ETOD\vendor\Glad\premake5.lua" />
     <None Include="..\..\ETOD\vendor\imgui\premake5.lua" />

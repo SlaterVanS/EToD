@@ -10,6 +10,9 @@
     <Filter Include="..\ETOD\vendor">
       <UniqueIdentifier>{79A99D27-6577-912D-4E0B-02543A786D92}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\ETOD\vendor\Box2D">
+      <UniqueIdentifier>{47CA4AB0-3359-D479-DC77-E874C8E5E41F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="..\ETOD\vendor\GLFW">
       <UniqueIdentifier>{58384AC7-C499-27D5-4D07-6E87B9675E94}</UniqueIdentifier>
     </Filter>
@@ -32,6 +35,9 @@
   <ItemGroup>
     <None Include="..\..\ETOD\premake5.lua">
       <Filter>..\ETOD</Filter>
+    </None>
+    <None Include="..\..\ETOD\vendor\Box2D\premake5.lua">
+      <Filter>..\ETOD\vendor\Box2D</Filter>
     </None>
     <None Include="..\..\ETOD\vendor\GLFW\premake5.lua">
       <Filter>..\ETOD\vendor\GLFW</Filter>
