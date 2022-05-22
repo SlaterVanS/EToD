@@ -1,6 +1,6 @@
 Scene: Untitled
 Entities:
-  - Entity: 12837192831273
+  - Entity: 9589163833342628061
     TagComponent:
       Tag: Platform
     TransformComponent:
@@ -19,7 +19,7 @@ Entities:
       Friction: 0.5
       Restitution: 0
       RestitutionThreshold: 0.5
-  - Entity: 12837192831273
+  - Entity: 17688230361156577728
     TagComponent:
       Tag: Square Entity
     TransformComponent:
@@ -38,7 +38,7 @@ Entities:
       Friction: 0.5
       Restitution: 0.400000006
       RestitutionThreshold: 0.5
-  - Entity: 12837192831273
+  - Entity: 7731127392825134774
     TagComponent:
       Tag: Camera
     TransformComponent:

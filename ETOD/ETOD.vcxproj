@@ -158,6 +158,7 @@
     <ClInclude Include="src\ETOD\Core\PlatformDetection.h" />
     <ClInclude Include="src\ETOD\Core\Timer.h" />
     <ClInclude Include="src\ETOD\Core\Timestep.h" />
+    <ClInclude Include="src\ETOD\Core\UUID.h" />
     <ClInclude Include="src\ETOD\Core\Window.h" />
     <ClInclude Include="src\ETOD\Debug\Instrumentor.h" />
     <ClInclude Include="src\ETOD\Events\ApplicationEvent.h" />
@@ -568,6 +569,7 @@
     <ClCompile Include="src\ETOD\Core\Layer.cpp" />
     <ClCompile Include="src\ETOD\Core\LayerStack.cpp" />
     <ClCompile Include="src\ETOD\Core\Log.cpp" />
+    <ClCompile Include="src\ETOD\Core\UUID.cpp" />
     <ClCompile Include="src\ETOD\Core\Window.cpp" />
     <ClCompile Include="src\ETOD\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\ETOD\ImGui\ImGuiLayer.cpp" />

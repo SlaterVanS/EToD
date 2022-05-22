@@ -1,56 +1,49 @@
-[15:14:49] [warning] ETOD: 初始化日志系统! 
-[15:14:49] [info] APP:  EToD Engine 开发者你好! 
-[15:14:49] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
-[15:14:49] [info] ETOD: OpenGL 渲染信息: 
-[15:14:49] [info] ETOD: 厂商: Intel
-[15:14:49] [info] ETOD: 型号: Intel(R) UHD Graphics 630
-[15:14:49] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
-[15:14:49] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
-[15:14:49] [trace] ETOD:     1 uniform buffers
-[15:14:49] [trace] ETOD:     0 resources
-[15:14:49] [trace] ETOD: Uniform buffers:
-[15:14:49] [trace] ETOD:   _47_49
-[15:14:49] [trace] ETOD:     Size = 64
-[15:14:49] [trace] ETOD:     Binding = 0
-[15:14:49] [trace] ETOD:     Members = 1
-[15:14:49] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
-[15:14:49] [trace] ETOD:     0 uniform buffers
-[15:14:49] [trace] ETOD:     1 resources
-[15:14:49] [trace] ETOD: Uniform buffers:
-[15:14:49] [warning] ETOD: Shader creation took 87.6582 ms
-[15:14:55] [trace] ETOD: Deserializing scene 'Untitled'
-[15:14:55] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera
-[15:14:55] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Square Entity
-[15:14:55] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Platform
-[15:14:59] [trace] ETOD: Deserializing scene 'Untitled'
-[15:14:59] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera
-[15:14:59] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Square Entity
-[15:14:59] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Platform
-[15:16:22] [trace] ETOD: Deserializing scene 'Untitled'
-[15:16:22] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Green Square
-[15:16:22] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Red Square
-[15:16:22] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera A
-[15:16:22] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera B
-[15:16:35] [trace] ETOD: Deserializing scene 'Untitled'
-[15:16:35] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Platform
-[15:16:35] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Square Entity
-[15:16:35] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera
-[15:16:36] [trace] ETOD: Deserializing scene 'Untitled'
-[15:16:36] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Green Square
-[15:16:36] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Red Square
-[15:16:36] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera A
-[15:16:36] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera B
-[15:16:37] [trace] ETOD: Deserializing scene 'Untitled'
-[15:16:37] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Platform
-[15:16:37] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Square Entity
-[15:16:37] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera
-[15:16:41] [trace] ETOD: Deserializing scene 'Untitled'
-[15:16:41] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Left
-[15:16:41] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Right
-[15:16:41] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera
-[15:16:41] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Top
-[15:16:45] [trace] ETOD: Deserializing scene 'Untitled'
-[15:16:45] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Green Square
-[15:16:45] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Red Square
-[15:16:45] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera A
-[15:16:45] [trace] ETOD: Deserialized entity with ID = 12837192831273, name = Camera B
+[16:15:06] [warning] ETOD: 初始化日志系统! 
+[16:15:06] [info] APP:  EToD Engine 开发者你好! 
+[16:15:06] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
+[16:15:07] [info] ETOD: OpenGL 渲染信息: 
+[16:15:07] [info] ETOD: 厂商: Intel
+[16:15:07] [info] ETOD: 型号: Intel(R) UHD Graphics 630
+[16:15:07] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
+[16:15:07] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
+[16:15:07] [trace] ETOD:     1 uniform buffers
+[16:15:07] [trace] ETOD:     0 resources
+[16:15:07] [trace] ETOD: Uniform buffers:
+[16:15:07] [trace] ETOD:   _47_49
+[16:15:07] [trace] ETOD:     Size = 64
+[16:15:07] [trace] ETOD:     Binding = 0
+[16:15:07] [trace] ETOD:     Members = 1
+[16:15:07] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
+[16:15:07] [trace] ETOD:     0 uniform buffers
+[16:15:07] [trace] ETOD:     1 resources
+[16:15:07] [trace] ETOD: Uniform buffers:
+[16:15:07] [warning] ETOD: Shader creation took 80.1077 ms
+[16:15:17] [trace] ETOD: Deserializing scene 'Untitled'
+[16:15:17] [trace] ETOD: Deserialized entity with ID = 5833030565621965733, name = Left
+[16:15:17] [trace] ETOD: Deserialized entity with ID = 13027586399856533801, name = Right
+[16:15:17] [trace] ETOD: Deserialized entity with ID = 17288244651081131940, name = Camera
+[16:15:17] [trace] ETOD: Deserialized entity with ID = 10856057754059682090, name = Top
+[16:15:33] [trace] ETOD: Deserializing scene 'Untitled'
+[16:15:33] [trace] ETOD: Deserialized entity with ID = 11523660275762521815, name = Green Square
+[16:15:33] [trace] ETOD: Deserialized entity with ID = 11814442766377489061, name = Red Square
+[16:15:33] [trace] ETOD: Deserialized entity with ID = 11618276789445393783, name = Camera A
+[16:15:33] [trace] ETOD: Deserialized entity with ID = 12823892231607641348, name = Camera B
+[16:15:35] [trace] ETOD: Deserializing scene 'Untitled'
+[16:15:35] [trace] ETOD: Deserialized entity with ID = 10856057754059682090, name = Top
+[16:15:35] [trace] ETOD: Deserialized entity with ID = 17288244651081131940, name = Camera
+[16:15:35] [trace] ETOD: Deserialized entity with ID = 13027586399856533801, name = Right
+[16:15:35] [trace] ETOD: Deserialized entity with ID = 5833030565621965733, name = Left
+[16:15:49] [trace] ETOD: Deserializing scene 'Untitled'
+[16:15:49] [trace] ETOD: Deserialized entity with ID = 11523660275762521815, name = Green Square
+[16:15:49] [trace] ETOD: Deserialized entity with ID = 11814442766377489061, name = Red Square
+[16:15:49] [trace] ETOD: Deserialized entity with ID = 11618276789445393783, name = Camera A
+[16:15:49] [trace] ETOD: Deserialized entity with ID = 12823892231607641348, name = Camera B
+[16:15:51] [trace] ETOD: Deserializing scene 'Untitled'
+[16:15:51] [trace] ETOD: Deserialized entity with ID = 5833030565621965733, name = Left
+[16:15:51] [trace] ETOD: Deserialized entity with ID = 13027586399856533801, name = Right
+[16:15:51] [trace] ETOD: Deserialized entity with ID = 17288244651081131940, name = Camera
+[16:15:51] [trace] ETOD: Deserialized entity with ID = 10856057754059682090, name = Top
+[16:17:22] [trace] ETOD: Deserializing scene 'Untitled'
+[16:17:22] [trace] ETOD: Deserialized entity with ID = 9589163833342628061, name = Platform
+[16:17:22] [trace] ETOD: Deserialized entity with ID = 17688230361156577728, name = Square Entity
+[16:17:22] [trace] ETOD: Deserialized entity with ID = 7731127392825134774, name = Camera

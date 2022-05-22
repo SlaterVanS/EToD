@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ETOD/Core/Timestep.h"
+#include "ETOD/Core/UUID.h"
 #include "ETOD/Renderer/EditorCamera.h"
 
 #include "entt.hpp"
@@ -18,6 +19,7 @@ namespace ETOD {
 		~Scene();
 
 		Entity CreateEntity(const std::string& name = std::string());
+		Entity CreateEntityWithUUID(UUID uuid, const std::string& name = std::string());
 		void DestroyEntity(Entity entity);
 
 		void OnRuntimeStart();
