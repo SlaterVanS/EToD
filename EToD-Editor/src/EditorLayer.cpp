@@ -240,18 +240,6 @@ namespace ETOD {
 				ImGui::EndMenu();
 			}
 
-			/*if (ImGui::BeginMenu("Language"))
-			{
-				if (ImGui::MenuItem("Chinese"))
-				{
-				}
-				
-				if (ImGui::MenuItem("English"))
-				{
-				}
-				ImGui::EndMenu();
-			}*/
-
 			ImGui::EndMenuBar();
 		}
 

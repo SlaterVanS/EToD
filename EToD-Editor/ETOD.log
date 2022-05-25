@@ -1,28 +1,25 @@
-[19:30:42] [warning] ETOD: 初始化日志系统! 
-[19:30:42] [info] APP:  EToD Engine 开发者你好! 
-[19:30:42] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
-[19:30:43] [info] ETOD: OpenGL 渲染信息: 
-[19:30:43] [info] ETOD: 厂商: Intel
-[19:30:43] [info] ETOD: 型号: Intel(R) UHD Graphics 630
-[19:30:43] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
-[19:30:43] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
-[19:30:43] [trace] ETOD:     1 uniform buffers
-[19:30:43] [trace] ETOD:     0 resources
-[19:30:43] [trace] ETOD: Uniform buffers:
-[19:30:43] [trace] ETOD:   _47_49
-[19:30:43] [trace] ETOD:     Size = 64
-[19:30:43] [trace] ETOD:     Binding = 0
-[19:30:43] [trace] ETOD:     Members = 1
-[19:30:43] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
-[19:30:43] [trace] ETOD:     0 uniform buffers
-[19:30:43] [trace] ETOD:     1 resources
-[19:30:43] [trace] ETOD: Uniform buffers:
-[19:30:43] [warning] ETOD: Shader creation took 101.222 ms
-[19:31:02] [trace] ETOD: Deserializing scene 'Untitled'
-[19:31:02] [trace] ETOD: Deserialized entity with ID = 9589163833342628061, name = Platform
-[19:31:02] [trace] ETOD: Deserialized entity with ID = 17688230361156577728, name = Square Entity
-[19:31:02] [trace] ETOD: Deserialized entity with ID = 7731127392825134774, name = Camera
-[19:31:30] [trace] ETOD: Deserializing scene 'Untitled'
-[19:31:30] [trace] ETOD: Deserialized entity with ID = 9589163833342628061, name = Platform
-[19:31:30] [trace] ETOD: Deserialized entity with ID = 17688230361156577728, name = Square Entity
-[19:31:30] [trace] ETOD: Deserialized entity with ID = 7731127392825134774, name = Camera
+[16:32:08] [warning] ETOD: 初始化日志系统! 
+[16:32:08] [info] APP:  EToD Engine 开发者你好! 
+[16:32:08] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
+[16:32:09] [info] ETOD: OpenGL 渲染信息: 
+[16:32:09] [info] ETOD: 厂商: Intel
+[16:32:09] [info] ETOD: 型号: Intel(R) UHD Graphics 630
+[16:32:09] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
+[16:32:09] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
+[16:32:09] [trace] ETOD:     1 uniform buffers
+[16:32:09] [trace] ETOD:     0 resources
+[16:32:09] [trace] ETOD: Uniform buffers:
+[16:32:09] [trace] ETOD:   _47_49
+[16:32:09] [trace] ETOD:     Size = 64
+[16:32:09] [trace] ETOD:     Binding = 0
+[16:32:09] [trace] ETOD:     Members = 1
+[16:32:09] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
+[16:32:09] [trace] ETOD:     0 uniform buffers
+[16:32:09] [trace] ETOD:     1 resources
+[16:32:09] [trace] ETOD: Uniform buffers:
+[16:32:09] [warning] ETOD: Shader creation took 68.8372 ms
+[16:32:56] [warning] APP: Could not load EToD_Engine_LOGO.png - not a ETOD scene file
+[16:33:02] [trace] ETOD: Deserializing scene 'Untitled'
+[16:33:02] [trace] ETOD: Deserialized entity with ID = 9589163833342628061, name = Platform
+[16:33:02] [trace] ETOD: Deserialized entity with ID = 17688230361156577728, name = Square Entity
+[16:33:02] [trace] ETOD: Deserialized entity with ID = 7731127392825134774, name = Camera
