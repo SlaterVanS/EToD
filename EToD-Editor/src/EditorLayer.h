@@ -74,6 +74,7 @@ namespace ETOD {
 		{
 			Edit = 0, Play = 1
 		};
+
 		SceneState m_SceneState = SceneState::Edit;
 
 		// Panels

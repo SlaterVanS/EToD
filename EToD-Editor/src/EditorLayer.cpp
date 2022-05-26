@@ -319,6 +319,7 @@ namespace ETOD {
 			// Snapping
 			bool snap = Input::IsKeyPressed(Key::LeftControl);
 			float snapValue = 0.5f; // Snap to 0.5m for translation/scale
+
 			// Snap to 45 degrees for rotation
 			if (m_GizmoType == ImGuizmo::OPERATION::ROTATE)
 				snapValue = 45.0f;
@@ -340,7 +341,6 @@ namespace ETOD {
 				tc.Scale = scale;
 			}
 		}
-
 
 		ImGui::End();
 		ImGui::PopStyleVar();

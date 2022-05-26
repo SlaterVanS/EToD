@@ -1,25 +1,20 @@
-[16:32:08] [warning] ETOD: 初始化日志系统! 
-[16:32:08] [info] APP:  EToD Engine 开发者你好! 
-[16:32:08] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
-[16:32:09] [info] ETOD: OpenGL 渲染信息: 
-[16:32:09] [info] ETOD: 厂商: Intel
-[16:32:09] [info] ETOD: 型号: Intel(R) UHD Graphics 630
-[16:32:09] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
-[16:32:09] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
-[16:32:09] [trace] ETOD:     1 uniform buffers
-[16:32:09] [trace] ETOD:     0 resources
-[16:32:09] [trace] ETOD: Uniform buffers:
-[16:32:09] [trace] ETOD:   _47_49
-[16:32:09] [trace] ETOD:     Size = 64
-[16:32:09] [trace] ETOD:     Binding = 0
-[16:32:09] [trace] ETOD:     Members = 1
-[16:32:09] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
-[16:32:09] [trace] ETOD:     0 uniform buffers
-[16:32:09] [trace] ETOD:     1 resources
-[16:32:09] [trace] ETOD: Uniform buffers:
-[16:32:09] [warning] ETOD: Shader creation took 68.8372 ms
-[16:32:56] [warning] APP: Could not load EToD_Engine_LOGO.png - not a ETOD scene file
-[16:33:02] [trace] ETOD: Deserializing scene 'Untitled'
-[16:33:02] [trace] ETOD: Deserialized entity with ID = 9589163833342628061, name = Platform
-[16:33:02] [trace] ETOD: Deserialized entity with ID = 17688230361156577728, name = Square Entity
-[16:33:02] [trace] ETOD: Deserialized entity with ID = 7731127392825134774, name = Camera
+[20:50:55] [warning] ETOD: 初始化日志系统! 
+[20:50:55] [info] APP:  EToD Engine 开发者你好! 
+[20:50:55] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
+[20:50:56] [info] ETOD: OpenGL 渲染信息: 
+[20:50:56] [info] ETOD: 厂商: Intel
+[20:50:56] [info] ETOD: 型号: Intel(R) UHD Graphics 630
+[20:50:56] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
+[20:50:56] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
+[20:50:56] [trace] ETOD:     1 uniform buffers
+[20:50:56] [trace] ETOD:     0 resources
+[20:50:56] [trace] ETOD: Uniform buffers:
+[20:50:56] [trace] ETOD:   _47_49
+[20:50:56] [trace] ETOD:     Size = 64
+[20:50:56] [trace] ETOD:     Binding = 0
+[20:50:56] [trace] ETOD:     Members = 1
+[20:50:56] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
+[20:50:56] [trace] ETOD:     0 uniform buffers
+[20:50:56] [trace] ETOD:     1 resources
+[20:50:56] [trace] ETOD: Uniform buffers:
+[20:50:56] [warning] ETOD: Shader creation took 84.2314 ms

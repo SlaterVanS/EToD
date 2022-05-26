@@ -226,7 +226,7 @@ public:
 
 };
 
-ETOD::Application* ETOD::CreateApplication()
+/*ETOD::Application* ETOD::CreateApplication()
 {
 	return new Sandbox();
-}
+}*/
