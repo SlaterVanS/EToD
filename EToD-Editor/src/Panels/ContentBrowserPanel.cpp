@@ -21,7 +21,7 @@ namespace ETOD {
 
 		if (m_CurrentDirectory != std::filesystem::path(g_AssetPath))
 		{
-			if (ImGui::Button("<-"))
+			if (ImGui::Button("Back"))
 			{
 				m_CurrentDirectory = m_CurrentDirectory.parent_path();
 			}
