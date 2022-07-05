@@ -1,20 +1,33 @@
-[15:08:57] [warning] ETOD: 初始化日志系统! 
-[15:08:57] [info] APP:  EToD Engine 开发者你好! 
-[15:08:57] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
-[15:08:57] [info] ETOD: OpenGL 渲染信息: 
-[15:08:57] [info] ETOD: 厂商: Intel
-[15:08:57] [info] ETOD: 型号: Intel(R) UHD Graphics 630
-[15:08:57] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
-[15:08:57] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
-[15:08:57] [trace] ETOD:     1 uniform buffers
-[15:08:57] [trace] ETOD:     0 resources
-[15:08:57] [trace] ETOD: Uniform buffers:
-[15:08:57] [trace] ETOD:   _47_49
-[15:08:57] [trace] ETOD:     Size = 64
-[15:08:57] [trace] ETOD:     Binding = 0
-[15:08:57] [trace] ETOD:     Members = 1
-[15:08:57] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
-[15:08:57] [trace] ETOD:     0 uniform buffers
-[15:08:57] [trace] ETOD:     1 resources
-[15:08:57] [trace] ETOD: Uniform buffers:
-[15:08:57] [warning] ETOD: Shader creation took 81.4056 ms
+[01:17:40] [warning] ETOD: 初始化日志系统! 
+[01:17:40] [info] APP:  EToD Engine 开发者你好! 
+[01:17:40] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
+[01:17:41] [info] ETOD: OpenGL 渲染信息: 
+[01:17:41] [info] ETOD: 厂商: Intel
+[01:17:41] [info] ETOD: 型号: Intel(R) UHD Graphics 630
+[01:17:41] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
+[01:17:41] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Renderer2D_Quad.glsl
+[01:17:41] [trace] ETOD:     1 uniform buffers
+[01:17:41] [trace] ETOD:     0 resources
+[01:17:41] [trace] ETOD: Uniform buffers:
+[01:17:41] [trace] ETOD:   _46_48
+[01:17:41] [trace] ETOD:     Size = 64
+[01:17:41] [trace] ETOD:     Binding = 0
+[01:17:41] [trace] ETOD:     Members = 1
+[01:17:41] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Renderer2D_Quad.glsl
+[01:17:41] [trace] ETOD:     0 uniform buffers
+[01:17:41] [trace] ETOD:     1 resources
+[01:17:41] [trace] ETOD: Uniform buffers:
+[01:17:41] [warning] ETOD: Shader creation took 46.9344 ms
+[01:17:41] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Renderer2D_Circle.glsl
+[01:17:41] [trace] ETOD:     1 uniform buffers
+[01:17:41] [trace] ETOD:     0 resources
+[01:17:41] [trace] ETOD: Uniform buffers:
+[01:17:41] [trace] ETOD:   _47_49
+[01:17:41] [trace] ETOD:     Size = 64
+[01:17:41] [trace] ETOD:     Binding = 0
+[01:17:41] [trace] ETOD:     Members = 1
+[01:17:41] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Renderer2D_Circle.glsl
+[01:17:41] [trace] ETOD:     0 uniform buffers
+[01:17:41] [trace] ETOD:     0 resources
+[01:17:41] [trace] ETOD: Uniform buffers:
+[01:17:41] [warning] ETOD: Shader creation took 14.4049 ms
