@@ -1,51 +1,51 @@
-[14:53:31] [warning] ETOD: 初始化日志系统! 
-[14:53:31] [info] APP:  EToD Engine 开发者你好! 
-[14:53:31] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
-[14:53:31] [info] ETOD: OpenGL 渲染信息: 
-[14:53:31] [info] ETOD: 厂商: Intel
-[14:53:31] [info] ETOD: 型号: Intel(R) UHD Graphics 630
-[14:53:31] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
-[14:53:31] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Renderer2D_Quad.glsl
-[14:53:31] [trace] ETOD:     1 uniform buffers
-[14:53:31] [trace] ETOD:     0 resources
-[14:53:31] [trace] ETOD: Uniform buffers:
-[14:53:31] [trace] ETOD:   _46_48
-[14:53:31] [trace] ETOD:     Size = 64
-[14:53:31] [trace] ETOD:     Binding = 0
-[14:53:31] [trace] ETOD:     Members = 1
-[14:53:31] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Renderer2D_Quad.glsl
-[14:53:31] [trace] ETOD:     0 uniform buffers
-[14:53:31] [trace] ETOD:     1 resources
-[14:53:31] [trace] ETOD: Uniform buffers:
-[14:53:32] [warning] ETOD: Shader creation took 53.17 ms
-[14:53:32] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Renderer2D_Circle.glsl
-[14:53:32] [trace] ETOD:     1 uniform buffers
-[14:53:32] [trace] ETOD:     0 resources
-[14:53:32] [trace] ETOD: Uniform buffers:
-[14:53:32] [trace] ETOD:   _47_49
-[14:53:32] [trace] ETOD:     Size = 64
-[14:53:32] [trace] ETOD:     Binding = 0
-[14:53:32] [trace] ETOD:     Members = 1
-[14:53:32] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Renderer2D_Circle.glsl
-[14:53:32] [trace] ETOD:     0 uniform buffers
-[14:53:32] [trace] ETOD:     0 resources
-[14:53:32] [trace] ETOD: Uniform buffers:
-[14:53:32] [warning] ETOD: Shader creation took 25.6477 ms
-[14:53:32] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Renderer2D_Line.glsl
-[14:53:32] [trace] ETOD:     1 uniform buffers
-[14:53:32] [trace] ETOD:     0 resources
-[14:53:32] [trace] ETOD: Uniform buffers:
-[14:53:32] [trace] ETOD:   _30_32
-[14:53:32] [trace] ETOD:     Size = 64
-[14:53:32] [trace] ETOD:     Binding = 0
-[14:53:32] [trace] ETOD:     Members = 1
-[14:53:32] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Renderer2D_Line.glsl
-[14:53:32] [trace] ETOD:     0 uniform buffers
-[14:53:32] [trace] ETOD:     0 resources
-[14:53:32] [trace] ETOD: Uniform buffers:
-[14:53:32] [warning] ETOD: Shader creation took 22.4415 ms
-[14:53:37] [trace] ETOD: Deserializing scene 'Untitled'
-[14:53:37] [trace] ETOD: Deserialized entity with ID = 7731127392825134774, name = Camera
-[14:53:37] [trace] ETOD: Deserialized entity with ID = 17688230361156577728, name = Square Entity
-[14:53:37] [trace] ETOD: Deserialized entity with ID = 9589163833342628061, name = Platform
-[14:53:37] [trace] ETOD: Deserialized entity with ID = 6555904637382435460, name = Circle
+[22:26:15] [warning] ETOD: 初始化日志系统! 
+[22:26:15] [info] APP:  EToD Engine 开发者你好! 
+[22:26:15] [info] ETOD: 创建窗口 EToD Editor -Powered by SlaterVanS Studio. (1600, 900)
+[22:26:15] [info] ETOD: OpenGL 渲染信息: 
+[22:26:15] [info] ETOD: 厂商: Intel
+[22:26:15] [info] ETOD: 型号: Intel(R) UHD Graphics 630
+[22:26:15] [info] ETOD: 版本: 4.6.0 - Build 26.20.100.6911
+[22:26:15] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Renderer2D_Quad.glsl
+[22:26:15] [trace] ETOD:     1 uniform buffers
+[22:26:15] [trace] ETOD:     0 resources
+[22:26:15] [trace] ETOD: Uniform buffers:
+[22:26:15] [trace] ETOD:   _46_48
+[22:26:15] [trace] ETOD:     Size = 64
+[22:26:15] [trace] ETOD:     Binding = 0
+[22:26:15] [trace] ETOD:     Members = 1
+[22:26:15] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Renderer2D_Quad.glsl
+[22:26:15] [trace] ETOD:     0 uniform buffers
+[22:26:15] [trace] ETOD:     1 resources
+[22:26:15] [trace] ETOD: Uniform buffers:
+[22:26:15] [warning] ETOD: Shader creation took 85.8387 ms
+[22:26:15] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Renderer2D_Circle.glsl
+[22:26:15] [trace] ETOD:     1 uniform buffers
+[22:26:15] [trace] ETOD:     0 resources
+[22:26:15] [trace] ETOD: Uniform buffers:
+[22:26:15] [trace] ETOD:   _47_49
+[22:26:15] [trace] ETOD:     Size = 64
+[22:26:15] [trace] ETOD:     Binding = 0
+[22:26:15] [trace] ETOD:     Members = 1
+[22:26:15] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Renderer2D_Circle.glsl
+[22:26:15] [trace] ETOD:     0 uniform buffers
+[22:26:15] [trace] ETOD:     0 resources
+[22:26:15] [trace] ETOD: Uniform buffers:
+[22:26:15] [warning] ETOD: Shader creation took 39.4231 ms
+[22:26:16] [trace] ETOD: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Renderer2D_Line.glsl
+[22:26:16] [trace] ETOD:     1 uniform buffers
+[22:26:16] [trace] ETOD:     0 resources
+[22:26:16] [trace] ETOD: Uniform buffers:
+[22:26:16] [trace] ETOD:   _30_32
+[22:26:16] [trace] ETOD:     Size = 64
+[22:26:16] [trace] ETOD:     Binding = 0
+[22:26:16] [trace] ETOD:     Members = 1
+[22:26:16] [trace] ETOD: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Renderer2D_Line.glsl
+[22:26:16] [trace] ETOD:     0 uniform buffers
+[22:26:16] [trace] ETOD:     0 resources
+[22:26:16] [trace] ETOD: Uniform buffers:
+[22:26:16] [warning] ETOD: Shader creation took 48.2057 ms
+[22:26:28] [trace] ETOD: Deserializing scene 'Untitled'
+[22:26:28] [trace] ETOD: Deserialized entity with ID = 7731127392825134774, name = Camera
+[22:26:28] [trace] ETOD: Deserialized entity with ID = 17688230361156577728, name = Square Entity
+[22:26:28] [trace] ETOD: Deserialized entity with ID = 9589163833342628061, name = Platform
+[22:26:28] [trace] ETOD: Deserialized entity with ID = 6555904637382435460, name = Circle
