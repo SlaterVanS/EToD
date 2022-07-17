@@ -2,6 +2,8 @@
 #include "ETOD/Core/Base.h"
 #include "ETOD/Core/Application.h"
 
+#define ETOD_BUILD_ID "v0.0.1.1 alpha"
+
 #ifdef ETOD_PLATFORM_WINDOWS
 
 extern ETOD::Application* ETOD::CreateApplication(ApplicationCommandLineArgs args);
@@ -11,6 +13,7 @@ int main(int argc, char** argv)
 	ETOD::Log::Init();
 	ETOD_CORE_WARN("初始化日志系统! ");
 	ETOD_INFO(" EToD Engine 开发者你好! ");
+	ETOD_CORE_TRACE("EToD Engine 2D {}", ETOD_BUILD_ID);
 
 	ETOD_PROFILE_BEGIN_SESSION("Startup", "EToDProfile-Startup.json");
 	auto app = ETOD::CreateApplication({ argc, argv });
