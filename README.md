@@ -52,3 +52,5 @@ EToD Engine
 Easy To Development.
 
 Powered by SlaterVanS Studio.
+
+[![Latest Release](https://gitee.com/slatervans_studios/EToD/releases/Beta_0.0.0.2_Demo)](https://gitee.com/slatervans_studios/EToD/releases/Beta_0.0.0.2_Demo)
