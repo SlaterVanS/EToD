@@ -11,6 +11,9 @@
 
 #include "Platform/OpenGL/OpenGLContext.h"
 
+#include <imgui.h>
+#include "stb_image.h"
+
 namespace ETOD {
 
 	static uint8_t s_GLFWWindowCount = 0;
@@ -157,6 +160,15 @@ namespace ETOD {
 				MouseMovedEvent event((float)xPos, (float)yPos);
 				data.EventCallback(event);
 			});
+
+		// Set icon
+		{
+			GLFWimage icon;
+			int channels;
+			icon.pixels = stbi_load("Resources/Editor/H_logo_square.png", &icon.width, &icon.height, &channels, 4);
+			glfwSetWindowIcon(m_Window, 1, &icon);
+			stbi_image_free(icon.pixels);
+		}
 	}
 
 	void WindowsWindow::Shutdown()
