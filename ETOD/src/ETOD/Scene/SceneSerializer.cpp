@@ -300,6 +300,7 @@ namespace ETOD {
 		}
 		catch (YAML::ParserException e)
 		{
+			ETOD_CORE_ERROR("Failed to load .etod file '{0}'\n     {1}", filepath, e.what());
 			return false;
 		}
 
