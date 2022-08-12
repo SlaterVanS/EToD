@@ -1,8 +1,8 @@
 #pragma once
 
-#include <string>
-
 #include "ETOD/Core/Base.h"
+
+#include <string>
 
 namespace ETOD {
 

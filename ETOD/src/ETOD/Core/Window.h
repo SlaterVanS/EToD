@@ -1,9 +1,9 @@
 #pragma once
 
-#include <sstream>
-
 #include "ETOD/Core/Base.h"
 #include "ETOD/Events/Event.h"
+
+#include <sstream>
 
 namespace ETOD {
 

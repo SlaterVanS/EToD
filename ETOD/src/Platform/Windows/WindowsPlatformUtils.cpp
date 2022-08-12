@@ -1,12 +1,11 @@
 #include "etodpch.h"
 #include "ETOD/Utils/PlatformUtils.h"
+#include "ETOD/Core/Application.h"
 
 #include <commdlg.h>
 #include <GLFW/glfw3.h>
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
-
-#include "ETOD/Core/Application.h"
 
 namespace ETOD {
 

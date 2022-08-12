@@ -1,9 +1,9 @@
 #pragma once
 
-#include <glm/glm.hpp>
-
 #include "ETOD/Core/KeyCodes.h"
 #include "ETOD/Core/MouseCodes.h"
+
+#include <glm/glm.hpp>
 
 namespace ETOD {
 

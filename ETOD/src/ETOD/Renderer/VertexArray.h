@@ -1,7 +1,8 @@
 #pragma once
 
-#include <memory>
 #include "ETOD/Renderer/Buffer.h"
+
+#include <memory>
 
 namespace ETOD {
 

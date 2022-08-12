@@ -1,8 +1,8 @@
 #pragma once
 
-#include <filesystem>
-
 #include "ETOD/Renderer/Texture.h"
+
+#include <filesystem>
 
 namespace ETOD {
 	

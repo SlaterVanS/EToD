@@ -1,8 +1,8 @@
 #pragma once
 
-#include <memory>
-
 #include "ETOD/Core/PlatformDetection.h"
+
+#include <memory>
 
 #ifdef ETOD_DEBUG
 #if defined(ETOD_PLATFORM_WINDOWS)

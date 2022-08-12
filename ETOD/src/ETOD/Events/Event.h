@@ -3,6 +3,8 @@
 #include "etodpch.h"
 #include "ETOD/Core/Base.h"
 
+#include <functional>
+
 namespace ETOD {
 
 	// ETOD中的事件当前处于阻塞状态，这意味着当事件发生时，

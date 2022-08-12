@@ -1,5 +1,6 @@
 #include "etodpch.h"
 #include "Platform/OpenGL/OpenGLShader.h"
+#include "ETOD/Core/Timer.h"
 
 #include <fstream>
 #include <glad/glad.h>
@@ -10,7 +11,6 @@
 #include <spirv_cross/spirv_cross.hpp>
 #include <spirv_cross/spirv_glsl.hpp>
 
-#include "ETOD/Core/Timer.h"
 
 namespace ETOD {
 
