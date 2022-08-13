@@ -9,7 +9,7 @@ namespace ETOD {
 	{
 	public:
 		ETODnut(ApplicationCommandLineArgs args)
-			: Application("EToD Editor -Powered by SlaterVanS Studio.", args) //EToD Editor -Powered by SlaterVanS Studio. 
+			: Application("EToD Editor 2D -Powered by SlaterVanS Studio.   Version: v0.0.1.1 alpha", args) //EToD Editor -Powered by SlaterVanS Studio. 
 		{
 			PushLayer(new EditorLayer());
 		}

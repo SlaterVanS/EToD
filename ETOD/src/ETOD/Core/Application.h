@@ -30,7 +30,7 @@ namespace ETOD {
 	class Application
 	{
 	public:
-		Application(const std::string& name = "EToD App -Powered by SlaterVanS Studio.", ApplicationCommandLineArgs args = ApplicationCommandLineArgs());
+		Application(const std::string& name = "EToD 2D App -Powered by SlaterVanS Studio.   Version: v0.0.1.1 alpha", ApplicationCommandLineArgs args = ApplicationCommandLineArgs());
 		virtual ~Application();
 
 		void OnEvent(Event& e);
