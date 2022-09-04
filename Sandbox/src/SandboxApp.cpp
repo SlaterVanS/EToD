@@ -22,7 +22,7 @@ public:
 ETOD::Application* ETOD::CreateApplication(ETOD::ApplicationCommandLineArgs args)
 {
 	ApplicationSpecification spec;
-	spec.Name = "Sandbox";
+	spec.Name = "EToD Engine - Sandbox";
 	spec.WorkingDirectory = "../EToD-Editor";
 	spec.CommandLineArgs = args;
 

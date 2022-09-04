@@ -1,10 +1,49 @@
 Scene: Untitled
 Entities:
-  - Entity: 14032720875712542950
+  - Entity: 14531937943820524776
     TagComponent:
-      Tag: Platform3
+      Tag: Camera
     TransformComponent:
-      Translation: [1, 0, 0]
+      Translation: [0, 1.18874371, 7.4879837]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 10
+        OrthographicNear: -1
+        OrthographicFar: 1
+      Primary: true
+      FixedAspectRatio: false
+  - Entity: 14170948159074136057
+    TagComponent:
+      Tag: Player
+    TransformComponent:
+      Translation: [0, 2.0999999, 0]
+      Rotation: [0, 0, 0]
+      Scale: [2, 2, 2]
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: assets\sprites\Idel.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 1414384262026946643
+    TagComponent:
+      Tag: Platform
+    TransformComponent:
+      Translation: [0, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
@@ -42,11 +81,11 @@ Entities:
       Friction: 0.5
       Restitution: 0
       RestitutionThreshold: 0.5
-  - Entity: 1414384262026946643
+  - Entity: 14032720875712542950
     TagComponent:
-      Tag: Platform
+      Tag: Platform3
     TransformComponent:
-      Translation: [0, 0, 0]
+      Translation: [1, 0, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
@@ -63,42 +102,3 @@ Entities:
       Friction: 0.5
       Restitution: 0
       RestitutionThreshold: 0.5
-  - Entity: 14170948159074136057
-    TagComponent:
-      Tag: Player
-    TransformComponent:
-      Translation: [0, 2.0999999, 0]
-      Rotation: [0, 0, 0]
-      Scale: [2, 2, 2]
-    SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
-      TexturePath: assets\sprites\Idel.png
-      TilingFactor: 1
-    Rigidbody2DComponent:
-      BodyType: Dynamic
-      FixedRotation: false
-    BoxCollider2DComponent:
-      Offset: [0, 0]
-      Size: [0.5, 0.5]
-      Density: 1
-      Friction: 0.5
-      Restitution: 0
-      RestitutionThreshold: 0.5
-  - Entity: 14531937943820524776
-    TagComponent:
-      Tag: Camera
-    TransformComponent:
-      Translation: [0, 0, 0]
-      Rotation: [0, 0, 0]
-      Scale: [1, 1, 1]
-    CameraComponent:
-      Camera:
-        ProjectionType: 0
-        PerspectiveFOV: 0.785398185
-        PerspectiveNear: 0.00999999978
-        PerspectiveFar: 1000
-        OrthographicSize: 10
-        OrthographicNear: -1
-        OrthographicFar: 1
-      Primary: true
-      FixedAspectRatio: false
