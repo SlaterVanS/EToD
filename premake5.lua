@@ -33,6 +33,15 @@ group "Dependencies"
 	include "EToD/vendor/yaml-cpp"
 group ""
 
-include "EToD"
-include "Sandbox"
-include "EToD-Editor"
+group "Core"
+	include "EToD"
+	include "EToD-ScriptCore"
+group ""
+
+group "Tools"
+	include "EToD-Editor"
+group ""
+
+group "Misc"
+	include "Sandbox"
+group ""

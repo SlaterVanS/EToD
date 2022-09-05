@@ -14,7 +14,8 @@
 #include <imgui.h>
 #include "stb_image.h"
 
-namespace ETOD {
+namespace ETOD 
+{
 
 	static uint8_t s_GLFWWindowCount = 0;
 

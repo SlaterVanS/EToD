@@ -28,6 +28,9 @@
     <Filter Include="..\EToD-Editor">
       <UniqueIdentifier>{F0F6D5AA-DCC4-C9B0-C558-3AD7B1C5A515}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\EToD-ScriptCore">
+      <UniqueIdentifier>{A74B1F48-932F-E09D-FC8F-DAF0E892CA1F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="..\Sandbox">
       <UniqueIdentifier>{3F7B6B1D-2B33-AD6A-943A-86C68011485B}</UniqueIdentifier>
     </Filter>
@@ -53,6 +56,9 @@
     </None>
     <None Include="..\..\EToD-Editor\premake5.lua">
       <Filter>..\EToD-Editor</Filter>
+    </None>
+    <None Include="..\..\EToD-ScriptCore\premake5.lua">
+      <Filter>..\EToD-ScriptCore</Filter>
     </None>
     <None Include="..\..\Sandbox\premake5.lua">
       <Filter>..\Sandbox</Filter>

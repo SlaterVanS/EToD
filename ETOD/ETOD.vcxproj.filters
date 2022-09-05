@@ -28,6 +28,9 @@
     <Filter Include="src\ETOD\Scene">
       <UniqueIdentifier>{05F0E38A-F1BD-D790-DA51-48B7C6BEB3F5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ETOD\Scripting">
+      <UniqueIdentifier>{EA2BCA19-D60F-8B6F-3F70-85C22B7375F1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ETOD\Utils">
       <UniqueIdentifier>{4884118B-3452-0591-1DE6-75B70953E1F5}</UniqueIdentifier>
     </Filter>
@@ -200,6 +203,9 @@
     </ClInclude>
     <ClInclude Include="src\ETOD\Scene\ScriptableEntity.h">
       <Filter>src\ETOD\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Scripting\ScriptEngine.h">
+      <Filter>src\ETOD\Scripting</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Utils\PlatformUtils.h">
       <Filter>src\ETOD\Utils</Filter>
@@ -1408,6 +1414,9 @@
     </ClCompile>
     <ClCompile Include="src\ETOD\Scene\SceneSerializer.cpp">
       <Filter>src\ETOD\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Scripting\ScriptEngine.cpp">
+      <Filter>src\ETOD\Scripting</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>src\Platform\OpenGL</Filter>

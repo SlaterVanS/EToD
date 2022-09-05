@@ -4,6 +4,7 @@
 #include "ETOD/Core/Log.h"
 
 #include "ETOD/Renderer/Renderer.h"
+#include "ETOD/Scripting/ScriptEngine.h"
 
 #include "ETOD/Core/Input.h"
 
@@ -29,6 +30,7 @@ namespace ETOD {
 		m_Window->SetEventCallback(ETOD_BIND_EVENT_FN(Application::OnEvent));
 
 		Renderer::Init();
+		ScriptEngine::Init();
 
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
@@ -38,6 +40,7 @@ namespace ETOD {
 	{
 		ETOD_PROFILE_FUNCTION();
 
+		ScriptEngine::Shutdown();
 		Renderer::Shutdown();
 	}
 
