@@ -1,13 +1,16 @@
 using System;
+using System.Runtime.CompilerServices;
 
 namespace ETOD
 {
     public class Main
     {
         public float FloatVar { get; set; }
+
         public Main()
         {
             Console.WriteLine("Main constructor!");
+            NativeLog("AAstroPhysic",8058);
         }
 
         public void PrintMessage()
@@ -29,5 +32,8 @@ namespace ETOD
         {
             Console.WriteLine($"C# says: {message}");
         }
+
+        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        extern static void NativeLog(string text, int parameter);
     }
 }

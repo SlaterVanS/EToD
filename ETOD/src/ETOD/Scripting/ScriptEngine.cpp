@@ -102,6 +102,13 @@ namespace ETOD
 		}
 	}
 
+	static void NativeLog(MonoString* string, int parameter)
+	{
+		char* cStr = mono_string_to_utf8(string);
+		std::string str(cStr);
+
+		std::cout << str << "," << parameter << std::endl;
+	}
 
 	void ScriptEngine::InitMono()
 	{
@@ -116,6 +123,8 @@ namespace ETOD
 		// Create an App Domain
 		s_Data->AppDomain = mono_domain_create_appdomain("EToDScriptRuntime", nullptr);
 		mono_domain_set(s_Data->AppDomain, true);
+
+		mono_add_internal_call("ETOD.Main::NativeLog", NativeLog);
 
 		// Move this maybe
 		s_Data->CoreAssembly = LoadCSharpAssembly("Resources/Scripts/EToD-ScriptCore.dll");
@@ -141,12 +150,14 @@ namespace ETOD
 		mono_runtime_invoke(printIntFunc, instance, &param, nullptr);
 
 		MonoMethod* printIntsFunc = mono_class_get_method_from_name(monoClass, "PrintInts", 2);
+
 		int value2 = 10;
 		void* params[2] =
 		{
 			&value,
 			&value2
 		};
+
 		mono_runtime_invoke(printIntsFunc, instance, params, nullptr);
 
 		MonoString* monoString = mono_string_new(s_Data->AppDomain, "Hello World from C++!");
