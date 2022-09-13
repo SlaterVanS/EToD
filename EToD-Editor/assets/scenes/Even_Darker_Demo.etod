@@ -22,8 +22,8 @@ Entities:
     TagComponent:
       Tag: Player
     TransformComponent:
-      Translation: [0, 2.0999999, 0]
-      Rotation: [0, 0, 0]
+      Translation: [0.000609038048, 1.51795447, 0]
+      Rotation: [0, 0, -0.000216992368]
       Scale: [2, 2, 2]
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
@@ -36,8 +36,8 @@ Entities:
       Offset: [0, 0]
       Size: [0.5, 0.5]
       Density: 1
-      Friction: 0.5
-      Restitution: 0
+      Friction: 0.610000014
+      Restitution: 0.319999993
       RestitutionThreshold: 0.5
   - Entity: 1414384262026946643
     TagComponent:
