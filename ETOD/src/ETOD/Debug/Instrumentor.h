@@ -225,10 +225,10 @@ namespace ETOD {
 #define ETOD_FUNC_SIG "ETOD_FUNC_SIG unknown!"
 #endif
 
-#define ETOD_PROFILE_BEGIN_SESSION(name, filepath) ::Hazel::Instrumentor::Get().BeginSession(name, filepath)
-#define ETOD_PROFILE_END_SESSION() ::Hazel::Instrumentor::Get().EndSession()
-#define ETOD_PROFILE_SCOPE_LINE2(name, line) constexpr auto fixedName##line = ::Hazel::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
-											   ::Hazel::InstrumentationTimer timer##line(fixedName##line.Data)
+#define ETOD_PROFILE_BEGIN_SESSION(name, filepath) ::ETOD::Instrumentor::Get().BeginSession(name, filepath)
+#define ETOD_PROFILE_END_SESSION() ::ETOD::Instrumentor::Get().EndSession()
+#define ETOD_PROFILE_SCOPE_LINE2(name, line) constexpr auto fixedName##line = ::ETOD::InstrumentorUtils::CleanupOutputString(name, "__cdecl ");\
+											   ::ETOD::InstrumentationTimer timer##line(fixedName##line.Data)
 #define ETOD_PROFILE_SCOPE_LINE(name, line) ETOD_PROFILE_SCOPE_LINE2(name, line)
 #define ETOD_PROFILE_SCOPE(name) ETOD_PROFILE_SCOPE_LINE(name, __LINE__)
 #define ETOD_PROFILE_FUNCTION() ETOD_PROFILE_SCOPE(ETOD_FUNC_SIG)
