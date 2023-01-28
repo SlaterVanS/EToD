@@ -35,6 +35,7 @@ namespace ETOD
         public Entity()
         {
             Console.WriteLine("Main constructor!");
+            Console.WriteLine("Hello SlaterVanS Studio Develpoer!");
             Log("AAstroPhysiC", 8058);
 
             Vector3 pos = new Vector3(5, 2.5f, 1);

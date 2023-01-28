@@ -198,7 +198,7 @@ namespace ETOD {
 				if (ImGui::MenuItem("Save As...", "Ctrl + Shift + S"))
 					SaveSceneAs();
 
-				if (ImGui::MenuItem("Exit")) Application::Get().Close();
+				if (ImGui::MenuItem("Exit","ESC")) Application::Get().Close();
 				ImGui::EndMenu();
 			}
 
@@ -387,6 +387,13 @@ namespace ETOD {
 
 		switch (e.GetKeyCode())
 		{
+		// ApplicationExit
+		case Key::Escape:
+		{
+			Application::Get().Close();
+			break;
+		}
+		// SceneControl
 		case Key::N:
 		{
 			if (control)

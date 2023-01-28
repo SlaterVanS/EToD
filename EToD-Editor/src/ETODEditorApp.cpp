@@ -18,7 +18,8 @@ namespace ETOD {
 	Application* CreateApplication(ApplicationCommandLineArgs args)
 	{
 		ApplicationSpecification spec;
-		spec.Name = "EToD Editor 2D -Powered by SlaterVanS Studio.   Version: v0.0.1.1 alpha";
+		int vertion = 1;
+		spec.Name = "EToD Editor 2D - Powered by SlaterVanS Studio.   Version: v0.0.1.1 alpha";
 		spec.CommandLineArgs = args;
 
 		return new EToD_Editor(spec);
