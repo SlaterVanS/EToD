@@ -28,6 +28,15 @@
     <Filter Include="..\EToD-Editor">
       <UniqueIdentifier>{F0F6D5AA-DCC4-C9B0-C558-3AD7B1C5A515}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\EToD-Editor\SandboxProject">
+      <UniqueIdentifier>{05FC39C3-7114-21ED-3AC1-B086A698B586}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\EToD-Editor\SandboxProject\Assets">
+      <UniqueIdentifier>{47EBE1F5-33D2-A3ED-DC22-0A0BC8E81C54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\EToD-Editor\SandboxProject\Assets\Scripts">
+      <UniqueIdentifier>{7E299115-6A3C-916E-1326-6E5BFF172EBC}</UniqueIdentifier>
+    </Filter>
     <Filter Include="..\EToD-ScriptCore">
       <UniqueIdentifier>{A74B1F48-932F-E09D-FC8F-DAF0E892CA1F}</UniqueIdentifier>
     </Filter>
@@ -53,6 +62,9 @@
     </None>
     <None Include="..\..\ETOD\vendor\yaml-cpp\premake5.lua">
       <Filter>..\ETOD\vendor\yaml-cpp</Filter>
+    </None>
+    <None Include="..\..\EToD-Editor\SandboxProject\Assets\Scripts\premake5.lua">
+      <Filter>..\EToD-Editor\SandboxProject\Assets\Scripts</Filter>
     </None>
     <None Include="..\..\EToD-Editor\premake5.lua">
       <Filter>..\EToD-Editor</Filter>

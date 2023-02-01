@@ -83,6 +83,7 @@
     <None Include="..\..\ETOD\vendor\Glad\premake5.lua" />
     <None Include="..\..\ETOD\vendor\imgui\premake5.lua" />
     <None Include="..\..\ETOD\vendor\yaml-cpp\premake5.lua" />
+    <None Include="..\..\EToD-Editor\SandboxProject\Assets\Scripts\premake5.lua" />
     <None Include="..\..\EToD-Editor\premake5.lua" />
     <None Include="..\..\EToD-ScriptCore\premake5.lua" />
     <None Include="..\..\Sandbox\premake5.lua" />

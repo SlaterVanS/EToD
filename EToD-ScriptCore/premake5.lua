@@ -3,8 +3,8 @@
 	language "C#"
 	dotnetframework "4.7.2"
 
-	targetdir ("%{wks.location}/EToD-Editor/Resources/Scripts")
-	objdir ("%{wks.location}/EToD-Editor/Resources/Scripts/Intermediates")
+	targetdir ("../EToD-Editor/Resources/Scripts")
+	objdir ("../EToD-Editor/Resources/Scripts/Intermediates")
 
 	files 
 	{
