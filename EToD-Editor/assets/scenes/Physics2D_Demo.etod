@@ -22,11 +22,14 @@ Entities:
     TagComponent:
       Tag: Square Entity
     TransformComponent:
-      Translation: [1.15092134, 0, 0]
-      Rotation: [0, 0, 0]
+      Translation: [-3.60617638, -3.15868807, 0]
+      Rotation: [0, 0, 4.87748289]
       Scale: [1, 0.999989271, 1]
+    ScriptComponent:
+      ClassName: player.cs
     SpriteRendererComponent:
       Color: [0.710264981, 0.260597289, 0.859793782, 1]
+      TilingFactor: 1
     Rigidbody2DComponent:
       BodyType: Dynamic
       FixedRotation: false
@@ -46,6 +49,7 @@ Entities:
       Scale: [13.7380209, 0.559554815, 1]
     SpriteRendererComponent:
       Color: [0.279943079, 0.0361569114, 0.835051537, 1]
+      TilingFactor: 1
     Rigidbody2DComponent:
       BodyType: Static
       FixedRotation: false
@@ -60,8 +64,8 @@ Entities:
     TagComponent:
       Tag: Circle Entity
     TransformComponent:
-      Translation: [4.14683485, 1.12662518, 0]
-      Rotation: [0, 0, 0]
+      Translation: [-2.61099815, -3.00107956, 0]
+      Rotation: [0, 0, 13.4389343]
       Scale: [1, 0.999999881, 0.999999881]
     CircleRendererComponent:
       Color: [0.835051537, 0.523679972, 0.218662977, 1]
