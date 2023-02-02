@@ -18,15 +18,17 @@ Entities:
         OrthographicFar: 1
       Primary: true
       FixedAspectRatio: false
+    ScriptComponent:
+      ClassName: Sandbox.Camera
   - Entity: 17688230361156577728
     TagComponent:
       Tag: Square Entity
     TransformComponent:
-      Translation: [-3.60617638, -3.15868807, 0]
-      Rotation: [0, 0, 4.87748289]
-      Scale: [1, 0.999989271, 1]
+      Translation: [-1.58385873, 0.966296673, 0]
+      Rotation: [0, 0, -1.40570259]
+      Scale: [0.999997795, 0.999989033, 1]
     ScriptComponent:
-      ClassName: player.cs
+      ClassName: Sandbox.Player
     SpriteRendererComponent:
       Color: [0.710264981, 0.260597289, 0.859793782, 1]
       TilingFactor: 1
@@ -64,8 +66,8 @@ Entities:
     TagComponent:
       Tag: Circle Entity
     TransformComponent:
-      Translation: [-2.61099815, -3.00107956, 0]
-      Rotation: [0, 0, 13.4389343]
+      Translation: [4.65899563, 0.760970592, 0]
+      Rotation: [0, 0, 0.872563362]
       Scale: [1, 0.999999881, 0.999999881]
     CircleRendererComponent:
       Color: [0.835051537, 0.523679972, 0.218662977, 1]

@@ -9,7 +9,7 @@ namespace ETOD {
 	OpenGLContext::OpenGLContext(GLFWwindow* windowHandle)
 		: m_WindowHandle(windowHandle)
 	{
-		ETOD_CORE_ASSERT(windowHandle, "窗口 handle 为空！"); //Window handle is null!
+		ETOD_CORE_ASSERT(windowHandle, "窗口 handle 为空！"); 
 	}
 
 	void OpenGLContext::Init()
@@ -25,7 +25,7 @@ namespace ETOD {
 		ETOD_CORE_INFO("型号: {0}", glGetString(GL_RENDERER)); //Renderer
 		ETOD_CORE_INFO("版本: {0}", glGetString(GL_VERSION)); //Version
 
-		ETOD_CORE_ASSERT(GLVersion.major > 4 || (GLVersion.major == 4 && GLVersion.minor >= 5), "EToD Engine 至少需要OpenGL 4.5版!"); // EToD requires at least OpenGL version 4.5!
+		ETOD_CORE_ASSERT(GLVersion.major > 4 || (GLVersion.major == 4 && GLVersion.minor >= 5), "EToD Engine 至少需要 OpenGL 4.5 版本!"); 
 	}
 
 	void OpenGLContext::SwapBuffers()
