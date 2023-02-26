@@ -19,3 +19,6 @@
 [submodule "ETOD/vendor/Box2D"]
 	path = ETOD/vendor/Box2D
 	url = git://github.com/TheCherno/box2d
+[submodule "ETOD/vendor/msdf-atlas-gen"]
+	path = ETOD/vendor/msdf-atlas-gen
+	url = https://github.com/TheCherno/msdf-atlas-gen

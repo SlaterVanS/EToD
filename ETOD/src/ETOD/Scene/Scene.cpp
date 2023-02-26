@@ -6,6 +6,7 @@
 #include "ScriptableEntity.h"
 #include "ETOD/Scripting/ScriptEngine.h"
 #include "ETOD/Renderer/Renderer2D.h"
+#include "ETOD/Physics/Physics2D.h"
 
 #include <glm/glm.hpp>
 
@@ -19,19 +20,6 @@
 #include "box2d/b2_circle_shape.h"
 
 namespace ETOD {
-
-	static b2BodyType Rigidbody2DTypeToBox2DBody(Rigidbody2DComponent::BodyType bodyType)
-	{
-		switch (bodyType)
-		{
-		case Rigidbody2DComponent::BodyType::Static:    return b2_staticBody;
-		case Rigidbody2DComponent::BodyType::Dynamic:   return b2_dynamicBody;
-		case Rigidbody2DComponent::BodyType::Kinematic: return b2_kinematicBody;
-		}
-
-		ETOD_CORE_ASSERT(false, "Unknown body type");
-		return b2_staticBody;
-	}
 
 	Scene::Scene()
 	{
@@ -127,12 +115,14 @@ namespace ETOD {
 
 	void Scene::DestroyEntity(Entity entity)
 	{
-		m_Registry.destroy(entity);
 		m_EntityMap.erase(entity.GetUUID());
+		m_Registry.destroy(entity);
 	}
 
 	void Scene::OnRuntimeStart()
 	{
+		m_IsRunning = true;
+
 		OnPhysics2DStart();
 
 		// Scripting
@@ -151,6 +141,8 @@ namespace ETOD {
 
 	void Scene::OnRuntimeStop()
 	{
+		m_IsRunning = false;
+
 		OnPhysics2DStop();
 
 		ScriptEngine::OnRuntimeStop();
@@ -168,50 +160,53 @@ namespace ETOD {
 
 	void Scene::OnUpdateRuntime(Timestep ts)
 	{
-		// Update scripts
+		if (!m_IsPaused || m_StepFrames-- > 0)
 		{
-			// C# Entity OnUpdate
-			auto view = m_Registry.view<ScriptComponent>();
-			for (auto e : view)
+			// Update scripts
 			{
-				Entity entity = { e, this };
-				ScriptEngine::OnUpdateEntity(entity, ts);
+				// C# Entity OnUpdate
+				auto view = m_Registry.view<ScriptComponent>();
+				for (auto e : view)
+				{
+					Entity entity = { e, this };
+					ScriptEngine::OnUpdateEntity(entity, ts);
+				}
+
+				m_Registry.view<NativeScriptComponent>().each([=](auto entity, auto& nsc)
+					{
+						// TODO: Move to Scene::OnScenePlay
+						if (!nsc.Instance)
+						{
+							nsc.Instance = nsc.InstantiateScript();
+							nsc.Instance->m_Entity = Entity{ entity, this };
+							nsc.Instance->OnCreate();
+						}
+
+				nsc.Instance->OnUpdate(ts);
+					});
 			}
 
-			m_Registry.view<NativeScriptComponent>().each([=](auto entity, auto& nsc)
-				{
-					// TODO: Move to Scene::OnScenePlay
-					if (!nsc.Instance)
-					{
-						nsc.Instance = nsc.InstantiateScript();
-						nsc.Instance->m_Entity = Entity{ entity, this };
-						nsc.Instance->OnCreate();
-					}
-
-			nsc.Instance->OnUpdate(ts);
-				});
-		}
-
-		// Physics
-		{
-			const int32_t velocityIterations = 6;
-			const int32_t positionIterations = 2;
-			m_PhysicsWorld->Step(ts, velocityIterations, positionIterations);
-
-			// Retrieve transform from Box2D
-			auto view = m_Registry.view<Rigidbody2DComponent>();
-			for (auto e : view)
+			// Physics
 			{
-				Entity entity = { e, this };
-				auto& transform = entity.GetComponent<TransformComponent>();
-				auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
+				const int32_t velocityIterations = 6;
+				const int32_t positionIterations = 2;
+				m_PhysicsWorld->Step(ts, velocityIterations, positionIterations);
 
-				b2Body* body = (b2Body*)rb2d.RuntimeBody;
+				// Retrieve transform from Box2D
+				auto view = m_Registry.view<Rigidbody2DComponent>();
+				for (auto e : view)
+				{
+					Entity entity = { e, this };
+					auto& transform = entity.GetComponent<TransformComponent>();
+					auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
 
-				const auto& position = body->GetPosition();
-				transform.Translation.x = position.x;
-				transform.Translation.y = position.y;
-				transform.Rotation.z = body->GetAngle();
+					b2Body* body = (b2Body*)rb2d.RuntimeBody;
+
+					const auto& position = body->GetPosition();
+					transform.Translation.x = position.x;
+					transform.Translation.y = position.y;
+					transform.Rotation.z = body->GetAngle();
+				}
 			}
 		}
 
@@ -266,25 +261,28 @@ namespace ETOD {
 
 	void Scene::OnUpdateSimulation(Timestep ts, EditorCamera& camera)
 	{
-		// Physics
+		if (!m_IsPaused || m_StepFrames-- > 0)
 		{
-			const int32_t velocityIterations = 6;
-			const int32_t positionIterations = 2;
-			m_PhysicsWorld->Step(ts, velocityIterations, positionIterations);
-
-			// Retrieve transform from Box2D
-			auto view = m_Registry.view<Rigidbody2DComponent>();
-			for (auto e : view)
+			// Physics
 			{
-				Entity entity = { e, this };
-				auto& transform = entity.GetComponent<TransformComponent>();
-				auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
+				const int32_t velocityIterations = 6;
+				const int32_t positionIterations = 2;
+				m_PhysicsWorld->Step(ts, velocityIterations, positionIterations);
 
-				b2Body* body = (b2Body*)rb2d.RuntimeBody;
-				const auto& position = body->GetPosition();
-				transform.Translation.x = position.x;
-				transform.Translation.y = position.y;
-				transform.Rotation.z = body->GetAngle();
+				// Retrieve transform from Box2D
+				auto view = m_Registry.view<Rigidbody2DComponent>();
+				for (auto e : view)
+				{
+					Entity entity = { e, this };
+					auto& transform = entity.GetComponent<TransformComponent>();
+					auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
+
+					b2Body* body = (b2Body*)rb2d.RuntimeBody;
+					const auto& position = body->GetPosition();
+					transform.Translation.x = position.x;
+					transform.Translation.y = position.y;
+					transform.Rotation.z = body->GetAngle();
+				}
 			}
 		}
 
@@ -300,6 +298,9 @@ namespace ETOD {
 
 	void Scene::OnViewportResize(uint32_t width, uint32_t height)
 	{
+		if (m_ViewportWidth == width && m_ViewportHeight == height)
+			return;
+
 		m_ViewportWidth = width;
 		m_ViewportHeight = height;
 
@@ -325,10 +326,30 @@ namespace ETOD {
 		return {};
 	}
 
-	void Scene::DuplicateEntity(Entity entity)
+	void Scene::Step(int frames)
 	{
-		Entity newEntity = CreateEntity(entity.GetName());
+		m_StepFrames = frames;
+	}
+
+	Entity Scene::DuplicateEntity(Entity entity)
+	{
+		// Copy name because we're going to modify component data structure
+		std::string name = entity.GetName();
+		Entity newEntity = CreateEntity(name);
 		CopyComponentIfExists(AllComponents{}, newEntity, entity);
+		return newEntity;
+	}
+
+	Entity Scene::FindEntityByName(std::string_view name)
+	{
+		auto view = m_Registry.view<TagComponent>();
+		for (auto entity : view)
+		{
+			const TagComponent& tc = view.get<TagComponent>(entity);
+			if (tc.Tag == name)
+				return Entity{ entity, this };
+		}
+		return {};
 	}
 
 	Entity Scene::GetEntityByUUID(UUID uuid)
@@ -352,7 +373,7 @@ namespace ETOD {
 			auto& rb2d = entity.GetComponent<Rigidbody2DComponent>();
 
 			b2BodyDef bodyDef;
-			bodyDef.type = Rigidbody2DTypeToBox2DBody(rb2d.Type);
+			bodyDef.type = Utils::Rigidbody2DTypeToBox2DBody(rb2d.Type);
 			bodyDef.position.Set(transform.Translation.x, transform.Translation.y);
 			bodyDef.angle = transform.Rotation.z;
 
@@ -426,6 +447,74 @@ namespace ETOD {
 				Renderer2D::DrawCircle(transform.GetTransform(), circle.Color, circle.Thickness, circle.Fade, (int)entity);
 			}
 		}
+
+		Renderer2D::DrawString("SlaterVanS Studio", Font::GetDefault(), glm::mat4(1.0f), glm::vec4(1.0f));
+		Renderer2D::DrawString(
+			R"(
+			// MSDF text shader
+#type vertex
+#version 450 core
+layout(location = 0) in vec3 a_Position;
+layout(location = 1) in vec4 a_Color;
+layout(location = 2) in vec2 a_TexCoord;
+layout(location = 3) in int a_EntityID;
+layout(std140, binding = 0) uniform Camera
+{
+	mat4 u_ViewProjection;
+};
+struct VertexOutput
+{
+	vec4 Color;
+	vec2 TexCoord;
+};
+layout (location = 0) out VertexOutput Output;
+layout (location = 2) out flat int v_EntityID;
+void main()
+{
+	Output.Color = a_Color;
+	Output.TexCoord = a_TexCoord;
+	v_EntityID = a_EntityID;
+	gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
+}
+#type fragment
+#version 450 core
+layout(location = 0) out vec4 o_Color;
+layout(location = 1) out int o_EntityID;
+struct VertexOutput
+{
+	vec4 Color;
+	vec2 TexCoord;
+};
+layout (location = 0) in VertexOutput Input;
+layout (location = 2) in flat int v_EntityID;
+layout (binding = 0) uniform sampler2D u_FontAtlas;
+float screenPxRange() {
+	const float pxRange = 2.0; // set to distance field's pixel range
+    vec2 unitRange = vec2(pxRange)/vec2(textureSize(u_FontAtlas, 0));
+    vec2 screenTexSize = vec2(1.0)/fwidth(Input.TexCoord);
+    return max(0.5*dot(unitRange, screenTexSize), 1.0);
+}
+float median(float r, float g, float b) {
+    return max(min(r, g), min(max(r, g), b));
+}
+void main()
+{
+	vec4 texColor = Input.Color * texture(u_FontAtlas, Input.TexCoord);
+	vec3 msd = texture(u_FontAtlas, Input.TexCoord).rgb;
+    float sd = median(msd.r, msd.g, msd.b);
+    float screenPxDistance = screenPxRange()*(sd - 0.5);
+    float opacity = clamp(screenPxDistance + 0.5, 0.0, 1.0);
+	if (opacity == 0.0)
+		discard;
+	vec4 bgColor = vec4(0.0);
+    o_Color = mix(bgColor, Input.Color, opacity);
+	if (o_Color.a == 0.0)
+		discard;
+	
+	o_EntityID = v_EntityID;
+}
+)"
+				, Font::GetDefault(), glm::mat4(1.0f), glm::vec4(1.0f));
 
 		Renderer2D::EndScene();
 	}

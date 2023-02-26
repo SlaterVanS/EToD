@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ETOD.h"
 #include "ETOD/Core/Window.h"
 #include "ETOD/Renderer/GraphicsContext.h"
 
@@ -40,6 +41,7 @@ namespace ETOD {
 			EventCallbackFn EventCallback;
 		};
 
+		ImGuiLayer languageCheck;
 		WindowData m_Data;
 	};
 

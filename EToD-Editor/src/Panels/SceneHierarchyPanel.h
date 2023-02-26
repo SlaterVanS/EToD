@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ETOD.h"
 #include "ETOD/Core/Base.h"
 #include "ETOD/Scene/Scene.h"
 #include "ETOD/Scene/Entity.h"
@@ -14,10 +15,12 @@ namespace ETOD {
 
 		void SetContext(const Ref<Scene>& scene);
 
-		void OnImGuiRender();
+		virtual void OnImGuiRender();
 
 		Entity GetSelectedEntity() const { return m_SelectionContext; }
 		void SetSelectedEntity(Entity entity);
+
+		int languageIndex = 0;
 	private:
 		template<typename T>
 		void DisplayAddComponentEntry(const std::string& entryName);

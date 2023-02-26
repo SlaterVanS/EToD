@@ -48,6 +48,15 @@ namespace ETOD
 
 		ETOD_CORE_INFO("创建窗口 {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
+		if (languageCheck.language == 0)
+		{
+			ETOD_CORE_INFO("语言配置：English");
+		}
+		else if(languageCheck.language == 1)
+		{
+			ETOD_CORE_INFO("语言配置：简体中文");
+		}
+
 		if (s_GLFWWindowCount == 0)
 		{
 			ETOD_PROFILE_SCOPE("glfwInit");

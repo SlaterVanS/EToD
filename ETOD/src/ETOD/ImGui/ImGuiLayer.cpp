@@ -2,6 +2,8 @@
 #include "ImGuiLayer.h"
 
 #include "imgui.h"
+#include <imgui_internal.h>
+
 #include "examples/imgui_impl_glfw.h"
 #include "examples/imgui_impl_opengl3.h"
 
@@ -37,6 +39,7 @@ namespace ETOD {
 		//io.ConfigFlags |= ImGuiConfigFlags_ViewportsNoMerge;
 
 		auto fonts = ImGui::GetIO().Fonts;
+	
 		io.Fonts->AddFontFromFileTTF("assets/fonts/HarmonyOS_Sans/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Bold.ttf", 15.5f, NULL, fonts->GetGlyphRangesChineseSimplifiedCommon());
 		//io.Fonts->AddFontFromFileTTF("assets/fonts/opensans/OpenSans-Bold.ttf", 18.0f);
 
@@ -147,4 +150,10 @@ namespace ETOD {
 		colors[ImGuiCol_TitleBgActive] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };
 		colors[ImGuiCol_TitleBgCollapsed] = ImVec4{ 0.15f, 0.1505f, 0.151f, 1.0f };
 	}
+
+	uint32_t ImGuiLayer::GetActiveWidgetID() const
+	{
+		return GImGui->ActiveId;
+	}
+
 }

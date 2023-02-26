@@ -2,6 +2,8 @@
 #include "ETOD/Scene/SceneSerializer.h"
 #include "ETOD/Utils/PlatformUtils.h"
 #include "ETOD/Math/Math.h"
+#include "ETOD/Scripting/ScriptEngine.h"
+#include "ETOD/Renderer/Font.h"
 
 #include <imgui/imgui.h>
 
@@ -12,20 +14,29 @@
 
 namespace ETOD {
 
-	extern const std::filesystem::path g_AssetPath;
+	static Ref<Font> s_Font;
 
 	EditorLayer::EditorLayer()
 		: Layer("EditorLayer"), m_CameraController(1280.0f / 720.0f), m_SquareColor({ 0.2f, 0.3f, 0.8f, 1.0f })
 	{
+		s_Font = Font::GetDefault();
 	}
 
 	void EditorLayer::OnAttach()
 	{
 		ETOD_PROFILE_FUNCTION();
+		ImGuiConsole::Log("This is a log statement");
+		ImGuiConsole::Log("This is a log statement with parameters: %d, %f, %s", 01, 94.0f, "Hello");
+		ImGuiConsole::LogWarning("This is a warning statement");
+		ImGuiConsole::LogWarning("This is a warning statement with parameters: %d, %f, %s", 911, 3.14f, "World");
+		ImGuiConsole::LogError("This is an error statement");
+		ImGuiConsole::LogError("This is an error statement with parameters: %f, %s, %i", 69.420f, "Folks", 5);
 
 		m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
 		m_IconPlay = Texture2D::Create("Resources/Icons/PlayButton.png");
+		m_IconPause = Texture2D::Create("Resources/Icons/PauseButton.png");
 		m_IconSimulate = Texture2D::Create("Resources/Icons/SimulateButton.png");
+		m_IconStep = Texture2D::Create("Resources/Icons/StepButton.png");
 		m_IconStop = Texture2D::Create("Resources/Icons/StopButton.png");
 
 		FramebufferSpecification fbSpec;
@@ -40,9 +51,18 @@ namespace ETOD {
 		auto commandLineArgs = Application::Get().GetSpecification().CommandLineArgs;
 		if (commandLineArgs.Count > 1)
 		{
-			auto sceneFilePath = commandLineArgs[1];
-			SceneSerializer serializer(m_ActiveScene);
-			serializer.Deserialize(sceneFilePath);
+			auto projectFilePath = commandLineArgs[1];
+			OpenProject(projectFilePath);
+		}
+		else
+		{
+			// TODO: prompt the user to select a directory
+			// NewProject();
+
+			// If no project is opened, close ETOD-Editor
+			// NOTE: this is while we don't have a new project path
+			if (!OpenProject())
+				Application::Get().Close();
 		}
 
 		m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.0f);
@@ -59,6 +79,8 @@ namespace ETOD {
 	{
 		ETOD_PROFILE_FUNCTION();
 
+		m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+
 		// Resize
 		if (FramebufferSpecification spec = m_Framebuffer->GetSpecification();
 			m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f && // zero sized framebuffer is invalid
@@ -67,7 +89,7 @@ namespace ETOD {
 			m_Framebuffer->Resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 			m_CameraController.OnResize(m_ViewportSize.x, m_ViewportSize.y);
 			m_EditorCamera.SetViewportSize(m_ViewportSize.x, m_ViewportSize.y);
-			m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+			//m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 		}
 
 		// Render
@@ -180,78 +202,288 @@ namespace ETOD {
 
 		if (ImGui::BeginMenuBar())
 		{
-			if (ImGui::BeginMenu("File"))
+			if (languageCheck.language == 0)
 			{
-				// Disabling fullscreen would allow the window to be moved to the front of other windows, 
-				// which we can't undo at the moment without finer window depth/z control.
-				//ImGui::MenuItem("Fullscreen", NULL, &opt_fullscreen_persistant);
+				if (ImGui::BeginMenu("File"))
+				{
+					if (ImGui::MenuItem("Open Project...", "Ctrl+O"))
+						OpenProject();
 
-				if (ImGui::MenuItem("New", "Ctrl + N"))
-					NewScene();
+					ImGui::Separator();
 
-				if (ImGui::MenuItem("Open...", "Ctrl + O"))
-					OpenScene();
+					if (ImGui::MenuItem("New Scene", "Ctrl+N"))
+						NewScene();
 
-				if (ImGui::MenuItem("Save", "Ctrl+S"))
-					SaveScene();
+					if (ImGui::MenuItem("Save Scene", "Ctrl+S"))
+						SaveScene();
 
-				if (ImGui::MenuItem("Save As...", "Ctrl + Shift + S"))
-					SaveSceneAs();
+					if (ImGui::MenuItem("Save Scene As...", "Ctrl+Shift+S"))
+						SaveSceneAs();
 
-				if (ImGui::MenuItem("Exit","ESC")) Application::Get().Close();
-				ImGui::EndMenu();
+					ImGui::Separator();
+
+					if (ImGui::MenuItem("Exit", "ESC"))
+						Application::Get().Close();
+
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu("Script"))
+				{
+					if (ImGui::MenuItem("Reload Assembly", "Ctrl+R"))
+						ScriptEngine::ReloadAssembly();
+
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu("Language"))
+				{
+					if (ImGui::MenuItem("English"))
+					{
+						//English UI
+						ETOD_CORE_INFO("English");
+
+						languageCheck.language = 0;
+					}
+					if (ImGui::MenuItem("Chinese (Simplified)"))
+					{
+						//Chinese UI
+						ETOD_CORE_INFO("Chinese (Simplified)");
+
+						languageCheck.language = 1;
+					}
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu("Tools"))
+				{
+					if (ImGui::MenuItem("Audio Manager (Beta)"))
+					{
+						ETOD_CORE_INFO("Audio Manager (Beta)");
+					}
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu("Window"))
+				{
+					if (ImGui::MenuItem("Animator"))
+					{
+						ETOD_CORE_INFO("Animator");
+					}
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu("About"))
+				{
+					if (ImGui::MenuItem("Developer"))
+					{
+						ETOD_CORE_INFO("Developer");
+					}
+					ImGui::EndMenu();
+				}
+
+				ImGui::EndMenuBar();
 			}
+			else if(languageCheck.language == 1)
+			{
+				if (ImGui::BeginMenu(u8"文件"))
+				{
+					if (ImGui::MenuItem(u8"打开工程项目...", "Ctrl+O"))
+						OpenProject();
 
-			ImGui::EndMenuBar();
+					ImGui::Separator();
+
+					if (ImGui::MenuItem(u8"新建场景", "Ctrl+N"))
+						NewScene();
+
+					if (ImGui::MenuItem(u8"保存场景", "Ctrl+S"))
+						SaveScene();
+
+					if (ImGui::MenuItem(u8"保存场景到...", "Ctrl+Shift+S"))
+						SaveSceneAs();
+
+					ImGui::Separator();
+
+					if (ImGui::MenuItem(u8"关闭", "ESC"))
+						Application::Get().Close();
+
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu(u8"脚本"))
+				{
+					if (ImGui::MenuItem(u8"重新加载程序集", "Ctrl+R"))
+						ScriptEngine::ReloadAssembly();
+
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu(u8"语言"))
+				{
+					if (ImGui::MenuItem(u8"English"))
+					{
+						//English UI
+						ETOD_CORE_INFO("English");
+
+						languageCheck.language = 0;
+
+					}
+					if (ImGui::MenuItem(u8"简体中文"))
+					{
+						//Chinese UI
+						ETOD_CORE_INFO("Chinese (Simplified)");
+
+						languageCheck.language = 1;
+
+					}
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu(u8"工具"))
+				{
+					if (ImGui::MenuItem(u8"音效管理器 (测试版)"))
+					{
+						ETOD_CORE_INFO("Audio Manager (Beta)");
+					}
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu(u8"窗口"))
+				{
+					if (ImGui::MenuItem(u8"动画器"))
+					{
+						ETOD_CORE_INFO("Animator");
+					}
+					ImGui::EndMenu();
+				}
+
+				if (ImGui::BeginMenu(u8"关于"))
+				{
+					if (ImGui::MenuItem(u8"研发团队"))
+					{
+						ETOD_CORE_INFO("Developer");
+					}
+					ImGui::EndMenu();
+				}
+
+				ImGui::EndMenuBar();
+			}
 		}
 
 		m_SceneHierarchyPanel.OnImGuiRender();
-		m_ContentBrowserPanel.OnImGuiRender();
+		m_ContentBrowserPanel->OnImGuiRender();
 
-		ImGui::Begin("Stats");
+		if (languageCheck.language == 0)
+		{
+			ImGui::Begin("Stats");
 
-		std::string name = "None";
-		if (m_HoveredEntity)
-			name = m_HoveredEntity.GetComponent<TagComponent>().Tag;
-		ImGui::Text("Hovered Entity: %s", name.c_str());
+#if 0
+			std::string name = "None";
+			if (m_HoveredEntity)
+				name = m_HoveredEntity.GetComponent<TagComponent>().Tag;
+			ImGui::Text("Hovered Entity: %s", name.c_str());
 
-		auto stats = Renderer2D::GetStats();
-		ImGui::Text("Renderer2D Stats:");
-		ImGui::Text("Draw Calls: %d", stats.DrawCalls);
-		ImGui::Text("Quads: %d", stats.QuadCount);
-		ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
-		ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
+#endif
 
-		ImGui::End();
+			auto stats = Renderer2D::GetStats();
+			ImGui::Text("Renderer2D Stats:");
+			ImGui::Text("Draw Calls: %d", stats.DrawCalls);
+			ImGui::Text("Quads: %d", stats.QuadCount);
+			ImGui::Text("Vertices: %d", stats.GetTotalVertexCount());
+			ImGui::Text("Indices: %d", stats.GetTotalIndexCount());
+			std::string languageIndex = std::to_string(languageCheck.language);
+			ImGui::Text("languageIndex: %s", languageIndex.c_str());
 
-		ImGui::Begin("Settings");
-		ImGui::Checkbox("Show physics colliders", &m_ShowPhysicsColliders);
-		ImGui::End();
+			ImGui::End();
 
-		ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
-		ImGui::Begin("Viewport");
-		auto viewportMinRegion = ImGui::GetWindowContentRegionMin();
-		auto viewportMaxRegion = ImGui::GetWindowContentRegionMax();
-		auto viewportOffset = ImGui::GetWindowPos();
-		m_ViewportBounds[0] = { viewportMinRegion.x + viewportOffset.x, viewportMinRegion.y + viewportOffset.y };
-		m_ViewportBounds[1] = { viewportMaxRegion.x + viewportOffset.x, viewportMaxRegion.y + viewportOffset.y };
+			ImGui::Begin("Console");
+			ImGuiConsole::Draw();
+			ImGui::End();
 
-		m_ViewportFocused = ImGui::IsWindowFocused();
-		m_ViewportHovered = ImGui::IsWindowHovered();
-		Application::Get().GetImGuiLayer()->BlockEvents(!m_ViewportFocused && !m_ViewportHovered);
+			ImGui::Begin("Settings");
+			ImGui::Checkbox("Show physics colliders", &m_ShowPhysicsColliders);
 
-		ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
-		m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
+			ImGui::Image((ImTextureID)s_Font->GetAtlasTexture()->GetRendererID(), { 512,512 }, { 0, 1 }, { 1, 0 });
 
-		uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
-		ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+			ImGui::End();
+
+			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
+			ImGui::Begin("Viewport");
+			auto viewportMinRegion = ImGui::GetWindowContentRegionMin();
+			auto viewportMaxRegion = ImGui::GetWindowContentRegionMax();
+			auto viewportOffset = ImGui::GetWindowPos();
+			m_ViewportBounds[0] = { viewportMinRegion.x + viewportOffset.x, viewportMinRegion.y + viewportOffset.y };
+			m_ViewportBounds[1] = { viewportMaxRegion.x + viewportOffset.x, viewportMaxRegion.y + viewportOffset.y };
+
+			m_ViewportFocused = ImGui::IsWindowFocused();
+			m_ViewportHovered = ImGui::IsWindowHovered();
+			Application::Get().GetImGuiLayer()->BlockEvents(!m_ViewportHovered);
+
+			ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
+			m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
+
+			uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
+			ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+		}
+		else if (languageCheck.language == 1)
+		{
+			ImGui::Begin(u8"绘制信息");
+
+#if 0
+			std::string name = "None";
+			if (m_HoveredEntity)
+				name = m_HoveredEntity.GetComponent<TagComponent>().Tag;
+			ImGui::Text("Hovered Entity: %s", name.c_str());
+
+#endif
+
+			auto stats = Renderer2D::GetStats();
+			ImGui::Text(u8"Renderer2D 数据信息:");
+			ImGui::Text(u8"绘制调用接口数: %d", stats.DrawCalls);
+			ImGui::Text(u8"四边形数: %d", stats.QuadCount);
+			ImGui::Text(u8"顶点数: %d", stats.GetTotalVertexCount());
+			ImGui::Text(u8"总索引数: %d", stats.GetTotalIndexCount());
+			std::string languageIndex = std::to_string(languageCheck.language);
+			ImGui::Text(u8"语言索引值: %s", languageIndex.c_str());
+
+			ImGui::End();
+
+			ImGui::Begin(u8"控制台");
+			ImGuiConsole::Draw();
+			ImGui::End();
+
+			ImGui::Begin(u8"设置");
+			ImGui::Checkbox(u8"显示物理碰撞", &m_ShowPhysicsColliders);
+
+			ImGui::Image((ImTextureID)s_Font->GetAtlasTexture()->GetRendererID(), { 512,512 }, { 0, 1 }, { 1, 0 });
+
+			ImGui::End();
+
+			ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2{ 0, 0 });
+			ImGui::Begin(u8"场景");
+			auto viewportMinRegion = ImGui::GetWindowContentRegionMin();
+			auto viewportMaxRegion = ImGui::GetWindowContentRegionMax();
+			auto viewportOffset = ImGui::GetWindowPos();
+			m_ViewportBounds[0] = { viewportMinRegion.x + viewportOffset.x, viewportMinRegion.y + viewportOffset.y };
+			m_ViewportBounds[1] = { viewportMaxRegion.x + viewportOffset.x, viewportMaxRegion.y + viewportOffset.y };
+
+			m_ViewportFocused = ImGui::IsWindowFocused();
+			m_ViewportHovered = ImGui::IsWindowHovered();
+			Application::Get().GetImGuiLayer()->BlockEvents(!m_ViewportHovered);
+
+			ImVec2 viewportPanelSize = ImGui::GetContentRegionAvail();
+			m_ViewportSize = { viewportPanelSize.x, viewportPanelSize.y };
+
+			uint64_t textureID = m_Framebuffer->GetColorAttachmentRendererID();
+			ImGui::Image(reinterpret_cast<void*>(textureID), ImVec2{ m_ViewportSize.x, m_ViewportSize.y }, ImVec2{ 0, 1 }, ImVec2{ 1, 0 });
+		}
 
 		if (ImGui::BeginDragDropTarget())
 		{
 			if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("CONTENT_BROWSER_ITEM"))
 			{
 				const wchar_t* path = (const wchar_t*)payload->Data;
-				OpenScene(std::filesystem::path(g_AssetPath) / path);
+				OpenScene(path);
 			}
 			ImGui::EndDragDropTarget();
 		}
@@ -335,10 +567,17 @@ namespace ETOD {
 			tintColor.w = 0.5f;
 
 		float size = ImGui::GetWindowHeight() - 4.0f;
+
+		ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) - (size * 0.5f));
+
+		bool hasPlayButton = m_SceneState == SceneState::Edit || m_SceneState == SceneState::Play;
+		bool hasSimulateButton = m_SceneState == SceneState::Edit || m_SceneState == SceneState::Simulate;
+		bool hasPauseButton = m_SceneState != SceneState::Edit;
+
+		if (hasPlayButton)
 		{
 			Ref<Texture2D> icon = (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Simulate) ? m_IconPlay : m_IconStop;
-			ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) - (size * 0.5f));
-			if (ImGui::ImageButton((ImTextureID)icon->GetRendererID(), ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
+			if (ImGui::ImageButton((ImTextureID)(uint64_t)icon->GetRendererID(), ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
 			{
 				if (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Simulate)
 					OnScenePlay();
@@ -346,15 +585,46 @@ namespace ETOD {
 					OnSceneStop();
 			}
 		}
-		ImGui::SameLine();
+
+		if (hasSimulateButton)
 		{
-			Ref<Texture2D> icon = (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Play) ? m_IconSimulate : m_IconStop;		//ImGui::SetCursorPosX((ImGui::GetWindowContentRegionMax().x * 0.5f) - (size * 0.5f));
-			if (ImGui::ImageButton((ImTextureID)icon->GetRendererID(), ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
+			if (hasPlayButton)
+				ImGui::SameLine();
+
+			Ref<Texture2D> icon = (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Play) ? m_IconSimulate : m_IconStop;
+			if (ImGui::ImageButton((ImTextureID)(uint64_t)icon->GetRendererID(), ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
 			{
 				if (m_SceneState == SceneState::Edit || m_SceneState == SceneState::Play)
 					OnSceneSimulate();
 				else if (m_SceneState == SceneState::Simulate)
 					OnSceneStop();
+			}
+		}
+
+		if (hasPauseButton)
+		{
+			bool isPaused = m_ActiveScene->IsPaused();
+			ImGui::SameLine();
+			{
+				Ref<Texture2D> icon = m_IconPause;
+				if (ImGui::ImageButton((ImTextureID)(uint64_t)icon->GetRendererID(), ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
+				{
+					m_ActiveScene->SetPaused(!isPaused);
+				}
+			}
+
+			// Step button
+			if (isPaused)
+			{
+				ImGui::SameLine();
+				{
+					Ref<Texture2D> icon = m_IconStep;
+					bool isPaused = m_ActiveScene->IsPaused();
+					if (ImGui::ImageButton((ImTextureID)(uint64_t)icon->GetRendererID(), ImVec2(size, size), ImVec2(0, 0), ImVec2(1, 1), 0, ImVec4(0.0f, 0.0f, 0.0f, 0.0f), tintColor) && toolbarEnabled)
+					{
+						m_ActiveScene->Step();
+					}
+				}
 			}
 		}
 		ImGui::PopStyleVar(2);
@@ -387,75 +657,97 @@ namespace ETOD {
 
 		switch (e.GetKeyCode())
 		{
-		// ApplicationExit
-		case Key::Escape:
-		{
-			Application::Get().Close();
-			break;
-		}
-		// SceneControl
-		case Key::N:
-		{
-			if (control)
-				NewScene();
-
-			break;
-		}
-		case Key::O:
-		{
-			if (control)
-				OpenScene();
-
-			break;
-		}
-		case Key::S:
-		{
-			if (control)
+			// ApplicationExit
+			case Key::Escape:
 			{
-				if (shift)
-					SaveSceneAs();
-				else
-					SaveScene();
+				Application::Get().Close();
+				break;
+			}
+			// SceneControl
+			case Key::N:
+			{
+				if (control)
+					NewScene();
+	
+				break;
+			}
+			case Key::O:
+			{
+				if (control)
+					OpenProject();
+
+				break;
+			}
+			case Key::S:
+			{
+				if (control)
+				{
+					if (shift)
+						SaveSceneAs();
+					else
+						SaveScene();
+				}
+
+				break;
 			}
 
-			break;
-		}
+			// Scene Commands
+			case Key::D:
+			{
+				if (control)
+					OnDuplicateEntity();
 
-		// Scene Commands
-		case Key::D:
-		{
-			if (control)
-				OnDuplicateEntity();
+				break;
+			}
 
-			break;
-		}
+			// Gizmos
+			case Key::Q:
+			{
+				if (!ImGuizmo::IsUsing())
+					m_GizmoType = -1;
+				break;
+			}
+			case Key::W:
+			{
+				if (!ImGuizmo::IsUsing())
+					m_GizmoType = ImGuizmo::OPERATION::TRANSLATE;
+				break;
+			}
+			case Key::E:
+			{
+				if (!ImGuizmo::IsUsing())
+					m_GizmoType = ImGuizmo::OPERATION::ROTATE;
+				break;
+			}
+			case Key::R:
+			{
+				if (control)
+				{
+					ScriptEngine::ReloadAssembly();
+				}
+				else
+				{
+					if (!ImGuizmo::IsUsing())
+						m_GizmoType = ImGuizmo::OPERATION::SCALE;
+				}
+				break;
+			}
 
-		// Gizmos
-		case Key::Q:
-		{
-			if (!ImGuizmo::IsUsing())
-				m_GizmoType = -1;
-			break;
+			case Key::Delete:
+			{
+				if (Application::Get().GetImGuiLayer()->GetActiveWidgetID() == 0)
+				{
+					Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity();
+					if (selectedEntity)
+					{
+						m_SceneHierarchyPanel.SetSelectedEntity({});
+						m_ActiveScene->DestroyEntity(selectedEntity);
+					}
+				}
+				break;
+			}
 		}
-		case Key::W:
-		{
-			if (!ImGuizmo::IsUsing())
-				m_GizmoType = ImGuizmo::OPERATION::TRANSLATE;
-			break;
-		}
-		case Key::E:
-		{
-			if (!ImGuizmo::IsUsing())
-				m_GizmoType = ImGuizmo::OPERATION::ROTATE;
-			break;
-		}
-		case Key::R:
-		{
-			if (!ImGuizmo::IsUsing())
-				m_GizmoType = ImGuizmo::OPERATION::SCALE;
-			break;
-		}
-		}
+		return false;
 	}
 
 	bool EditorLayer::OnMouseButtonPressed(MouseButtonPressedEvent& e)
@@ -531,10 +823,43 @@ namespace ETOD {
 		Renderer2D::EndScene();
 	}
 
+	void EditorLayer::NewProject()
+	{
+		Project::New();
+	}
+
+	void EditorLayer::OpenProject(const std::filesystem::path& path)
+	{
+		if (Project::Load(path))
+		{
+			ScriptEngine::Init();
+
+			auto startScenePath = Project::GetAssetFileSystemPath(Project::GetActive()->GetConfig().StartScene);
+			OpenScene(startScenePath);
+			m_ContentBrowserPanel = CreateScope<ContentBrowserPanel>();
+		}
+	}
+
+	bool EditorLayer::OpenProject()
+	{
+		std::string filepath = FileDialogs::OpenFile("ETOD Project (*.etodproj)\0*.etodproj\0");
+		if (filepath.empty())
+			return false;
+
+		OpenProject(filepath);
+		return true;
+	}
+
+
+	void EditorLayer::SaveProject()
+	{
+		// Project::SaveActive();
+	}
+
 	void EditorLayer::NewScene()
 	{
 		m_ActiveScene = CreateRef<Scene>();
-		m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+		//m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 
 		m_EditorScenePath = std::filesystem::path();
@@ -563,7 +888,7 @@ namespace ETOD {
 		if (serializer.Deserialize(path.string()))
 		{
 			m_EditorScene = newScene;
-			m_EditorScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+			//m_EditorScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 			m_SceneHierarchyPanel.SetContext(m_EditorScene);
 
 			m_ActiveScene = m_EditorScene;
@@ -637,6 +962,14 @@ namespace ETOD {
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
 	}
 
+	void EditorLayer::OnScenePause()
+	{
+		if (m_SceneState == SceneState::Edit)
+			return;
+
+		m_ActiveScene->SetPaused(true);
+	}
+
 	void EditorLayer::OnDuplicateEntity()
 	{
 		if (m_SceneState != SceneState::Edit)
@@ -644,7 +977,9 @@ namespace ETOD {
 
 		Entity selectedEntity = m_SceneHierarchyPanel.GetSelectedEntity();
 		if (selectedEntity)
-			m_EditorScene->DuplicateEntity(selectedEntity);
+		{
+			Entity newEntity = m_EditorScene->DuplicateEntity(selectedEntity);
+			m_SceneHierarchyPanel.SetSelectedEntity(newEntity);
+		}
 	}
-
 }

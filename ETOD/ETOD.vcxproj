@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>etodpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;EToD_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\Box2D\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\mono\include;vendor\yaml-cpp\include;vendor\ImGuizmo;D:\VulkanSDK\1.3.204.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\Box2D\include;vendor\filewatch;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;vendor\stb_image;vendor\entt\include;vendor\mono\include;vendor\yaml-cpp\include;vendor\ImGuizmo;C:\VulkanSDK\1.3.216.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -90,7 +90,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;vendor\mono\lib\Debug\libmono-static-sgen.lib;Ws2_32.lib;Winmm.lib;Version.lib;Bcrypt.lib;D:\VulkanSDK\1.3.204.1\Lib\shaderc_sharedd.lib;D:\VulkanSDK\1.3.204.1\Lib\spirv-cross-cored.lib;D:\VulkanSDK\1.3.204.1\Lib\spirv-cross-glsld.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;vendor\mono\lib\Debug\libmono-static-sgen.lib;Ws2_32.lib;Winmm.lib;Version.lib;Bcrypt.lib;C:\VulkanSDK\1.3.216.0\Lib\shaderc_sharedd.lib;C:\VulkanSDK\1.3.216.0\Lib\spirv-cross-cored.lib;C:\VulkanSDK\1.3.216.0\Lib\spirv-cross-glsld.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -99,7 +99,7 @@
       <PrecompiledHeaderFile>etodpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;EToD_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\Box2D\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\mono\include;vendor\yaml-cpp\include;vendor\ImGuizmo;D:\VulkanSDK\1.3.204.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\Box2D\include;vendor\filewatch;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;vendor\stb_image;vendor\entt\include;vendor\mono\include;vendor\yaml-cpp\include;vendor\ImGuizmo;C:\VulkanSDK\1.3.216.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -115,7 +115,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;vendor\mono\lib\Release\libmono-static-sgen.lib;Ws2_32.lib;Winmm.lib;Version.lib;Bcrypt.lib;D:\VulkanSDK\1.3.204.1\Lib\shaderc_shared.lib;D:\VulkanSDK\1.3.204.1\Lib\spirv-cross-core.lib;D:\VulkanSDK\1.3.204.1\Lib\spirv-cross-glsl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;vendor\mono\lib\Release\libmono-static-sgen.lib;Ws2_32.lib;Winmm.lib;Version.lib;Bcrypt.lib;C:\VulkanSDK\1.3.216.0\Lib\shaderc_shared.lib;C:\VulkanSDK\1.3.216.0\Lib\spirv-cross-core.lib;C:\VulkanSDK\1.3.216.0\Lib\spirv-cross-glsl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
@@ -124,7 +124,7 @@
       <PrecompiledHeaderFile>etodpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;GLFW_INCLUDE_NONE;EToD_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\Box2D\include;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\stb_image;vendor\entt\include;vendor\mono\include;vendor\yaml-cpp\include;vendor\ImGuizmo;D:\VulkanSDK\1.3.204.1\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\Box2D\include;vendor\filewatch;vendor\GLFW\include;vendor\Glad\include;vendor\ImGui;vendor\glm;vendor\msdf-atlas-gen\msdfgen;vendor\msdf-atlas-gen\msdf-atlas-gen;vendor\stb_image;vendor\entt\include;vendor\mono\include;vendor\yaml-cpp\include;vendor\ImGuizmo;C:\VulkanSDK\1.3.216.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -140,7 +140,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;vendor\mono\lib\Dist\libmono-static-sgen.lib;Ws2_32.lib;Winmm.lib;Version.lib;Bcrypt.lib;D:\VulkanSDK\1.3.204.1\Lib\shaderc_shared.lib;D:\VulkanSDK\1.3.204.1\Lib\spirv-cross-core.lib;D:\VulkanSDK\1.3.204.1\Lib\spirv-cross-glsl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;vendor\mono\lib\Dist\libmono-static-sgen.lib;Ws2_32.lib;Winmm.lib;Version.lib;Bcrypt.lib;C:\VulkanSDK\1.3.216.0\Lib\shaderc_shared.lib;C:\VulkanSDK\1.3.216.0\Lib\spirv-cross-core.lib;C:\VulkanSDK\1.3.216.0\Lib\spirv-cross-glsl.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -148,7 +148,9 @@
     <ClInclude Include="src\ETOD\Core\Application.h" />
     <ClInclude Include="src\ETOD\Core\Assert.h" />
     <ClInclude Include="src\ETOD\Core\Base.h" />
+    <ClInclude Include="src\ETOD\Core\Buffer.h" />
     <ClInclude Include="src\ETOD\Core\EntryPoint.h" />
+    <ClInclude Include="src\ETOD\Core\FileSystem.h" />
     <ClInclude Include="src\ETOD\Core\Input.h" />
     <ClInclude Include="src\ETOD\Core\KeyCodes.h" />
     <ClInclude Include="src\ETOD\Core\Layer.h" />
@@ -165,13 +167,21 @@
     <ClInclude Include="src\ETOD\Events\Event.h" />
     <ClInclude Include="src\ETOD\Events\KeyEvent.h" />
     <ClInclude Include="src\ETOD\Events\MouseEvent.h" />
+    <ClInclude Include="src\ETOD\Fonts\IconsFontAwesome5Pro.h" />
     <ClInclude Include="src\ETOD\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\ETOD\ImGui\Utilities\ImGuiAssetBrowser.h" />
+    <ClInclude Include="src\ETOD\ImGui\Utilities\ImGuiConsole.h" />
     <ClInclude Include="src\ETOD\Math\Math.h" />
+    <ClInclude Include="src\ETOD\Physics\Physics2D.h" />
+    <ClInclude Include="src\ETOD\Project\Project.h" />
+    <ClInclude Include="src\ETOD\Project\ProjectSerializer.h" />
     <ClInclude Include="src\ETOD\Renderer\Buffer.h" />
     <ClInclude Include="src\ETOD\Renderer\Camera.h" />
     <ClInclude Include="src\ETOD\Renderer\EditorCamera.h" />
+    <ClInclude Include="src\ETOD\Renderer\Font.h" />
     <ClInclude Include="src\ETOD\Renderer\Framebuffer.h" />
     <ClInclude Include="src\ETOD\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\ETOD\Renderer\MSDFData.h" />
     <ClInclude Include="src\ETOD\Renderer\OrthographicCamera.h" />
     <ClInclude Include="src\ETOD\Renderer\OrthographicCameraController.h" />
     <ClInclude Include="src\ETOD\Renderer\RenderCommand.h" />
@@ -190,6 +200,7 @@
     <ClInclude Include="src\ETOD\Scene\ScriptableEntity.h" />
     <ClInclude Include="src\ETOD\Scripting\ScriptEngine.h" />
     <ClInclude Include="src\ETOD\Scripting\ScriptGlue.h" />
+    <ClInclude Include="src\ETOD\UI\UI.h" />
     <ClInclude Include="src\ETOD\Utils\PlatformUtils.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
@@ -568,6 +579,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp" />
+    <ClCompile Include="src\ETOD\Core\FileSystem.cpp" />
     <ClCompile Include="src\ETOD\Core\Layer.cpp" />
     <ClCompile Include="src\ETOD\Core\LayerStack.cpp" />
     <ClCompile Include="src\ETOD\Core\Log.cpp" />
@@ -575,9 +587,14 @@
     <ClCompile Include="src\ETOD\Core\Window.cpp" />
     <ClCompile Include="src\ETOD\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\ETOD\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\ETOD\ImGui\Utilities\ImGuiAssetBrowser.cpp" />
+    <ClCompile Include="src\ETOD\ImGui\Utilities\ImGuiConsole.cpp" />
     <ClCompile Include="src\ETOD\Math\Math.cpp" />
+    <ClCompile Include="src\ETOD\Project\Project.cpp" />
+    <ClCompile Include="src\ETOD\Project\ProjectSerializer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\EditorCamera.cpp" />
+    <ClCompile Include="src\ETOD\Renderer\Font.cpp" />
     <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp" />
     <ClCompile Include="src\ETOD\Renderer\GraphicsContext.cpp" />
     <ClCompile Include="src\ETOD\Renderer\OrthographicCamera.cpp" />
@@ -627,6 +644,9 @@
     </ProjectReference>
     <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
       <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\msdf-atlas-gen\msdf-atlas-gen.vcxproj">
+      <Project>{38BD587B-248B-4C81-0D1F-BDA7F98B28E6}</Project>
     </ProjectReference>
     <ProjectReference Include="vendor\yaml-cpp\yaml-cpp.vcxproj">
       <Project>{88F1A057-74BE-FB62-9DD7-E90A890331F1}</Project>

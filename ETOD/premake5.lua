@@ -34,10 +34,13 @@ project "EToD"
 		"src",
 		"vendor/spdlog/include",
 		"%{IncludeDir.Box2D}",
+		"%{IncludeDir.filewatch}",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.msdfgen}",
+		"%{IncludeDir.msdf_atlas_gen}",
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.entt}",
 		"%{IncludeDir.mono}",
@@ -52,11 +55,11 @@ project "EToD"
 		"GLFW",
 		"Glad",
 		"ImGui",
+		"msdf-atlas-gen",
 		"yaml-cpp",
 		"opengl32.lib",
 
 		"%{Library.mono}",
-
 	}
 
 	filter "files:vendor/ImGuizmo/**.cpp"

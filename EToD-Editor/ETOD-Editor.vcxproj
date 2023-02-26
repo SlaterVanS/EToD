@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ETOD_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ETOD\vendor\spdlog\include;..\ETOD\src;..\ETOD\vendor;..\ETOD\vendor\glm;..\ETOD\vendor\entt\include;..\ETOD\vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ETOD\vendor\spdlog\include;..\ETOD\src;..\ETOD\vendor;..\ETOD\vendor\entt\include;..\ETOD\vendor\filewatch;..\ETOD\vendor\glm;..\ETOD\vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -97,7 +97,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ETOD_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ETOD\vendor\spdlog\include;..\ETOD\src;..\ETOD\vendor;..\ETOD\vendor\glm;..\ETOD\vendor\entt\include;..\ETOD\vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ETOD\vendor\spdlog\include;..\ETOD\src;..\ETOD\vendor;..\ETOD\vendor\entt\include;..\ETOD\vendor\filewatch;..\ETOD\vendor\glm;..\ETOD\vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -118,7 +118,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ETOD_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\ETOD\vendor\spdlog\include;..\ETOD\src;..\ETOD\vendor;..\ETOD\vendor\glm;..\ETOD\vendor\entt\include;..\ETOD\vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\ETOD\vendor\spdlog\include;..\ETOD\src;..\ETOD\vendor;..\ETOD\vendor\entt\include;..\ETOD\vendor\filewatch;..\ETOD\vendor\glm;..\ETOD\vendor\ImGuizmo;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -149,6 +149,9 @@
     <ProjectReference Include="..\EToD\EToD.vcxproj">
       <Project>{9159847C-7D90-850D-267D-6B101293010F}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\shaders\Renderer2D_Text.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

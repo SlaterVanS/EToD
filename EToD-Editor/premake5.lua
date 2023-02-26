@@ -18,8 +18,9 @@ project "EToD-Editor"
 		"%{wks.location}/ETOD/vendor/spdlog/include",
 		"%{wks.location}/ETOD/src",
 		"%{wks.location}/ETOD/vendor",
-		"%{IncludeDir.glm}",
 		"%{IncludeDir.entt}",
+		"%{IncludeDir.filewatch}",
+		"%{IncludeDir.glm}",
 		"%{IncludeDir.ImGuizmo}"
 	}
 

@@ -1,7 +1,7 @@
 include "./vendor/premake/premake_customization/solution_items.lua"
 include "Dependencies.lua"
 
-workspace "ETOD"
+workspace "EToD"
 	architecture "x86_64"
 	startproject "EToD-Editor"
 
@@ -29,6 +29,7 @@ group "Dependencies"
 	include "EToD/vendor/Box2D"
 	include "EToD/vendor/GLFW"
 	include "EToD/vendor/Glad"
+	include "ETOD/vendor/msdf-atlas-gen"
 	include "EToD/vendor/imgui"
 	include "EToD/vendor/yaml-cpp"
 group ""

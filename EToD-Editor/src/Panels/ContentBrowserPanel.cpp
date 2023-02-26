@@ -1,15 +1,14 @@
 #include "etodpch.h"
 #include "ContentBrowserPanel.h"
 
+#include "ETOD/Project/Project.h"
+
 #include <imgui/imgui.h>
 
 namespace ETOD {
-	
-	// Once we have projects, change this
-	extern const std::filesystem::path g_AssetPath = "assets";
 
 	ContentBrowserPanel::ContentBrowserPanel()
-		: m_CurrentDirectory(g_AssetPath)
+		: m_BaseDirectory(Project::GetAssetDirectory()), m_CurrentDirectory(m_BaseDirectory)
 	{
 		m_DirectoryIcon = Texture2D::Create("Resources/Icons/ContentBrowser/DirectoryIcon.png");
 		m_FileIcon = Texture2D::Create("Resources/Icons/ContentBrowser/FileIcon.png");
@@ -17,13 +16,28 @@ namespace ETOD {
 
 	void ContentBrowserPanel::OnImGuiRender()
 	{
-		ImGui::Begin("Content Browser");
-
-		if (m_CurrentDirectory != std::filesystem::path(g_AssetPath))
+		if (languageCheck.language == 0)
 		{
-			if (ImGui::Button("Back"))
+			ImGui::Begin("Content Browser");
+
+			if (m_CurrentDirectory != std::filesystem::path(m_BaseDirectory))
 			{
-				m_CurrentDirectory = m_CurrentDirectory.parent_path();
+				if (ImGui::Button("Back"))
+				{
+					m_CurrentDirectory = m_CurrentDirectory.parent_path();
+				}
+			}
+		}
+		else if(languageCheck.language == 1)
+		{
+			ImGui::Begin(u8"资源管理器");
+
+			if (m_CurrentDirectory != std::filesystem::path(m_BaseDirectory))
+			{
+				if (ImGui::Button(u8"返回"))
+				{
+					m_CurrentDirectory = m_CurrentDirectory.parent_path();
+				}
 			}
 		}
 
@@ -47,10 +61,10 @@ namespace ETOD {
 			Ref<Texture2D> icon = directoryEntry.is_directory() ? m_DirectoryIcon : m_FileIcon;
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
 			ImGui::ImageButton((ImTextureID)icon->GetRendererID(), { thumbnailSize, thumbnailSize }, { 0, 1 }, { 1, 0 });
-			
+
 			if (ImGui::BeginDragDropSource())
 			{
-				auto relativePath = std::filesystem::relative(path, g_AssetPath);
+				std::filesystem::path relativePath(path);
 				const wchar_t* itemPath = relativePath.c_str();
 				ImGui::SetDragDropPayload("CONTENT_BROWSER_ITEM", itemPath, (wcslen(itemPath) + 1) * sizeof(wchar_t));
 				ImGui::EndDragDropSource();
@@ -78,4 +92,5 @@ namespace ETOD {
 		// TODO: status bar
 		ImGui::End();
 	}
+
 }

@@ -5,13 +5,41 @@
 
 namespace ETOD {
 
-	OpenGLTexture2D::OpenGLTexture2D(uint32_t width, uint32_t height)
-		: m_Width(width), m_Height(height)
+	namespace Utils {
+
+		static GLenum EToDImageFormatToGLDataFormat(ImageFormat format)
+		{
+			switch (format)
+			{
+			case ImageFormat::RGB8:  return GL_RGB;
+			case ImageFormat::RGBA8: return GL_RGBA;
+			}
+
+			ETOD_CORE_ASSERT(false);
+			return 0;
+		}
+
+		static GLenum EToDImageFormatToGLInternalFormat(ImageFormat format)
+		{
+			switch (format)
+			{
+			case ImageFormat::RGB8:  return GL_RGB8;
+			case ImageFormat::RGBA8: return GL_RGBA8;
+			}
+
+			ETOD_CORE_ASSERT(false);
+			return 0;
+		}
+
+	}
+
+	OpenGLTexture2D::OpenGLTexture2D(const TextureSpecification& specification)
+		: m_Specification(specification), m_Width(m_Specification.Width), m_Height(m_Specification.Height)
 	{
 		ETOD_PROFILE_FUNCTION();
 
-		m_InternalFormat = GL_RGBA8;
-		m_DataFormat = GL_RGBA;
+		m_InternalFormat = Utils::EToDImageFormatToGLInternalFormat(m_Specification.Format);
+		m_DataFormat = Utils::EToDImageFormatToGLDataFormat(m_Specification.Format);
 
 		glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
 		glTextureStorage2D(m_RendererID, 1, m_InternalFormat, m_Width, m_Height);

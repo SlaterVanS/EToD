@@ -20,11 +20,17 @@ namespace ETOD {
 		void OnUpdate(Timestep ts) override;
 		virtual void OnImGuiRender() override;
 		void OnEvent(Event& e) override;
+
 	private:
 		bool OnKeyPressed(KeyPressedEvent& e);
 		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 
 		void OnOverlayRender();
+
+		void NewProject();
+		bool OpenProject();
+		void OpenProject(const std::filesystem::path& path);
+		void SaveProject();
 
 		void NewScene();
 		void OpenScene();
@@ -37,12 +43,14 @@ namespace ETOD {
 		void OnScenePlay();
 		void OnSceneSimulate();
 		void OnSceneStop();
+		void OnScenePause();
 
 		void OnDuplicateEntity();
 
 		// UI Panels
 		void UI_Toolbar();
 	private:
+		bool m_ShowWelcomePopup = true;
 		ETOD::OrthographicCameraController m_CameraController;
 
 		// Temp
@@ -83,10 +91,13 @@ namespace ETOD {
 
 		// Panels
 		SceneHierarchyPanel m_SceneHierarchyPanel;
-		ContentBrowserPanel m_ContentBrowserPanel;
+		Scope<ContentBrowserPanel> m_ContentBrowserPanel;
 
 		// Editor resources
-		Ref<Texture2D> m_IconPlay, m_IconSimulate, m_IconStop;
+		Ref<Texture2D> m_IconPlay, m_IconPause, m_IconStep, m_IconSimulate, m_IconStop;
+
+	public:
+		ImGuiLayer languageCheck;
 	};
 
 }

@@ -22,6 +22,12 @@
     <Filter Include="..\ETOD\vendor\imgui">
       <UniqueIdentifier>{A32D0BB3-8FBC-947C-38DB-A8772449A522}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\ETOD\vendor\msdf-atlas-gen">
+      <UniqueIdentifier>{3B5A2DC6-A772-14F0-701F-A489DCF6A889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\ETOD\vendor\msdf-atlas-gen\msdfgen">
+      <UniqueIdentifier>{AEDDC375-1AA2-C265-E307-F32F4F8B5E9B}</UniqueIdentifier>
+    </Filter>
     <Filter Include="..\ETOD\vendor\yaml-cpp">
       <UniqueIdentifier>{4BC8D029-B7FF-18C1-C009-7DE42CC03FBA}</UniqueIdentifier>
     </Filter>
@@ -43,6 +49,24 @@
     <Filter Include="..\Sandbox">
       <UniqueIdentifier>{3F7B6B1D-2B33-AD6A-943A-86C68011485B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\bin">
+      <UniqueIdentifier>{892D8876-75CF-B24C-5E8A-C6A04ACB399D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\bin\Release-windows-x86_64">
+      <UniqueIdentifier>{8DA79B98-F9BF-82C2-C26C-125C2E44175C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\bin\Release-windows-x86_64\EToD-Editor">
+      <UniqueIdentifier>{1C5078C5-886A-DB66-D18C-EBFA3DE6026E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\bin\Release-windows-x86_64\EToD-Editor\SandboxProject">
+      <UniqueIdentifier>{B1B7E928-9D8C-31DC-C63B-71D8B26F3FF3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\bin\Release-windows-x86_64\EToD-Editor\SandboxProject\Assets">
+      <UniqueIdentifier>{734D6C13-DFE0-CDC1-E8C7-3D7854DA6489}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="..\bin\Release-windows-x86_64\EToD-Editor\SandboxProject\Assets\Scripts">
+      <UniqueIdentifier>{AAF7C0C5-1637-85DE-1F17-4CF68BD5E422}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\ETOD\premake5.lua">
@@ -60,6 +84,12 @@
     <None Include="..\..\ETOD\vendor\imgui\premake5.lua">
       <Filter>..\ETOD\vendor\imgui</Filter>
     </None>
+    <None Include="..\..\ETOD\vendor\msdf-atlas-gen\msdfgen\premake5.lua">
+      <Filter>..\ETOD\vendor\msdf-atlas-gen\msdfgen</Filter>
+    </None>
+    <None Include="..\..\ETOD\vendor\msdf-atlas-gen\premake5.lua">
+      <Filter>..\ETOD\vendor\msdf-atlas-gen</Filter>
+    </None>
     <None Include="..\..\ETOD\vendor\yaml-cpp\premake5.lua">
       <Filter>..\ETOD\vendor\yaml-cpp</Filter>
     </None>
@@ -74,6 +104,9 @@
     </None>
     <None Include="..\..\Sandbox\premake5.lua">
       <Filter>..\Sandbox</Filter>
+    </None>
+    <None Include="..\..\bin\Release-windows-x86_64\EToD-Editor\SandboxProject\Assets\Scripts\premake5.lua">
+      <Filter>..\bin\Release-windows-x86_64\EToD-Editor\SandboxProject\Assets\Scripts</Filter>
     </None>
     <None Include="..\..\premake5.lua">
       <Filter>..</Filter>

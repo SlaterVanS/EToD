@@ -7,6 +7,7 @@ IncludeDir = {}
 IncludeDir["stb_image"] = "%{wks.location}/ETOD/vendor/stb_image"
 IncludeDir["yaml_cpp"] = "%{wks.location}/ETOD/vendor/yaml-cpp/include"
 IncludeDir["Box2D"] = "%{wks.location}/ETOD/vendor/Box2D/include"
+IncludeDir["filewatch"] = "%{wks.location}/ETOD/vendor/filewatch"
 IncludeDir["GLFW"] = "%{wks.location}/ETOD/vendor/GLFW/include"
 IncludeDir["Glad"] = "%{wks.location}/ETOD/vendor/Glad/include"
 IncludeDir["ImGui"] = "%{wks.location}/ETOD/vendor/ImGui"
@@ -17,6 +18,8 @@ IncludeDir["mono"] = "%{wks.location}/ETOD/vendor/mono/include"
 IncludeDir["shaderc"] = "%{wks.location}/ETOD/vendor/shaderc/include"
 IncludeDir["SPIRV_Cross"] = "%{wks.location}/ETOD/vendor/SPIRV-Cross"
 IncludeDir["VulkanSDK"] = "%{VULKAN_SDK}/Include"
+IncludeDir["msdfgen"] = "%{wks.location}/ETOD/vendor/msdf-atlas-gen/msdfgen"
+IncludeDir["msdf_atlas_gen"] = "%{wks.location}/ETOD/vendor/msdf-atlas-gen/msdf-atlas-gen"
 
 LibraryDir = {}
 

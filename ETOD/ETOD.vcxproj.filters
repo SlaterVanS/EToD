@@ -22,6 +22,12 @@
     <Filter Include="src\ETOD\Math">
       <UniqueIdentifier>{C12A5180-2DEB-CCB6-F625-163462A51193}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\ETOD\Physics">
+      <UniqueIdentifier>{5AE0C7F9-46D9-E64B-6F0B-CCD05B63C657}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ETOD\Project">
+      <UniqueIdentifier>{2E816110-1A7A-8062-43AC-65E72F04606E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\ETOD\Renderer">
       <UniqueIdentifier>{8EBD9E09-FAD3-9C9F-434B-28C1AFA06D27}</UniqueIdentifier>
     </Filter>
@@ -30,6 +36,9 @@
     </Filter>
     <Filter Include="src\ETOD\Scripting">
       <UniqueIdentifier>{EA2BCA19-D60F-8B6F-3F70-85C22B7375F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ETOD\UI">
+      <UniqueIdentifier>{15FF1896-81B4-918B-0AA9-8B62765D888F}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\ETOD\Utils">
       <UniqueIdentifier>{4884118B-3452-0591-1DE6-75B70953E1F5}</UniqueIdentifier>
@@ -84,7 +93,13 @@
     <ClInclude Include="src\ETOD\Core\Base.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Core\Buffer.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Core\EntryPoint.h">
+      <Filter>src\ETOD\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Core\FileSystem.h">
       <Filter>src\ETOD\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Core\Input.h">
@@ -141,6 +156,15 @@
     <ClInclude Include="src\ETOD\Math\Math.h">
       <Filter>src\ETOD\Math</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\Physics\Physics2D.h">
+      <Filter>src\ETOD\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Project\Project.h">
+      <Filter>src\ETOD\Project</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Project\ProjectSerializer.h">
+      <Filter>src\ETOD\Project</Filter>
+    </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\Buffer.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
@@ -148,6 +172,9 @@
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\EditorCamera.h">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\Renderer\Font.h">
       <Filter>src\ETOD\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Renderer\Framebuffer.h">
@@ -209,6 +236,9 @@
     </ClInclude>
     <ClInclude Include="src\ETOD\Scripting\ScriptGlue.h">
       <Filter>src\ETOD\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ETOD\UI\UI.h">
+      <Filter>src\ETOD\UI</Filter>
     </ClInclude>
     <ClInclude Include="src\ETOD\Utils\PlatformUtils.h">
       <Filter>src\ETOD\Utils</Filter>
@@ -1335,9 +1365,16 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="src\ETOD\ImGui\Utilities\ImGuiAssetBrowser.h" />
+    <ClInclude Include="src\ETOD\ImGui\Utilities\ImGuiConsole.h" />
+    <ClInclude Include="src\ETOD\Fonts\IconsFontAwesome5Pro.h" />
+    <ClInclude Include="src\ETOD\Renderer\MSDFData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">
+      <Filter>src\ETOD\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Core\FileSystem.cpp">
       <Filter>src\ETOD\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Core\Layer.cpp">
@@ -1364,10 +1401,19 @@
     <ClCompile Include="src\ETOD\Math\Math.cpp">
       <Filter>src\ETOD\Math</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\Project\Project.cpp">
+      <Filter>src\ETOD\Project</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Project\ProjectSerializer.cpp">
+      <Filter>src\ETOD\Project</Filter>
+    </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Buffer.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\EditorCamera.cpp">
+      <Filter>src\ETOD\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ETOD\Renderer\Font.cpp">
       <Filter>src\ETOD\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\ETOD\Renderer\Framebuffer.cpp">
@@ -1466,5 +1512,7 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="src\ETOD\ImGui\Utilities\ImGuiAssetBrowser.cpp" />
+    <ClCompile Include="src\ETOD\ImGui\Utilities\ImGuiConsole.cpp" />
   </ItemGroup>
 </Project>

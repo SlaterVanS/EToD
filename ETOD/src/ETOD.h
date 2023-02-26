@@ -17,11 +17,14 @@
 #include "ETOD/Renderer/OrthographicCameraController.h"
 
 #include "ETOD/ImGui/ImGuiLayer.h"
+#include "ETOD/ImGui/Utilities/ImGuiConsole.h"
+#include "ETOD/ImGui/Utilities/ImGuiAssetBrowser.h"
 
 #include "ETOD/Scene/Scene.h"
 #include "ETOD/Scene/Entity.h"
 #include "ETOD/Scene/ScriptableEntity.h"
 #include "ETOD/Scene/Components.h"
+#include "ETOD/Project/Project.h"
 
 // ---Renderer------------------------
 #include "ETOD/Renderer/Renderer.h"
