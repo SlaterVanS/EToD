@@ -202,6 +202,7 @@
     <ClInclude Include="src\ETOD\Scripting\ScriptGlue.h" />
     <ClInclude Include="src\ETOD\UI\UI.h" />
     <ClInclude Include="src\ETOD\Utils\PlatformUtils.h" />
+    <ClInclude Include="src\ETOD\Version\VersionControl.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
@@ -613,6 +614,9 @@
     <ClCompile Include="src\ETOD\Scene\SceneSerializer.cpp" />
     <ClCompile Include="src\ETOD\Scripting\ScriptEngine.cpp" />
     <ClCompile Include="src\ETOD\Scripting\ScriptGlue.cpp" />
+    <ClCompile Include="src\ETOD\Version\VersionConsole.cpp" />
+    <ClCompile Include="src\ETOD\Version\VersionConsole.h" />
+    <ClCompile Include="src\ETOD\Version\VersionControl.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />

@@ -26,6 +26,11 @@ namespace Sandbox
 
         void OnUpdate(float ts)
         {
+            PlayerMovement(ts);
+        }
+
+        void PlayerMovement(float ts)
+        {
             Time += ts;
             // Console.WriteLine($"Player.OnUpdate: {ts}");
 

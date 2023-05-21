@@ -6,6 +6,7 @@
 
 #include <imgui/imgui.h>
 #include <imgui/imgui_internal.h>
+#include <imgui/misc/cpp/imgui_stdlib.h>
 
 #include <glm/gtc/type_ptr.hpp>
 
@@ -280,6 +281,7 @@ namespace ETOD {
 				DisplayAddComponentEntry<Rigidbody2DComponent>("Rigidbody 2D");
 				DisplayAddComponentEntry<BoxCollider2DComponent>("Box Collider 2D");
 				DisplayAddComponentEntry<CircleCollider2DComponent>("Circle Collider 2D");
+				DisplayAddComponentEntry<TextComponent>("Text Component");
 
 				ImGui::EndPopup();
 			}
@@ -507,6 +509,14 @@ namespace ETOD {
 			ImGui::DragFloat("Restitution Threshold", &component.RestitutionThreshold, 0.01f, 0.0f);
 				});
 
+			DrawComponent<TextComponent>("Text Renderer", entity, [](auto& component)
+				{
+					ImGui::InputTextMultiline("Text String", &component.TextString);
+			ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
+			ImGui::DragFloat("Kerning", &component.Kerning, 0.025f);
+			ImGui::DragFloat("Line Spacing", &component.LineSpacing, 0.025f);
+				});
+
 		}
 		else if (languageIndex == 1)
 		{
@@ -538,6 +548,7 @@ namespace ETOD {
 				DisplayAddComponentEntry<Rigidbody2DComponent>(u8"2D 刚体");
 				DisplayAddComponentEntry<BoxCollider2DComponent>(u8"2D 矩形碰撞器");
 				DisplayAddComponentEntry<CircleCollider2DComponent>(u8"2D 圆形碰撞器");
+				DisplayAddComponentEntry<TextComponent>("Text Component");
 
 				ImGui::EndPopup();
 			}
@@ -763,6 +774,14 @@ namespace ETOD {
 			ImGui::DragFloat(u8"摩擦力", &component.Friction, 0.01f, 0.0f, 1.0f);
 			ImGui::DragFloat(u8"弹力", &component.Restitution, 0.01f, 0.0f, 1.0f);
 			ImGui::DragFloat(u8"弹力系数", &component.RestitutionThreshold, 0.01f, 0.0f);
+				});
+
+			DrawComponent<TextComponent>("Text Renderer", entity, [](auto& component)
+				{
+					ImGui::InputTextMultiline("Text String", &component.TextString);
+			ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
+			ImGui::DragFloat("Kerning", &component.Kerning, 0.025f);
+			ImGui::DragFloat("Line Spacing", &component.LineSpacing, 0.025f);
 				});
 
 		}

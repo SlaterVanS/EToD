@@ -1369,6 +1369,7 @@
     <ClInclude Include="src\ETOD\ImGui\Utilities\ImGuiConsole.h" />
     <ClInclude Include="src\ETOD\Fonts\IconsFontAwesome5Pro.h" />
     <ClInclude Include="src\ETOD\Renderer\MSDFData.h" />
+    <ClInclude Include="src\ETOD\Version\VersionControl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ETOD\Core\Application.cpp">
@@ -1514,5 +1515,8 @@
     </ClCompile>
     <ClCompile Include="src\ETOD\ImGui\Utilities\ImGuiAssetBrowser.cpp" />
     <ClCompile Include="src\ETOD\ImGui\Utilities\ImGuiConsole.cpp" />
+    <ClCompile Include="src\ETOD\Version\VersionControl.cpp" />
+    <ClCompile Include="src\ETOD\Version\VersionConsole.h" />
+    <ClCompile Include="src\ETOD\Version\VersionConsole.cpp" />
   </ItemGroup>
 </Project>

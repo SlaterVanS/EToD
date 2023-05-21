@@ -1,12 +1,17 @@
 #pragma once
 #include "ETOD/Core/Base.h"
 #include "ETOD/Core/Application.h"
-
-#define ETOD_BUILD_ID "v0.0.1.1 alpha"
+#include "ETOD/Version/VersionControl.h"
+#include "ETOD/Version/VersionConsole.h"
 
 #ifdef ETOD_PLATFORM_WINDOWS
 
 extern ETOD::Application* ETOD::CreateApplication(ApplicationCommandLineArgs args);
+
+
+#define ETOD_BUILD_ID version // Get Version from VersionConsole
+
+std::string version = ETOD::VersionConsoleToEntryPoint();
 
 int main(int argc, char** argv)
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "etod.h"
+#include "ETOD.h"
 
 class Sandbox2D : public ETOD::Layer
 {

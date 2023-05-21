@@ -1,6 +1,6 @@
 #pragma once
 
-#include "etod.h"
+#include "ETOD.h"
 
 class ExampleLayer : public ETOD::Layer
 {
@@ -27,3 +27,4 @@ private:
 	ETOD::OrthographicCameraController m_CameraController;
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
+

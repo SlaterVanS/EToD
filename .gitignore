@@ -8,6 +8,7 @@ Intermediates/
 *.ttf
 **.sln
 *.sln
+Update.exe
 
 # Visual Studio files and folder
 .vs/

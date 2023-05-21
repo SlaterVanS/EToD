@@ -26,6 +26,12 @@
 
 #include "ETOD/Debug/Instrumentor.h"
 
+// Use for Version Control
+
+#include <windows.h>
+#include <wininet.h>
+#include <fstream>
+
 #ifdef ETOD_PLATFORM_WINDOWS
 	#include<Windows.h>
 #endif

@@ -4,6 +4,7 @@
 #include "ETOD/Math/Math.h"
 #include "ETOD/Scripting/ScriptEngine.h"
 #include "ETOD/Renderer/Font.h"
+#include "ETOD/Version/VersionControl.h"
 
 #include <imgui/imgui.h>
 
@@ -25,10 +26,21 @@ namespace ETOD {
 	void EditorLayer::OnAttach()
 	{
 		ETOD_PROFILE_FUNCTION();
+
+		// Version test code
+		std::string main_version = "0";
+		std::string test_version = " alpha";
+		std::string dot_version = ".";
+		std::string space_version = " ";
+		std::string local_version = read_local_version();
+		std::string latest_version = get_latest_version();
+
+		ImGuiConsole::Log("Latest Version: v0.0." + main_version + dot_version + latest_version + space_version + test_version);
+		ImGuiConsole::Log("Local Version: v0.0." + main_version + dot_version + local_version + space_version + test_version);
 		ImGuiConsole::Log("This is a log statement");
-		ImGuiConsole::Log("This is a log statement with parameters: %d, %f, %s", 01, 94.0f, "Hello");
+		ImGuiConsole::Log("This is a log statement with parameters: %d, %f, %s", 01, 94.0f, "Hello World!");
 		ImGuiConsole::LogWarning("This is a warning statement");
-		ImGuiConsole::LogWarning("This is a warning statement with parameters: %d, %f, %s", 911, 3.14f, "World");
+		ImGuiConsole::LogWarning("This is a warning statement with parameters: %d, %f, %s", 911, 3.14f, u8"ÄãºÃ£¬ÊÀ½ç£¡");
 		ImGuiConsole::LogError("This is an error statement");
 		ImGuiConsole::LogError("This is an error statement with parameters: %f, %s, %i", 69.420f, "Folks", 5);
 
@@ -787,8 +799,9 @@ namespace ETOD {
 					glm::vec3 translation = tc.Translation + glm::vec3(bc2d.Offset, 0.001f);
 					glm::vec3 scale = tc.Scale * glm::vec3(bc2d.Size * 2.0f, 1.0f);
 
-					glm::mat4 transform = glm::translate(glm::mat4(1.0f), translation)
+					glm::mat4 transform = glm::translate(glm::mat4(1.0f), tc.Translation)
 						* glm::rotate(glm::mat4(1.0f), tc.Rotation.z, glm::vec3(0.0f, 0.0f, 1.0f))
+						* glm::translate(glm::mat4(1.0f), glm::vec3(bc2d.Offset, 0.001f))
 						* glm::scale(glm::mat4(1.0f), scale);
 
 					Renderer2D::DrawRect(transform, glm::vec4(0, 1, 0, 1));

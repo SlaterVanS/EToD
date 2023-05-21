@@ -9,6 +9,8 @@
 
 #include "ETOD/Core/Timestep.h"
 
+#include "ETOD/Version/VersionControl.h"
+
 #include "ETOD/ImGui/ImGuiLayer.h"
 
 int main(int argc, char** argv);
@@ -28,8 +30,18 @@ namespace ETOD {
 	};
 
 	struct ApplicationSpecification
-	{
-		std::string Name = "EToD 2D App -Powered by SlaterVanS Studio.   Version: v0.0.1.1 alpha";
+	{		
+		// Get Internet Version
+		std::string main_version = "0";
+		std::string test_version = " alpha";
+		std::string dot_version = ".";
+		std::string space_version = " ";
+		std::string latest_version = get_latest_version();
+
+		// Get Local Version
+		std::string local_version = read_local_version();
+
+		std::string Name = "EToD 2D App -Powered by SlaterVanS Studio.   Version: v0.0." + main_version + dot_version + local_version + space_version + test_version;
 		std::string WorkingDirectory;
 		ApplicationCommandLineArgs CommandLineArgs;
 	};

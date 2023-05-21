@@ -7,11 +7,32 @@
 
 namespace ETOD {
 
+	namespace Utils {
+
+		static bool IsImageFile(const std::filesystem::path& path)
+		{
+			if (path.extension() == ".png" || path.extension() == ".jpg")
+				return true;
+
+			return false;
+		}
+	}
+
 	ContentBrowserPanel::ContentBrowserPanel()
 		: m_BaseDirectory(Project::GetAssetDirectory()), m_CurrentDirectory(m_BaseDirectory)
 	{
 		m_DirectoryIcon = Texture2D::Create("Resources/Icons/ContentBrowser/DirectoryIcon.png");
 		m_FileIcon = Texture2D::Create("Resources/Icons/ContentBrowser/FileIcon.png");
+
+		// Loading Textures
+		for (auto& directoryEntry : std::filesystem::recursive_directory_iterator(m_BaseDirectory))
+		{
+			const auto& path = directoryEntry.path();
+			const auto& filenameString = path.string();
+
+			if (Utils::IsImageFile(path))
+				m_TextureIcons[filenameString] = Texture2D::Create(filenameString);
+		}
 	}
 
 	void ContentBrowserPanel::OnImGuiRender()
@@ -58,7 +79,14 @@ namespace ETOD {
 			std::string filenameString = path.filename().string();
 
 			ImGui::PushID(filenameString.c_str());
-			Ref<Texture2D> icon = directoryEntry.is_directory() ? m_DirectoryIcon : m_FileIcon;
+			Ref<Texture2D> icon = nullptr;
+
+			if (Utils::IsImageFile(path))
+				icon = m_TextureIcons[path.string()];
+
+			else
+				icon = directoryEntry.is_directory() ? m_DirectoryIcon : m_FileIcon;
+
 			ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0));
 			ImGui::ImageButton((ImTextureID)icon->GetRendererID(), { thumbnailSize, thumbnailSize }, { 0, 1 }, { 1, 0 });
 

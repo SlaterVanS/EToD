@@ -4,9 +4,9 @@ Entities:
     TagComponent:
       Tag: Circle Entity
     TransformComponent:
-      Translation: [2.38845539, -0.243507177, 0]
-      Rotation: [0, 0, 0.872563362]
-      Scale: [1, 0.999999881, 0.999999881]
+      Translation: [1.63530815, -0.297899246, 0]
+      Rotation: [0, 0, -3.06083441]
+      Scale: [0.999949217, 0.999949217, 0.999999881]
     CircleRendererComponent:
       Color: [0.835051537, 0.523679972, 0.218662977, 1]
       Thickness: 1
@@ -25,7 +25,7 @@ Entities:
     TagComponent:
       Tag: Platform
     TransformComponent:
-      Translation: [0, -3.36510944, 0]
+      Translation: [0.769910157, -3.23637247, 0]
       Rotation: [0, 0, 0.16567789]
       Scale: [13.7380209, 0.559554815, 1]
     SpriteRendererComponent:
@@ -45,8 +45,8 @@ Entities:
     TagComponent:
       Tag: Square Entity
     TransformComponent:
-      Translation: [-1.58385873, 0.966296673, 0]
-      Rotation: [0, 0, -1.40570259]
+      Translation: [-2.12705564, 0.482768327, 2.38418579e-07]
+      Rotation: [0, 0, -1.40317452]
       Scale: [0.999997795, 0.999989033, 1]
     ScriptComponent:
       ClassName: Sandbox.Player
@@ -87,3 +87,15 @@ Entities:
       ClassName: Sandbox.Camera
       ScriptFields:
         []
+  - Entity: 17237000250299356285
+    TagComponent:
+      Tag: TXT
+    TransformComponent:
+      Translation: [-3, -1.89999998, 0]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    TextComponent:
+      TextString: SlaterVanS Studio
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0
